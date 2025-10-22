@@ -5,6 +5,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Inter", "system-ui", "sans-serif"],
+                serif: ["Lora", "Georgia", "Times New Roman", "serif"],
                 mono: [
                     "JetBrains Mono",
                     "Fira Code",

@@ -43,3 +43,7 @@ body {
 .font-jetbrains {
     font-family: "JetBrains Mono", "Fira Code", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
 }
+
+.font-serif {
+    font-family: "Lora", "Georgia", "Times New Roman", serif;
+}
