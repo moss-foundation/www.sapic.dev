@@ -1,0 +1,14 @@
+assert_lefthook_installed: true
+
+pre-commit:
+    parallel: true
+    jobs:
+        - name: "Format Typescript/Javascript files"
+          run: pnpm prettier --write {staged_files}
+          glob: "**/*.{ts,js}"
+          stage_fixed: true
+
+        - name: "Format Terraform files"
+          run: terraform fmt {staged_files}
+          glob: "**/*.{tf,tfvars}"
+          stage_fixed: true
