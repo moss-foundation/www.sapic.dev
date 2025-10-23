@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "@/components/Button";
+import LayoutContainer from "@/components/LayoutContainer";
 import logoBlue from "@assets/images/logo_blue.svg";
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
                 : "bg-transparent border-b border-transparent"
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <LayoutContainer>
                 <div className="flex items-center justify-between h-14">
                     <div className="flex items-center gap-2">
                         <img src={logoBlue} alt="Sapic" className="w-7.5 h-7.5" />
@@ -45,7 +46,7 @@ const Header = () => {
                         Join Waitlist
                     </Button>
                 </div>
-            </div>
+            </LayoutContainer>
         </header>
     );
 };
