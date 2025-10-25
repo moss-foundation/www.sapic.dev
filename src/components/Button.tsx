@@ -16,26 +16,38 @@ const Button = ({
     className = "",
     ...props
 }: ButtonProps) => {
-    const baseStyles =
-        "rounded-lg transition-all duration-150 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
 
-    const variantStyles: Record<ButtonVariant, string> = {
+    // Outer container (shadow) styles
+    const outerBaseStyles =
+        "border-[1.5px] relative top-[2px] rounded-[6px] w-auto inline-block group disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
+
+    const outerVariantStyles: Record<ButtonVariant, string> = {
+        primary: "bg-blue-2 border-blue-1",
+        default: "bg-gray-200 border-[var(--default-border-color)]",
+    };
+
+    // Inner button styles
+    const innerBaseStyles =
+        "relative text-center w-auto rounded-[6px] border-[1.5px] mx-[-1.5px] block active:transition-all active:duration-100 select-none";
+
+    const innerVariantStyles: Record<ButtonVariant, string> = {
         primary:
-            "bg-[#3574F0] border border-[#315FBD] hover:bg-[#3369D6] text-white active:bg-[#315FBD] shadow-[inset_0_1px_0_hsla(0,0%,100%,0.2),0_1px_2px_0_rgba(24,25,22,0.06),inset_0_-1px_0_rgba(24,25,22,0.1)] active:shadow-none",
+            "bg-blue-4 text-white hover:bg-blue-5 active:bg-blue-3 border-blue-1 translate-y-[-2px] hover:translate-y-[-4px] active:translate-y-[-1px] group-disabled:hover:!translate-y-[-2px]",
         default:
-            "bg-gray-200 border border-gray-300 hover:bg-gray-300 text-gray-900 focus:ring-gray-400 active:bg-gray-400 shadow-[0_1px_0_rgba(27,31,36,0.1)] active:shadow-none",
+            "bg-white text-black border-[var(--default-border-color)] translate-y-[-2px] hover:translate-y-[-4px] active:translate-y-[-1px] group-disabled:hover:!translate-y-[-2px]",
     };
 
     const sizeStyles: Record<ButtonSize, string> = {
-        small: "px-4 py-1.5 text-sm",
-        medium: "px-6 py-2.5 text-sm",
+        small: "px-3 py-1 text-sm",
+        medium: "px-4 py-2 text-[14px]",
     };
 
-    const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
+    const outerClasses = `${outerBaseStyles} ${outerVariantStyles[variant]} ${className}`;
+    const innerClasses = `${innerBaseStyles} ${innerVariantStyles[variant]} ${sizeStyles[size]}`;
 
     return (
-        <button className={buttonClasses} {...props}>
-            {children}
+        <button className={outerClasses} {...props}>
+            <span className={innerClasses}>{children}</span>
         </button>
     );
 };

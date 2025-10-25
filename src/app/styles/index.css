@@ -1,10 +1,46 @@
 @import "tailwindcss";
 @import "./fonts.css";
 
+@theme {
+    --color-gray-1: #000000;
+    --color-gray-2: #27282e;
+    --color-gray-3: #383a42;
+    --color-gray-4: #494b57;
+    --color-gray-5: #5a5d6b;
+    --color-gray-6: #6c707e;
+    --color-gray-7: #818594;
+    --color-gray-8: #a8adbd;
+    --color-gray-9: #c9ccd6;
+    --color-gray-10: #d3d5db;
+    --color-gray-11: #dfe1e5;
+    --color-gray-12: #ebecf0;
+    --color-gray-13: #f7f8fa;
+
+    --color-blue-1: #2e55a3;
+    --color-blue-2: #315fbd;
+    --color-blue-3: #3369d6;
+    --color-blue-4: #3574f0;
+    --color-blue-5: #4682fa;
+    --color-blue-6: #588cf3;
+    --color-blue-7: #709cf5;
+    --color-blue-8: #88adf7;
+    --color-blue-9: #a0bdf8;
+    --color-blue-10: #c2d6fc;
+    --color-blue-11: #d4e2ff;
+    --color-blue-12: #edf3ff;
+    --color-blue-13: #f5f8fe;
+}
+
+:root {
+    --default-border-color: #bfc1b770;
+    --default-primary-text-color: #26251e;
+    --default-secondary-text-color: #777670;
+}
+
 /* Global font settings */
 body {
     font-family:
-        "Inter",
+        "IBM Plex Sans",
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -24,9 +60,9 @@ body {
 }
 
 /* Additional utility classes for better font control */
-.font-inter {
+.font-ibm-plex {
     font-family:
-        "Inter",
+        "IBM Plex Sans",
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
