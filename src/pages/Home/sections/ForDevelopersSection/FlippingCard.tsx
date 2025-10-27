@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import type { CardProps } from "./cards";
+import type { CardProps } from "./brandCards";
 
 interface FlippingCardProps {
     cards: CardProps[];

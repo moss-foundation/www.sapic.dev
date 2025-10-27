@@ -1,6 +1,6 @@
 import { AnimatePresence, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { partners } from "./cards";
+import { brandCards } from "./brandCards";
 import { FlippingCard } from "./FlippingCard";
 import { FlippingCardsProgressBar } from "./FlippingCardsProgressBar";
 import { FrontFlippingCard } from "./FrontFlippingCard";
@@ -13,7 +13,7 @@ export const FlippingSection = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const totalPartners = partners.length;
+    const totalPartners = brandCards.length;
     const totalCardsCount = 8;
     const colsCount = 4;
     const duration = 3000;
@@ -40,9 +40,9 @@ export const FlippingSection = () => {
                 <AnimatePresence mode="wait">
                     <FrontFlippingCard
                         key={currentIndex}
-                        imgSrc={partners[currentIndex].frontCard.imgSrc}
-                        title={partners[currentIndex].frontCard.title}
-                        description={partners[currentIndex].frontCard.description}
+                        imgSrc={brandCards[currentIndex].frontCard.imgSrc}
+                        title={brandCards[currentIndex].frontCard.title}
+                        description={brandCards[currentIndex].frontCard.description}
                     />
                 </AnimatePresence>
                 <FlippingCardsProgressBar
@@ -56,7 +56,7 @@ export const FlippingSection = () => {
             {new Array(totalCardsCount).fill(null).map((_, index) => (
                 <div key={index}>
                     <FlippingCard
-                        cards={partners.map(partner => partner.cards[index])}
+                        cards={brandCards.map(partner => partner.cards[index])}
                         currentIndex={currentIndex}
                         delay={index * 0.2}
                         isLastCol={(index + 1) % colsCount === 0}

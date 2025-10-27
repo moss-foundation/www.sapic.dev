@@ -34,7 +34,7 @@ export interface CardProps {
     imgSrc: string;
 }
 
-export const partners: PartnersProps[] = [
+export const brandCards: PartnersProps[] = [
     {
         frontCard: {
             title: "Amazon Web Services",
