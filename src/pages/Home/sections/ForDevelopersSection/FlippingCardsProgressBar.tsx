@@ -32,7 +32,7 @@ export const FlippingCardsProgressBar = ({
 
     return (
         <motion.div
-            className="absolute bottom-0 left-0 h-[4px] bg-sky-500 rounded-full"
+            className="absolute bottom-0 left-0 h-[4px] bg-(--color-blue-4) rounded-full"
             animate={controls}
             variants={variants}
             initial="full"

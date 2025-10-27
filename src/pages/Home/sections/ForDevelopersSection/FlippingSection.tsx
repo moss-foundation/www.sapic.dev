@@ -34,9 +34,9 @@ export const FlippingSection = () => {
     return (
         <div
             ref={ref}
-            className="border-b border-dashed border-[var(--default-border-color)] grid grid-cols-4"
+            className="border-b border-dashed border-(--default-border-color) grid grid-cols-4"
         >
-            <div className="border-b border-r border-dashed border-[var(--default-border-color)] col-span-1 relative">
+            <div className="border-b border-r border-dashed border-(--default-border-color) col-span-1 relative">
                 <AnimatePresence mode="wait">
                     <FrontFlippingCard
                         key={currentIndex}
@@ -51,18 +51,17 @@ export const FlippingSection = () => {
                     isRunning={isInView}
                 />
             </div>
-            <div className="border-b border-dashed border-[var(--default-border-color)] col-span-3" />
+            <div className="border-b border-dashed border-(--default-border-color) col-span-3" />
 
             {new Array(totalCardsCount).fill(null).map((_, index) => (
-                <div key={index}>
-                    <FlippingCard
-                        cards={brandCards.map(partner => partner.cards[index])}
-                        currentIndex={currentIndex}
-                        delay={index * 0.2}
-                        isLastCol={(index + 1) % colsCount === 0}
-                        isLastRow={index >= totalCardsCount - colsCount}
-                    />
-                </div>
+                <FlippingCard
+                    key={index}
+                    cards={brandCards.map(partner => partner.cards[index])}
+                    currentIndex={currentIndex}
+                    delay={index * 0.2}
+                    isLastCol={(index + 1) % colsCount === 0}
+                    isLastRow={index >= totalCardsCount - colsCount}
+                />
             ))}
         </div>
     );

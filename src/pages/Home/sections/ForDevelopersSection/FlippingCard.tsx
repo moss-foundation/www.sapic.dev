@@ -22,12 +22,7 @@ export const FlippingCard = ({
 
     return (
         <div
-            className={`w-full h-full ${isLastRow ? "" : "border-b"}  ${isLastCol ? "" : "border-r"} border-dashed border-[var(--default-border-color)]`}
-            style={
-                {
-                    // perspective: "1000px",
-                }
-            }
+            className={`w-full h-full ${isLastRow ? "" : "border-b"}  ${isLastCol ? "" : "border-r"} border-dashed border-(--default-border-color)`}
         >
             <AnimatePresence mode="wait">
                 <motion.div
@@ -79,8 +74,8 @@ const CardFace = ({ card }: { card: CardProps }) => {
         <div className="w-full h-full flex gap-4 items-center justify-center bg-[#fdfdf8] font-[Inter]">
             <img src={card.imgSrc} className="size-[50px] object-contain" />
             <div>
-                <p className="text-[16px] font-medium leading-5">{card.brand}</p>
-                <p className="text-[20px] font-bold leading-5">{card.product}</p>
+                <p className="text-base font-medium leading-5">{card.brand}</p>
+                <p className="text-xl font-bold leading-5">{card.product}</p>
             </div>
         </div>
     );
