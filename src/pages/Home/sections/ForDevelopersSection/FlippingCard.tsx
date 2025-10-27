@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import type { CardProps } from "./brandCards";
 
 interface FlippingCardProps {
@@ -16,55 +16,46 @@ export const FlippingCard = ({
     isLastCol = false,
     isLastRow = false,
 }: FlippingCardProps) => {
-    const dontAnimate =
-        cards[currentIndex % cards.length] === undefined &&
-        cards[(currentIndex + 1) % cards.length] === undefined;
-
     return (
         <div
             className={`w-full h-full ${isLastRow ? "" : "border-b"}  ${isLastCol ? "" : "border-r"} border-dashed border-(--default-border-color)`}
         >
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={currentIndex}
-                    transition={{ duration: 1, delay }}
-                    exit={{ rotateY: dontAnimate ? 0 : 180 }}
-                    style={{
-                        transformStyle: "preserve-3d",
-                        backfaceVisibility: "hidden",
-                    }}
-                    className=" rounded-lg w-full h-full relative min-h-[100px] "
-                >
-                    {/* Card Front Side */}
+            <MotionConfig transition={{ duration: 0.5, delay, ease: "easeInOut" }}>
+                <AnimatePresence mode="wait">
                     <motion.div
-                        style={{
-                            backfaceVisibility: "hidden",
-                        }}
-                        className="bg-[#fdfdf8] inset-0 absolute w-full h-full flex justify-center items-center"
+                        key={currentIndex}
+                        className=" rounded-lg w-full h-full relative min-h-[100px] overflow-hidden "
                     >
-                        {cards[currentIndex % cards.length] ? (
-                            <CardFace card={cards[currentIndex % cards.length]} />
-                        ) : (
-                            <div className="w-full h-full bg-[#fdfdf8]" />
-                        )}
-                    </motion.div>
+                        {/* Card Back Side */}
+                        <motion.div
+                            className="bg-[#fdfdf8] inset-0 absolute w-full h-full flex justify-center items-center"
+                            initial={{ translateY: "-100%" }}
+                            animate={{ translateY: "0%" }}
+                            exit={{ translateY: "100%" }}
+                        >
+                            {cards[(currentIndex + 1) % cards.length] ? (
+                                <CardFace card={cards[(currentIndex + 1) % cards.length]} />
+                            ) : (
+                                <div className="w-full h-full bg-[#fdfdf8]" />
+                            )}
+                        </motion.div>
 
-                    {/* Card Back Side */}
-                    <motion.div
-                        className=" bg-[#fdfdf8] inset-0 absolute w-full h-full flex justify-center items-center"
-                        style={{
-                            backfaceVisibility: "hidden",
-                            transform: "rotateY(180deg)",
-                        }}
-                    >
-                        {cards[(currentIndex + 1) % cards.length] ? (
-                            <CardFace card={cards[(currentIndex + 1) % cards.length]} />
-                        ) : (
-                            <div className="w-full h-full bg-[#fdfdf8]" />
-                        )}
+                        {/* Card Front Side */}
+                        <motion.div
+                            initial={{ translateY: "-100%" }}
+                            animate={{ translateY: "0%" }}
+                            exit={{ translateY: "100%" }}
+                            className="bg-[#fdfdf8] inset-0 absolute w-full h-full flex justify-center items-center"
+                        >
+                            {cards[currentIndex % cards.length] ? (
+                                <CardFace card={cards[currentIndex % cards.length]} />
+                            ) : (
+                                <div className="w-full h-full bg-[#fdfdf8]" />
+                            )}
+                        </motion.div>
                     </motion.div>
-                </motion.div>
-            </AnimatePresence>
+                </AnimatePresence>
+            </MotionConfig>
         </div>
     );
 };

@@ -16,7 +16,8 @@ export const FlippingSection = () => {
     const totalPartners = brandCards.length;
     const totalCardsCount = 8;
     const colsCount = 4;
-    const duration = 3000;
+    const duration = 5000;
+    const delay = 0.15;
 
     useEffect(() => {
         let interval: number;
@@ -58,7 +59,7 @@ export const FlippingSection = () => {
                     key={index}
                     cards={brandCards.map(partner => partner.cards[index])}
                     currentIndex={currentIndex}
-                    delay={index * 0.2}
+                    delay={index * delay}
                     isLastCol={(index + 1) % colsCount === 0}
                     isLastRow={index >= totalCardsCount - colsCount}
                 />
