@@ -45,7 +45,11 @@ export const FlippingSection = () => {
                         description={partners[currentIndex].frontCard.description}
                     />
                 </AnimatePresence>
-                <FlippingCardsProgressBar duration={duration} isRunning={isInView} />
+                <FlippingCardsProgressBar
+                    currentIndex={currentIndex}
+                    duration={duration}
+                    isRunning={isInView}
+                />
             </div>
             <div className="border-b border-dashed border-[var(--default-border-color)] col-span-3" />
 

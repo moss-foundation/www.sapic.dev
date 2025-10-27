@@ -4,6 +4,7 @@ import { useEffect } from "react";
 interface FlippingCardsProgressBarProps {
     duration: number;
     isRunning: boolean;
+    currentIndex: number;
 }
 
 const variants = {
@@ -18,14 +19,16 @@ const variants = {
 export const FlippingCardsProgressBar = ({
     duration,
     isRunning,
+    currentIndex,
 }: FlippingCardsProgressBarProps) => {
     const controls = useAnimation();
 
     useEffect(() => {
         if (isRunning) {
+            controls.set("full");
             controls.start("empty");
         }
-    }, [isRunning, controls]);
+    }, [isRunning, controls, currentIndex]);
 
     return (
         <motion.div
