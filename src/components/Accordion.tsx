@@ -12,28 +12,25 @@ export const Accordion = ({ title, children, className }: AccordionProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className={`w-full ${className}`}>
-            <button
-                className="flex items-center w-full justify-between cursor-pointer"
-                onClick={() => setIsOpen(!isOpen)}
-            >
+        <button className={`w-full ${className}`} onClick={() => setIsOpen(!isOpen)}>
+            <div className="flex items-center w-full justify-between cursor-pointer ">
                 <h3 className="text-lg font-medium">{title}</h3>
                 <ArrowHeadBottom className={`${isOpen ? "-rotate-180" : ""} transition`} />
-            </button>
+            </div>
 
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
+                    <motion.p
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
+                        className="overflow-hidden text-left"
                     >
                         {children}
-                    </motion.div>
+                    </motion.p>
                 )}
             </AnimatePresence>
-        </div>
+        </button>
     );
 };
