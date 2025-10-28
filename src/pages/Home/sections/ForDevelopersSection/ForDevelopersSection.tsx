@@ -19,7 +19,7 @@ const ForDevelopersSection = () => {
             </LayoutContainer>
             <Line />
 
-            <LayoutContainer className="border-l border-r border-dashed border-[var(--default-border-color)] pb-24 bg-[#fdfdf8]">
+            <LayoutContainer className="border-l border-r border-dashed border-[var(--default-border-color)]  bg-[#fdfdf8]">
                 <FlippingSection />
             </LayoutContainer>
         </section>

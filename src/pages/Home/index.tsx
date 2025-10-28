@@ -5,6 +5,7 @@ import Footer from "@/parts/Footer";
 import ForDevelopersSection from "./sections/ForDevelopersSection/ForDevelopersSection";
 import HeroSection from "./sections/HeroSection";
 import UseCasesSection from "./sections/UseCasesSection";
+import FaqSection from "./sections/FAQSection/FaqSection";
 // import FaqSection from "./sections/FaqSection";
 
 const HomePage = () => {
@@ -31,11 +32,10 @@ const HomePage = () => {
             <Line />
 
             <ForDevelopersSection />
-            {/* <Divider />
-            <FaqSection /> */}
-            <Divider />
+
             <Banner />
-            <Divider />
+
+            <FaqSection />
 
             {/* HACK: The solution is a bit of a hack, but it’s just a quick implementation for now - we’ll need to improve it later. */}
             <LayoutContainer>
