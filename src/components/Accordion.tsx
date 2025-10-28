@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { motion } from "motion/react";
-import { AnimatePresence } from "motion/react";
 import { ArrowHeadBottom } from "@/icons/ArrowHeadBottom";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 
 interface AccordionProps {
     title: string;
     children: React.ReactNode;
+    className?: string;
 }
 
-export const Accordion = ({ title, children }: AccordionProps) => {
+export const Accordion = ({ title, children, className }: AccordionProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="w-full">
+        <div className={`w-full ${className}`}>
             <button
                 className="flex items-center w-full justify-between cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
