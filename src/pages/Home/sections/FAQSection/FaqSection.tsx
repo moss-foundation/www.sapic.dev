@@ -17,7 +17,7 @@ const FaqSection = () => {
                             Answers for easy <span className="text-blue-4">understand</span>
                         </p>
 
-                        {/* HACK: Synchronization the horizontal borders in 2 columns */}
+                        {/* HACK: Synchronization the horizontal borders in columns */}
                         <FixedEmptyBlock />
                         <div className="h-px" />
                         <FixedEmptyBlock />
