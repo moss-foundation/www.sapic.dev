@@ -17,7 +17,7 @@ export const FrontFlippingCard = ({ imgSrc, title, description }: FrontFlippingC
         >
             <img src={imgSrc} alt="AWS" className="size-12 object-contain" />
             <p className="text-xl font-medium text-black mt-3">{title}</p>
-            <p className="text-gray-600 text-sm text-gray-6 mt-1.5">{description}</p>
+            <p className="text-gray-600 text-sm text-gray-6 mt-1.5 text-left ">{description}</p>
         </motion.th>
     );
 };
