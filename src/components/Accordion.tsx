@@ -12,8 +12,8 @@ export const Accordion = ({ title, children, className }: AccordionProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <button className={`w-full ${className}`} onClick={() => setIsOpen(!isOpen)}>
-            <div className="flex items-center w-full justify-between cursor-pointer ">
+        <button className={`w-full cursor-pointer ${className}`} onClick={() => setIsOpen(!isOpen)}>
+            <div className="flex items-center w-full justify-between  ">
                 <h3 className="text-lg font-medium">{title}</h3>
                 <ArrowHeadBottom className={`${isOpen ? "-rotate-180" : ""} transition`} />
             </div>

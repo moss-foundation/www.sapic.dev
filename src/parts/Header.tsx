@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import DividerLine from "@/components/DividerLine";
 import LayoutContainer from "@/components/LayoutContainer";
 import logoBlue from "@assets/images/logo_blue.svg";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -19,7 +20,7 @@ const Header = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
                 isScrolled ? "bg-[#eeefe9]/50 backdrop-blur-md" : "bg-[#FAFAF8]"
             }`}
         >
@@ -33,30 +34,30 @@ const Header = () => {
                     </div>
 
                     <nav className="hidden md:flex items-center gap-8">
-                        <a
-                            href="#"
+                        <Link
+                            to="/"
                             className="text-[var(--default-primary-text-color)] transition-colors text-sm"
                         >
-                            Hello_
-                        </a>
-                        <a
-                            href="#"
+                            Home
+                        </Link>
+                        <Link
+                            to="/use-cases"
                             className="text-[var(--default-primary-text-color)] transition-colors text-sm"
                         >
                             Use Cases
-                        </a>
-                        <a
-                            href="#"
+                        </Link>
+                        <Link
+                            to="/features"
                             className="text-[var(--default-primary-text-color)] transition-colors text-sm"
                         >
                             Features
-                        </a>
-                        <a
-                            href="#"
+                        </Link>
+                        <Link
+                            to="/faq"
                             className="text-[var(--default-primary-text-color)] transition-colors text-sm"
                         >
                             FAQ
-                        </a>
+                        </Link>
                     </nav>
 
                     <Button variant="primary" size="small">
