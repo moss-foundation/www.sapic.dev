@@ -31,7 +31,7 @@ const HeroSection = () => {
                     </div>
                 </div>
 
-                <div className="relative border-t border-dashed border-[var(--default-border-color)] mt-48">
+                <div className="relative border-t border-dashed border-[var(--default-border-color)] mt-48 flex flex-col-reverse lg:flex-col ">
                     <div className="grid grid-cols-1 divide-y md:grid-cols-4 lg:divide-x lg:divide-y-0 divide-dashed divide-[var(--default-border-color)] border-b border-dashed border-[var(--default-border-color)]">
                         <div className="py-4 px-6 flex flex-col gap-0.5 items-start">
                             <div className="flex items-center justify-center gap-1.5">
