@@ -12,7 +12,7 @@ const HomePage = () => {
         <div className="min-h-screen">
             <HeroSection />
 
-            <Divider />
+            <DividerWithPadding />
 
             {/* HACK: The solution is a bit of a hack, but it’s just a quick implementation for now - we’ll need to improve it later. */}
             <LayoutContainer>

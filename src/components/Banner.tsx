@@ -9,11 +9,9 @@ const Banner = () => {
             <div className="p-2.5 border-l border-r border-dashed border-[var(--default-border-color)] bg-[#fdfdf8]">
                 <div className="bg-blue-4 rounded-xl border border-blue-2 relative overflow-hidden">
                     <div
-                        className="absolute top-0 right-0 w-1/2 h-full bg-cover bg-no-repeat"
+                        className="absolute top-0 right-0 lg:w-1/2 w-full h-full bg-cover bg-no-repeat bg-center lg:bg-right"
                         style={{
                             backgroundImage: `url(${bannerBg})`,
-                            backgroundPosition: "right center",
-                            backgroundSize: "cover",
                         }}
                     />
 

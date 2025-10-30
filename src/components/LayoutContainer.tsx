@@ -7,10 +7,8 @@ interface LayoutContainerProps {
 
 const LayoutContainer = ({ children, className = "" }: LayoutContainerProps) => {
     return (
-        <div className="w-15/20 mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={className}>
-                {children}
-            </div>
+        <div className="w-19/20 lg:w-15/20 mx-auto px-4 sm:px-6 lg:px-8 ">
+            <div className={className}>{children}</div>
         </div>
     );
 };

@@ -17,7 +17,7 @@ export const FlippingSection = () => {
     const totalCardsCount = 8;
     const colsCount = 4;
     const duration = 5000;
-    const delay = 0.15;
+    const delay = 0.2;
 
     useEffect(() => {
         let interval: number;
@@ -33,8 +33,8 @@ export const FlippingSection = () => {
     }, [currentIndex, isInView, setCurrentIndex, totalPartners]);
 
     return (
-        <div ref={ref} className="grid grid-cols-4">
-            <div className="border-b border-r border-dashed border-(--default-border-color) col-span-1 relative">
+        <div ref={ref} className="grid grid-cols-2 lg:grid-cols-4 ">
+            <div className="border-b border-r border-dashed border-(--default-border-color) col-span-2 sm:col-span-1 relative">
                 <AnimatePresence mode="wait">
                     <FrontFlippingCard
                         key={currentIndex}
@@ -50,9 +50,9 @@ export const FlippingSection = () => {
                 />
             </div>
 
-            <div className="col-span-2 bg-[#E5E7E0] border-b border-r border-dashed border-(--default-border-color)" />
+            <div className="col-span-2 bg-[#E5E7E0] border-b border-r border-dashed border-(--default-border-color) min-h-32" />
 
-            <div className="col-span-1 border-b border-dashed border-(--default-border-color)" />
+            <div className="col-span-2 row-start-7 lg:row-start-auto lg:col-span-1 border-b border-dashed border-(--default-border-color) min-h-32" />
 
             {new Array(totalCardsCount).fill(null).map((_, index) => (
                 <FlippingCard
