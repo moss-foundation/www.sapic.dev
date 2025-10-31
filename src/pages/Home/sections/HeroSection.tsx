@@ -9,18 +9,19 @@ import screen from "@assets/images/screen.png";
 const HeroSection = () => {
     return (
         <>
-            <LayoutContainer className="relative w-full z-0 pt-32 border-l border-r border-dashed border-[var(--default-border-color)] pb-32">
-                <div className=" flex flex-col items-center justify-center w-full mx-auto text-center gap-4">
+            <LayoutContainer className="pt-8 lg:pt-32 relative w-full z-0 border-l border-r border-dashed border-[var(--default-border-color)]">
+                <div className="flex flex-col items-center justify-center w-full mx-auto text-center gap-4">
                     <Badge text="Roadmap" content="Check out the project roadmap" />
-                    <h1 className="text-6xl font-serif font-medium text-gray-900 leading-tight px-48">
-                        One console for every backend resource
+                    <h1 className="text-6xl font-serif font-medium text-gray-900 leading-tight px-12 ">
+                        One console for every <br className="hidden lg:block" /> backend resource
                     </h1>
 
-                    <div className="flex flex-col items-center justify-center gap-6">
-                        <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed text-[#5A5D6B]">
-                            Design, invoke, subscribe, and observe your APIs, queues, and <br />
+                    <div className="flex flex-col items-center justify-center gap-6 px-4">
+                        <p className="text-base  max-w-3xl mx-auto leading-relaxed text-[#5A5D6B]">
+                            Design, invoke, subscribe, and observe your APIs, queues, and{" "}
+                            <br className="hidden sm:block" />
                             databases, etc. with integration tests, mocks, and environments.
-                            <br />
+                            <br className="hidden sm:block" />
                             AI & Git native with batteries included.
                         </p>
 
@@ -30,8 +31,8 @@ const HeroSection = () => {
                     </div>
                 </div>
 
-                <div className="relative border-t border-b border-dashed border-[var(--default-border-color)] mt-48">
-                    <div className="grid grid-cols-4 divide-x divide-dashed divide-[var(--default-border-color)] border-b border-dashed border-[var(--default-border-color)]">
+                <div className="relative border-t border-dashed border-[var(--default-border-color)] mt-48 flex flex-col-reverse lg:flex-col ">
+                    <div className="grid grid-cols-1 divide-y md:grid-cols-4 lg:divide-x lg:divide-y-0 divide-dashed divide-[var(--default-border-color)] border-b border-dashed border-[var(--default-border-color)]">
                         <div className="py-4 px-6 flex flex-col gap-0.5 items-start">
                             <div className="flex items-center justify-center gap-1.5">
                                 <Cube className="text-[#3369D6]" />
@@ -93,8 +94,6 @@ const HeroSection = () => {
                     </div>
                 </div>
             </LayoutContainer>
-
-            {/* <Line /> */}
         </>
     );
 };
