@@ -1,6 +1,7 @@
 import { FAQPage } from "@/pages/FAQ/FAQPage";
 import { FeaturesPage } from "@/pages/Features/FeaturesPage";
 import { UseCasesPage } from "@/pages/UseCases/UseCasesPage";
+import Footer from "@/parts/Footer";
 import HomePage from "@pages/Home";
 import Header from "@parts/Header";
 import { createRootRoute, createRoute, createRouter, Outlet } from "@tanstack/react-router";
@@ -12,6 +13,7 @@ const rootRoute = createRootRoute({
             <div id="root-content">
                 <Outlet />
             </div>
+            <Footer />
         </>
     ),
 });

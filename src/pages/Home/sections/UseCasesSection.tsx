@@ -87,7 +87,7 @@ const UseCasesSection = () => {
                     ))}
 
                     {/* Promotional card */}
-                    <div className="flex flex-col h-full rounded-xl border-2 border-blue-2 bg-blue-4 relative overflow-hidden">
+                    <div className="hidden md:flex flex-col h-full rounded-xl border-2 border-blue-2 bg-blue-4 relative overflow-hidden">
                         <div className="absolute inset-0 flex justify-center items-start">
                             <img
                                 src={rectangles3}
@@ -101,7 +101,7 @@ const UseCasesSection = () => {
                             />
                         </div>
 
-                        <div className="flex flex-col items-center justify-center h-full p-4 lg:p-0">
+                        <div className="flex flex-col items-center justify-center h-full">
                             <div className="flex flex-col gap-4 items-center justify-center">
                                 <p className="text-white text-4xl font-semibold">
                                     Get Early Access
@@ -113,13 +113,6 @@ const UseCasesSection = () => {
                         </div>
                     </div>
                 </div>
-            </LayoutContainer>
-
-            <Line />
-
-            {/* HACK: The solution is a bit of a hack, but it's just a quick implementation for now - we'll need to improve it later. */}
-            <LayoutContainer className="">
-                <div className="border-l border-r border-dashed border-[var(--default-border-color)] h-32"></div>
             </LayoutContainer>
         </section>
     );

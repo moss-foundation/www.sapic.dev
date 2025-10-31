@@ -6,6 +6,7 @@ interface FlippingCardProps {
     currentIndex: number;
     delay?: number;
     isLastCol?: boolean;
+    isLastRow?: boolean;
 }
 
 export const FlippingCard = ({
@@ -13,10 +14,11 @@ export const FlippingCard = ({
     currentIndex,
     delay = 0,
     isLastCol = false,
+    isLastRow = false,
 }: FlippingCardProps) => {
     return (
         <div
-            className={`${isLastCol ? "" : "border-r"} border-b border-dashed border-(--default-border-color)`}
+            className={`${isLastCol ? "" : "border-r"} ${isLastRow ? "" : "border-b"} border-dashed border-(--default-border-color)`}
         >
             <MotionConfig transition={{ duration: 0.5, delay, ease: "easeInOut" }}>
                 <AnimatePresence mode="wait">

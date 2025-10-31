@@ -9,7 +9,7 @@ import screen from "@assets/images/screen.png";
 const HeroSection = () => {
     return (
         <>
-            <LayoutContainer className="pt-8 lg:py-32 relative w-full z-0 border-l border-r border-dashed border-[var(--default-border-color)]">
+            <LayoutContainer className="pt-8 lg:pt-32 relative w-full z-0 border-l border-r border-dashed border-[var(--default-border-color)]">
                 <div className="flex flex-col items-center justify-center w-full mx-auto text-center gap-4">
                     <Badge text="Roadmap" content="Check out the project roadmap" />
                     <h1 className="text-6xl font-serif font-medium text-gray-900 leading-tight px-12 ">
