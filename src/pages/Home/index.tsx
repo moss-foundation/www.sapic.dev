@@ -1,27 +1,25 @@
-import { DividerWithPadding } from "@/components";
-import Banner from "@/components/Banner";
-import FAQSection from "./sections/FAQSection/FAQSection";
-import ForDevelopersSection from "./sections/ForDevelopersSection/ForDevelopersSection";
+import { LayoutContainer } from "@/components"
 import HeroSection from "./sections/HeroSection";
+import FeaturesSection from "./sections/FeaturesSection";
+
 import UseCasesSection from "./sections/UseCasesSection";
+import ForDevelopersSection from "./sections/ForDevelopersSection";
+import FaqSection from "./sections/FaqSection";
+import Banner from "@/components/Banner";
+
 
 const HomePage = () => {
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen flex flex-col gap-40">
             <HeroSection />
-            <DividerWithPadding />
-
+            <FeaturesSection />
+            {/* <IntegrationsSection /> */}
             <UseCasesSection />
-            <DividerWithPadding />
-
-            <ForDevelopersSection />
-            <DividerWithPadding />
-
-            <Banner />
-            <DividerWithPadding />
-
-            <FAQSection />
-            <DividerWithPadding />
+            <LayoutContainer>
+                <ForDevelopersSection />
+                <Banner />
+                <FaqSection />
+            </LayoutContainer>
         </div>
     );
 };

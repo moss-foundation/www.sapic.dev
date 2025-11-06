@@ -1,120 +1,133 @@
-import BlockTitleHint from "@/components/BlockTitleHint";
 import LayoutContainer from "@/components/LayoutContainer";
-import Line from "@/components/Line";
-
-import Button from "@/components/Button";
-import rectangles3 from "@assets/images/3rectangles.svg";
-import useCase1 from "@assets/images/use-case-1.png";
 
 const UseCasesSection = () => {
-    const useCaseCards = [
+    const features = [
         {
-            title: "API Client",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            image: useCase1,
+            title: "Upvoting & reactions",
+            description: "Users vote on what they want, best ideas rise to the top",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24"
+                    className="h-6 w-6 text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-gray-900"
+                    style={{ strokeWidth: 2 }}>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M18 20V10M6 20v-6" opacity="0.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit" d="M12 20V4">
+                    </path>
+                </svg>
+            ),
+            color: "text-pink-500",
         },
         {
-            title: "Database Viewer",
-            description:
-                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            image: useCase1,
+            title: "AI duplicate detection",
+            description: "Shows similar ideas as users type, consolidating votes",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24"
+                    className="h-6 w-6 text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-gray-900"
+                    style={{ strokeWidth: 2 }}>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M21 21H4.6c-.56 0-.84 0-1.054-.109a1 1 0 0 1-.437-.437C3 20.24 3 19.96 3 19.4V3" opacity="0.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="m20 8-3.919 4.183c-.148.158-.223.237-.312.278a.5.5 0 0 1-.253.044c-.098-.01-.194-.06-.387-.16l-3.258-1.69c-.193-.1-.289-.15-.387-.16a.5.5 0 0 0-.253.044c-.09.04-.164.12-.312.278L7 15">
+                    </path>
+                </svg>
+            ),
+            color: "text-purple-500",
         },
         {
-            title: "Integration Tests",
-            description:
-                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            image: useCase1,
+            title: "Auto-categorization",
+            description: "AI automatically tags and organizes by feature area",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24"
+                    className="h-6 w-6 text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-gray-900"
+                    style={{ strokeWidth: 2 }}>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M22 21v-2a4 4 0 0 0-3-3.874M15.5 3.291a4.001 4.001 0 0 1 0 7.418" opacity="0.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M17 21c0-1.864 0-2.796-.305-3.53a4 4 0 0 0-2.164-2.165C13.796 15 12.864 15 11 15H8c-1.864 0-2.796 0-3.53.305a4 4 0 0 0-2.166 2.164C2 18.204 2 19.136 2 21M13.5 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0">
+                    </path>
+                </svg>
+            ),
+            color: "text-blue-500",
         },
         {
-            title: "Observability",
-            description:
-                "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            image: useCase1,
+            title: "Discussion threads",
+            description: "Users discuss ideas, add context, and refine together",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24"
+                    className="h-6 w-6 text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-gray-900"
+                    style={{ strokeWidth: 2 }}>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10" opacity="0.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M8.5 14.667A2.333 2.333 0 0 0 10.833 17H13a2.5 2.5 0 0 0 0-5h-2a2.5 2.5 0 0 1 0-5h2.167A2.333 2.333 0 0 1 15.5 9.333M12 5.5V7m0 10v1.5">
+                    </path>
+                </svg>
+            ),
+            color: "text-green-500",
         },
         {
-            title: "Performance Monitoring",
-            description:
-                "Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.",
-            image: useCase1,
+            title: "Guest & anonymous",
+            description: "Let anyone submit feedback without creating an account",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24"
+                    className="h-6 w-6 text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-gray-900"
+                    style={{ strokeWidth: 2 }}>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M8 8h.01m.49 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" opacity="0.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M2.937 11.937c-.346-.346-.519-.519-.642-.72a2 2 0 0 1-.24-.578C2 10.409 2 10.164 2 9.675V5.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 2 4.08 2 5.2 2h4.475c.489 0 .733 0 .963.055.204.05.4.13.579.24.201.123.374.296.72.642l7.669 7.669c1.188 1.188 1.782 1.782 2.004 2.467a3 3 0 0 1 0 1.854c-.222.685-.816 1.28-2.004 2.467l-2.212 2.212c-1.188 1.188-1.782 1.782-2.467 2.004a3 3 0 0 1-1.854 0c-.685-.222-1.28-.816-2.467-2.004z">
+                    </path>
+                </svg>
+            ),
+            color: "text-orange-500",
+        },
+        {
+            title: "Private boards",
+            description: "Create internal boards for sensitive customer feedback",
+            icon: (
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24"
+                    className="h-6 w-6 text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-gray-900"
+                    style={{ strokeWidth: 2 }}>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit"
+                        d="M18 20V10M6 20v-6" opacity="0.4"></path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="inherit" d="M12 20V4">
+                    </path>
+                </svg>
+            ),
+            color: "text-indigo-500",
         },
     ];
 
     return (
-        <section className="relative h-full">
-            <BlockTitleHint text="USE CASES" />
-            <LayoutContainer className="py-10 px-4 border-l border-r border-dashed border-[var(--default-border-color)]">
-                <p className="text-5xl font-serif font-medium text-gray-900 leading-tight text-balance text-center mb-4 lg:px-48">
-                    <span>Invoke, subscribe and observe your </span>
-                    <span className="text-blue-4">resources</span>
+        <LayoutContainer>
+            <div className="max-w-7xl mx-auto px-4">
+                <h2 className="text-5xl lg:text-6xl font-serif font-medium text-gray-900 leading-tight mb-6 text-center w-3/5 mx-auto">
+                    One tool, <span className="text-blue-4">thousands of use cases</span>
+                </h2>
+
+                <p className="text-sm text-gray-600 max-w-4xl mx-auto text-center mb-16 leading-relaxed">
+                    Give your users a dedicated space to share ideas, vote on features they want, and see what you're
+                    building. Our AI-powered boards organize feedback automatically, detect duplicates, and help you
+                    discover what really matters to your customers.
                 </p>
 
-                <p className="text-base leading-relaxed text-[#5A5D6B] text-balance text-center">
-                    One console for modern backends. Design, invoke, subscribe, and observe your
-                    APIs, queues, and databases, etc. with integration tests, mocks, and
-                    environments. AI & Git native with batteries included.
-                </p>
-            </LayoutContainer>
-
-            <Line />
-
-            {/* Card Grid Section */}
-            <LayoutContainer>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 border-l border-r border-dashed border-[var(--default-border-color)] px-4 py-4 gap-4 items-stretch">
-                    {useCaseCards.map((card, index) => (
-                        <div
-                            key={index}
-                            className="flex flex-col h-full rounded-xl border border-[var(--default-border-color)] overflow-hidden bg-[#F2F1EE]/50"
-                        >
-                            <div className="px-6 py-5 flex flex-col flex-1 mb-4">
-                                <h3 className="text-2xl font-serif font-medium text-[var(--default-primary-text-color)] mb-3">
-                                    {card.title}
-                                </h3>
-                                <p className="text-base text-[var(--default-secondary-text-color)] flex-1 text-pretty">
-                                    {card.description}
-                                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+                    {features.map((feature, index) => (
+                        <div key={index} className="flex flex-col">
+                            <div className="mb-4">
+                                {feature.icon}
                             </div>
-                            <div className="p-2.5">
-                                <div className="border border-[var(--default-border-color)] rounded-xl h-80">
-                                    <img
-                                        src={card.image}
-                                        alt={card.title}
-                                        className="w-full h-full object-cover block border-5 border-[var(--default-border-color)]/50 rounded-xl"
-                                    />
-                                </div>
-                            </div>
+                            <h3 className="text-xl font-medium text-gray-900 mb-2">
+                                {feature.title}
+                            </h3>
+                            <p className="text-sm text-gray-500 leading-relaxed">
+                                {feature.description}
+                            </p>
                         </div>
                     ))}
-
-                    {/* Promotional card */}
-                    <div className="hidden md:flex flex-col h-full rounded-xl border-2 border-blue-2 bg-blue-4 relative overflow-hidden">
-                        <div className="absolute inset-0 flex justify-center items-start">
-                            <img
-                                src={rectangles3}
-                                className="opacity-20 absolute -translate-y-2/4"
-                            />
-                        </div>
-                        <div className="absolute inset-0">
-                            <img
-                                src={rectangles3}
-                                className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 opacity-20"
-                            />
-                        </div>
-
-                        <div className="flex flex-col items-center justify-center h-full">
-                            <div className="flex flex-col gap-4 items-center justify-center">
-                                <p className="text-white text-4xl font-semibold">
-                                    Get Early Access
-                                </p>
-                                <Button variant="default" size="medium" className="w-full">
-                                    Join
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </LayoutContainer>
-        </section>
+            </div>
+        </LayoutContainer>
     );
 };
 

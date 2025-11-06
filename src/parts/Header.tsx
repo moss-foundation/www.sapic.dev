@@ -1,5 +1,4 @@
-import Button from "@/components/Button";
-import DividerLine from "@/components/DividerLine";
+import SimpleButton from "@/components/SimpleButton";
 import LayoutContainer from "@/components/LayoutContainer";
 import logoBlue from "@assets/images/logo_blue.svg";
 import { Link } from "@tanstack/react-router";
@@ -20,11 +19,10 @@ const Header = () => {
 
     return (
         <header
-            className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                isScrolled ? "bg-[#eeefe9]/50 backdrop-blur-md" : "bg-[#FAFAF8]"
-            }`}
+            className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/50 backdrop-blur-md" : "bg-white"
+                }`}
         >
-            <LayoutContainer className="border-l border-r border-dashed border-[var(--default-border-color)] px-4">
+            <LayoutContainer>
                 <div className="flex items-center justify-between h-14">
                     <div className="flex items-center gap-3">
                         <img src={logoBlue} alt="Sapic" className="size-7.5" />
@@ -60,12 +58,17 @@ const Header = () => {
                         </Link>
                     </nav>
 
-                    <Button variant="primary" size="small">
-                        Join Waitlist
-                    </Button>
+                    <div className="flex items-center gap-2">
+                        <SimpleButton variant="ghost" size="small">
+                            Contact Sales
+                        </SimpleButton>
+                        <SimpleButton variant="primary" size="small">
+                            Sign up
+                        </SimpleButton>
+                    </div>
+
                 </div>
             </LayoutContainer>
-            <DividerLine />
         </header>
     );
 };

@@ -6,15 +6,16 @@ interface AccordionProps {
     title: string;
     children: React.ReactNode;
     className?: string;
+    defaultOpen?: boolean;
 }
 
-export const Accordion = ({ title, children, className }: AccordionProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+export const Accordion = ({ title, children, className, defaultOpen = false }: AccordionProps) => {
+    const [isOpen, setIsOpen] = useState(defaultOpen);
 
     return (
         <button className={`w-full cursor-pointer ${className}`} onClick={() => setIsOpen(!isOpen)}>
             <div className="flex items-center w-full justify-between  ">
-                <h3 className="text-lg font-medium">{title}</h3>
+                <p className="text-lg font-medium">{title}</p>
                 <ArrowHeadBottom className={`${isOpen ? "-rotate-180" : ""} transition`} />
             </div>
 
