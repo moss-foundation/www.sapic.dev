@@ -1,10 +1,11 @@
 import SimpleButton from "./SimpleButton";
+import LayoutContainer from "./LayoutContainer";
 
 import bannerBg from "@assets/images/banner-bg.svg";
 
 const Banner = () => {
     return (
-        <div className="bg-blue-4 rounded-xl border border-blue-2 relative overflow-hidden">
+        <LayoutContainer className="bg-blue-4 rounded-xl border border-blue-2 relative overflow-hidden">
             <div
                 className="absolute top-0 right-0 lg:w-1/2 w-full h-full bg-cover bg-no-repeat bg-center lg:bg-right"
                 style={{
@@ -29,7 +30,7 @@ const Banner = () => {
                     Join Waitlist
                 </SimpleButton>
             </div>
-        </div>
+        </LayoutContainer>
     );
 };
 

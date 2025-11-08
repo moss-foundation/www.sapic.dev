@@ -1,4 +1,5 @@
-import { Accordion } from "@/components";
+import { Accordion, LayoutContainer } from "@/components";
+import FadeInElement from "@/components/FadeInElement";
 
 const FaqSection = () => {
     const faqs = [
@@ -35,35 +36,39 @@ const FaqSection = () => {
     ];
 
     return (
-        <section className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex flex-row w-full gap-28">
-                    <div className="flex flex-col w-2/5">
-                        <h2 className="text-6xl font-serif font-medium mb-6">
-                            FAQ
-                        </h2>
-                        <p className="text-gray-500 text-sm leading-relaxed">
+        <LayoutContainer className="bg-white">
+            <div className="max-w-full lg:max-w-7xl mx-auto">
+                <FadeInElement>
+                    <div className="flex flex-col items-start mx-auto gap-y-1.5">
+                        <h2 className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900">FAQ</h2>
+                        <p className="mt-4 md:mt-6 max-w-full md:max-w-2xl text-pretty text-sm md:text-base leading-relaxed text-neutral-600">
                             Everything you need to know about customer feedback management and how UserJot helps you build better products.
                         </p>
                     </div>
+                </FadeInElement>
 
-                    <div className="flex flex-col gap-6 w-3/5">
-                        {faqs.map((faq, index) => (
-                            <div
-                                key={index}
-                                className="border-b border-gray-200 pb-6"
-                            >
+                <div className="flex flex-col gap-4 md:gap-6 mt-10 md:mt-14">
+                    {faqs.map((faq, index) => (
+                        <FadeInElement key={index} delay={0.1 + index * 0.05}>
+                            <div className="border-b border-neutral-200 pb-4 md:pb-6">
                                 <AccordionItem
                                     question={faq.question}
                                     answer={faq.answer}
                                     defaultOpen={faq.defaultOpen}
                                 />
                             </div>
-                        ))}
-                    </div>
+                        </FadeInElement>
+                    ))}
                 </div>
+
+                <FadeInElement delay={0.4}>
+                    <div className="mt-8 md:mt-10 flex max-w-full md:max-w-2xl gap-3 md:gap-4">
+                        <div className="w-1 flex-shrink-0 rounded-full bg-blue-4"></div>
+                        <p className="text-pretty text-sm md:text-base text-neutral-500">Users check back 4x more often. They submit more ideas. All emails are beautifully designed by us. You don't set up anything. Just turn it on and watch engagement soar.</p>
+                    </div>
+                </FadeInElement>
             </div>
-        </section>
+        </LayoutContainer>
     );
 };
 
@@ -76,7 +81,7 @@ interface AccordionItemProps {
 const AccordionItem = ({ question, answer, defaultOpen }: AccordionItemProps) => {
     return (
         <Accordion title={question} defaultOpen={defaultOpen} className="">
-            <p className="text-gray-500 text-base leading-relaxed mt-4 pr-8">{answer}</p>
+            <p className="text-neutral-600 text-sm md:text-base leading-relaxed mt-3 md:mt-4 pr-4 md:pr-8">{answer}</p>
         </Accordion>
     );
 };

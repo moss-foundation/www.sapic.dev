@@ -1,25 +1,34 @@
-import { LayoutContainer } from "@/components"
 import HeroSection from "./sections/HeroSection";
 import FeaturesSection from "./sections/FeaturesSection";
 
 import UseCasesSection from "./sections/UseCasesSection";
 import ForDevelopersSection from "./sections/ForDevelopersSection";
 import FaqSection from "./sections/FaqSection";
-import Banner from "@/components/Banner";
+import Line from "@/components/Line";
+import JoinCommunitySection from "./sections/JoinCommunitySection";
+import CallToActionSection from "./sections/CallToAction";
+import HowDoesThisWorkSection from "./sections/HowDoesThisWorkSection";
+
 
 
 const HomePage = () => {
     return (
-        <div className="min-h-screen flex flex-col gap-40">
+        <div className="min-h-screen flex flex-col gap-10 mb-16 lg:mb-32">
             <HeroSection />
+            <Line />
+            <HowDoesThisWorkSection />
+            <Line />
             <FeaturesSection />
-            {/* <IntegrationsSection /> */}
+            <Line />
             <UseCasesSection />
-            <LayoutContainer>
-                <ForDevelopersSection />
-                <Banner />
-                <FaqSection />
-            </LayoutContainer>
+            <Line />
+            <JoinCommunitySection />
+            <Line />
+            <ForDevelopersSection />
+            <Line />
+            <FaqSection />
+            <Line />
+            <CallToActionSection />
         </div>
     );
 };

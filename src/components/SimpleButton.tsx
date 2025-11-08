@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type SimpleButtonVariant = "primary" | "default" | "ghost";
-type SimpleButtonSize = "small" | "medium";
+type SimpleButtonSize = "small" | "medium" | "large";
 
 interface SimpleButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: SimpleButtonVariant;
@@ -17,17 +17,18 @@ const SimpleButton = ({
     ...props
 }: SimpleButtonProps) => {
     const baseStyles =
-        "rounded-lg transition-all duration-500 disabled:cursor-not-allowed cursor-pointer";
+        "transition-all duration-500 disabled:cursor-not-allowed cursor-pointer";
 
     const variantStyles: Record<SimpleButtonVariant, string> = {
-        primary: "bg-blue-4 text-white hover:opacity-80",
-        default: "bg-gray-100 text-gray-1 hover:bg-gray-200",
-        ghost: "bg-transparent text-gray-6 hover:bg-gray-100",
+        primary: "bg-blue-4 text-white hover:opacity-80 border border-blue-3",
+        default: "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 border border-neutral-200",
+        ghost: "bg-transparent text-neutral-600 border border-transparent hover:border-neutral-200 hover:text-neutral-900",
     };
 
     const sizeStyles: Record<SimpleButtonSize, string> = {
-        small: "px-3 py-1.5 text-sm",
-        medium: "px-6 py-2.5 text-sm",
+        small: "px-3 py-1.5 text-sm rounded-lg",
+        medium: "px-4 py-2 text-sm rounded-lg",
+        large: "px-5 py-2 lg:py-2 text-base rounded-lg",
     };
 
     const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;

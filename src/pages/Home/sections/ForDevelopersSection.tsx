@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState, useRef } from "react";
+import LayoutContainer from "@/components/LayoutContainer";
+import FadeInElement from "@/components/FadeInElement";
 
 import awsLogo from "@assets/images/aws_logo.png";
 import azureLogo from "@assets/images/azure_logo.png";
@@ -137,94 +139,198 @@ const ForDevelopersSection = () => {
     }
 
     return (
-        <section className="bg-white">
-            <div className="flex flex-col items-start py-10 mx-auto">
-                <h2 className="text-6xl font-serif font-medium w-3/5">Everything your team needs and more</h2>
-                <p className="text-pretty text-sm leading-relaxed text-gray-500 mt-6 max-w-2xl ">
-                    Never update a spreadsheet again. Change feedback status → roadmap reflects it instantly. Show users what's coming and keep them engaged.
-                </p>
-            </div>
+        <LayoutContainer>
+            <FadeInElement>
+                <div className="flex flex-col items-start mx-auto">
+                    <h2 className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900">Everything your team needs and more</h2>
+                    <p className="mt-4 md:mt-6 max-w-full md:max-w-2xl text-pretty text-sm md:text-base leading-relaxed text-neutral-600">
+                        When users take time to share feedback, they're invested in your success.
+                        <span className="font-medium text-neutral-900">
+                            When you show them you're listening—really listening—they become your biggest champions.
+                        </span>
+                        That's not just good product management. That's good business.
+                    </p>
+                </div>
+            </FadeInElement>
 
-            <div className="max-w-7xl mx-auto">
-                <div className="flex gap-4 border-b border-gray-200">
-                    {brandCards.map((brand, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handleTabClick(index)}
-                            className="relative pb-2.5 transition-colors"
-                        >
-                            <div className={`flex flex-row items-center justify-center gap-2.5 px-2 py-1 rounded-md transition-all duration-300 ${currentIndex === index
-                                ? "text-gray-900 bg-gray-100 rounded-md"
-                                : "text-gray-500 hover:text-gray-600"
-                                }`}>
-                                <img
-                                    src={brand.frontCard.imgSrc}
-                                    alt={brand.frontCard.title}
-                                    className="size-5 object-contain flex-shrink-0"
-                                />
-                                <span
-                                    className={`text-sm transition-colors cursor-pointer ${currentIndex === index
-                                        ? "text-gray-900"
-                                        : "text-gray-500 hover:text-gray-600"
-                                        }`}
+            {/* Desktop Version - Horizontal Tabs */}
+            <div className="hidden md:block">
+                <FadeInElement delay={0.1}>
+                    <div className="max-w-full lg:max-w-7xl mx-auto mt-10 md:mt-14">
+                        <div className="flex flex-row gap-4 border-b border-neutral-200">
+                            {brandCards.map((brand, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleTabClick(index)}
+                                    className="relative pb-2.5 transition-colors"
                                 >
-                                    {brand.frontCard.title}
-                                </span>
-                            </div>
-
-                            {currentIndex === index && (
-                                <motion.div
-                                    className="absolute bottom-0 left-0 h-0.5 bg-blue-4"
-                                    initial={{ width: "0%" }}
-                                    animate={{ width: `${progress}%` }}
-                                    transition={{ duration: 0.05, ease: "linear" }}
-                                />
-                            )}
-                        </button>
-                    ))}
-                </div>
-            </div>
-
-            <div className="max-w-7xl mx-auto my-10">
-                <div className="w-full">
-                    <div className="grid grid-cols-5 gap-x-14 gap-y-14">
-                        {cards.slice(0, maxCards).map((card, index) => (
-                            <div key={`container-${index}`} className="relative overflow-hidden h-[100px]">
-                                <AnimatePresence initial={false}>
-                                    {card && (
-                                        <motion.div
-                                            key={`${changeCounter}-${card.product}`}
-                                            initial={{ y: "150%", opacity: 0 }}
-                                            animate={{ y: "0%", opacity: 1 }}
-                                            exit={{ y: "-150%", opacity: 0 }}
-                                            transition={{
-                                                duration: 1.2,
-                                                delay: index * 0.16,
-                                                ease: [0.25, 0.1, 0.25, 1]
-                                            }}
-                                            className="flex flex-row items-center gap-5 absolute inset-0"
+                                    <div className={`flex flex-row items-center justify-center gap-2.5 px-2 py-1 rounded-md transition-all duration-300 ${currentIndex === index
+                                        ? "text-neutral-900 bg-neutral-100 rounded-md"
+                                        : "text-neutral-500 hover:text-neutral-600"
+                                        }`}>
+                                        <img
+                                            src={brand.frontCard.imgSrc}
+                                            alt={brand.frontCard.title}
+                                            className="size-5 object-contain flex-shrink-0"
+                                        />
+                                        <span
+                                            className={`text-sm transition-colors cursor-pointer ${currentIndex === index
+                                                ? "text-neutral-900"
+                                                : "text-neutral-500 hover:text-neutral-600"
+                                                }`}
                                         >
-                                            <img
-                                                src={card.imgSrc}
-                                                alt={`${card.brand} ${card.product}`}
-                                                className="size-12 object-contain flex-shrink-0"
-                                            />
-                                            <div className="flex flex-col items-start gap-0.5">
-                                                <p className="text-sm text-gray-500">{card.brand}</p>
-                                                <p className="text-xl text-black font-semibold">
-                                                    {card.product}
-                                                </p>
-                                            </div>
+                                            {brand.frontCard.title}
+                                        </span>
+                                    </div>
 
-                                        </motion.div>
+                                    {currentIndex === index && (
+                                        <motion.div
+                                            className="absolute bottom-0 left-0 h-0.5 bg-blue-4"
+                                            initial={{ width: "0%" }}
+                                            animate={{ width: `${progress}%` }}
+                                            transition={{ duration: 0.05, ease: "linear" }}
+                                        />
                                     )}
-                                </AnimatePresence>
-                            </div>
-                        ))}
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                </FadeInElement>
+
+                <FadeInElement delay={0.2}>
+                    <div className="max-w-full lg:max-w-7xl mx-auto my-6">
+                        <div className="w-full">
+                            <div className="grid grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-12 lg:gap-x-10 lg:gap-y-14">
+                                {cards.slice(0, maxCards).map((card, index) => (
+                                    <div key={`container-${index}`} className="relative overflow-hidden h-[90px] lg:h-[100px]">
+                                        <AnimatePresence initial={false}>
+                                            {card && (
+                                                <motion.div
+                                                    key={`${changeCounter}-${card.product}`}
+                                                    initial={{ y: "150%", opacity: 0 }}
+                                                    animate={{ y: "0%", opacity: 1 }}
+                                                    exit={{ y: "-150%", opacity: 0 }}
+                                                    transition={{
+                                                        duration: 1.2,
+                                                        delay: index * 0.16,
+                                                        ease: [0.25, 0.1, 0.25, 1]
+                                                    }}
+                                                    className="flex flex-row items-center gap-4 lg:gap-5 absolute inset-0"
+                                                >
+                                                    <img
+                                                        src={card.imgSrc}
+                                                        alt={`${card.brand} ${card.product}`}
+                                                        className="size-9 lg:size-10 object-contain flex-shrink-0"
+                                                    />
+                                                    <div className="flex flex-col items-start gap-0.5">
+                                                        <p className="text-sm text-neutral-500">{card.brand}</p>
+                                                        <p className="text-lg lg:text-xl text-black font-semibold">
+                                                            {card.product}
+                                                        </p>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </FadeInElement>
             </div>
-        </section>
+
+            {/* Mobile Version - Vertical Tabs */}
+            <div className="md:hidden">
+                <FadeInElement delay={0.1}>
+                    <div className="mt-10">
+                        <div className="flex flex-col gap-2">
+                            {brandCards.map((brand, index) => (
+                                <div key={index} className="flex flex-row gap-[5px] items-stretch">
+                                    <div className="w-1 flex-shrink-0 relative self-stretch">
+                                        {currentIndex === index && (
+                                            <motion.div
+                                                className="absolute top-0 left-0 right-0 rounded-full bg-blue-4 origin-top"
+                                                initial={{ scaleY: 0 }}
+                                                animate={{ scaleY: progress / 100 }}
+                                                style={{ height: '100%' }}
+                                                transition={{ duration: 0.05, ease: "linear" }}
+                                            />
+                                        )}
+                                    </div>
+                                    <button
+                                        onClick={() => handleTabClick(index)}
+                                        className="flex-1 transition-colors"
+                                    >
+                                        <div className={`flex flex-row items-center gap-2.5 px-3 py-1 rounded-md transition-all duration-300 ${currentIndex === index
+                                            ? "text-neutral-900 bg-neutral-100 rounded-md"
+                                            : "text-neutral-500 hover:text-neutral-600"
+                                            }`}>
+                                            <img
+                                                src={brand.frontCard.imgSrc}
+                                                alt={brand.frontCard.title}
+                                                className="size-6 object-contain flex-shrink-0"
+                                            />
+                                            <span
+                                                className={`text-base transition-colors cursor-pointer ${currentIndex === index
+                                                    ? "text-neutral-900"
+                                                    : "text-neutral-500 hover:text-neutral-600"
+                                                    }`}
+                                            >
+                                                {brand.frontCard.title}
+                                            </span>
+                                        </div>
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Horizontal line - Mobile only */}
+                    <hr className="my-6 border-t border-gray-100" />
+                </FadeInElement>
+
+                <FadeInElement delay={0.2}>
+                    <div className="my-4">
+                        <div className="w-full">
+                            <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+                                {cards.slice(0, maxCards).map((card, index) => (
+                                    <div key={`container-${index}`} className="relative overflow-hidden h-[80px]">
+                                        <AnimatePresence initial={false}>
+                                            {card && (
+                                                <motion.div
+                                                    key={`${changeCounter}-${card.product}`}
+                                                    initial={{ y: "150%", opacity: 0 }}
+                                                    animate={{ y: "0%", opacity: 1 }}
+                                                    exit={{ y: "-150%", opacity: 0 }}
+                                                    transition={{
+                                                        duration: 1.2,
+                                                        delay: index * 0.16,
+                                                        ease: [0.25, 0.1, 0.25, 1]
+                                                    }}
+                                                    className="flex flex-row items-center gap-3 absolute inset-0"
+                                                >
+                                                    <img
+                                                        src={card.imgSrc}
+                                                        alt={`${card.brand} ${card.product}`}
+                                                        className="size-8 object-contain flex-shrink-0"
+                                                    />
+                                                    <div className="flex flex-col items-start gap-0.5">
+                                                        <p className="text-sm text-neutral-500">{card.brand}</p>
+                                                        <p className="text-lg text-black font-semibold">
+                                                            {card.product}
+                                                        </p>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </FadeInElement>
+            </div>
+        </LayoutContainer>
     );
 };
 
