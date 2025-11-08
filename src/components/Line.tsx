@@ -1,6 +1,15 @@
-const Line = () => {
+import LayoutContainer from "./LayoutContainer";
+
+interface LineProps {
+    className?: string;
+}
+
+const Line = ({ className }: LineProps) => {
     return (
-        <div className="Line relative w-full h-px border-t border-dashed border-[var(--default-border-color)]"></div>
+        <LayoutContainer>
+            <hr className={className || "my-12 lg:my-20 border-t border-gray-100"} />
+        </LayoutContainer>
+
     );
 };
 

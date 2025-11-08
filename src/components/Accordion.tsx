@@ -6,21 +6,22 @@ interface AccordionProps {
     title: string;
     children: React.ReactNode;
     className?: string;
+    defaultOpen?: boolean;
 }
 
-export const Accordion = ({ title, children, className }: AccordionProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+export const Accordion = ({ title, children, className, defaultOpen = false }: AccordionProps) => {
+    const [isOpen, setIsOpen] = useState(defaultOpen);
 
     return (
         <button className={`w-full cursor-pointer ${className}`} onClick={() => setIsOpen(!isOpen)}>
-            <div className="flex items-center w-full justify-between  ">
-                <h3 className="text-lg font-medium">{title}</h3>
-                <ArrowHeadBottom className={`${isOpen ? "-rotate-180" : ""} transition`} />
+            <div className="flex items-center w-full justify-between gap-4">
+                <p className="text-base md:text-lg font-medium text-left">{title}</p>
+                <ArrowHeadBottom className={`${isOpen ? "-rotate-180" : ""} transition flex-shrink-0`} />
             </div>
 
             <AnimatePresence>
                 {isOpen && (
-                    <motion.p
+                    <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
@@ -28,7 +29,7 @@ export const Accordion = ({ title, children, className }: AccordionProps) => {
                         className="overflow-hidden text-left"
                     >
                         {children}
-                    </motion.p>
+                    </motion.div>
                 )}
             </AnimatePresence>
         </button>

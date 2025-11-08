@@ -12,7 +12,7 @@ export const ArrowHeadBottom = ({ ...props }: SVGProps<SVGSVGElement>) => {
         >
             <path
                 d="M14.375 7.8125L10 12.1875L5.625 7.8125"
-                stroke="#3574F0"
+                stroke="#A3A3A3"
                 strokeWidth="1.5"
                 strokeLinecap="round"
             />

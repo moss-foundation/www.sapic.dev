@@ -1,54 +1,33 @@
-import { DividerLine, LayoutContainer } from "@/components";
-
-import logoBlack from "@assets/images/logo_black.svg";
-
+import { LayoutContainer } from "@/components";
 
 const Footer = () => {
     return (
-        <footer className="relative bg-[#eeefe9]/50 before:absolute before:inset-0 before:opacity-5 before:bg-[url(@assets/images/noise.png)] before:bg-[length:200px_200px] before:bg-repeat before:mix-blend-multiply before:pointer-events-none">
-            <DividerLine />
-            <LayoutContainer>
-                <div className="relative border-l border-r border-dashed border-[var(--default-border-color)]">
-                    <div className="flex flex-row gap-x-10 border-b border-[var(--default-border-color)] border-dashed px-5 py-2.5">
-                        <div className="w-1/3 flex flex-col gap-1.5 divide-[var(--default-border-color)]">
-                            <div className="flex flex-row items-center gap-2">
-                                <img src={logoBlack} alt="Sapic" className="size-6.5" />
-                                <p className="text-lg text-black font-mono font-medium">Sapic</p>
-                            </div>
-                            <p className="text-[var(--default-primary-text-color)] text-xs">
-                                One AI-native console for every backend resource.
+        <LayoutContainer>
+            <footer className="w-full py-6 md:py-8 border-t border-gray-200">
+                <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between">
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-6 order-1 md:order-2 pb-10 pt-6 md:pb-0 md:pt-0 w-full md:w-auto">
+                        <a href="#">
+                            <p className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
+                                Terms of Use
                             </p>
-                        </div>
-
-                        <div className="w-2/3 flex flex-col items-end justify-end gap-2">
-                            <p className="text-gray-3 text-sm font-medium font-mono">
-                                hello@sapic.dev
+                        </a>
+                        <a href="#">
+                            <p className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
+                                Privacy Policy
                             </p>
-                        </div>
+                        </a>
                     </div>
 
-                    <div className="flex flex-row items-center justify-between py-2.5 px-5">
-                        <nav className="flex flex-row items-center gap-5 w-3/4">
-                            <a href="#">
-                                <p className="text-gray-3 text-xs">
-                                    Terms of Use
-                                </p>
-                            </a>
-                            <a href="#">
-                                <p className="text-gray-3 text-xs">
-                                    Privacy Policy
-                                </p>
-                            </a>
-                        </nav>
-                        <div className="flex flex-row items-center justify-end gap-2 w-1/4">
-                            <p className="text-gray-3 text-xs">
-                                © {new Date().getFullYear()} Sapic AS. All rights reserved.
-                            </p>
-                        </div>
-                    </div>
+                    <hr className="w-full border-t border-gray-200 md:hidden order-2" />
+
+                    <p className="text-neutral-600 text-xs md:text-sm order-3 md:order-1 pt-4 md:pt-0">
+                        © {new Date().getFullYear()} Sapic AS. All rights reserved.
+                    </p>
                 </div>
-            </LayoutContainer>
-        </footer>
+
+            </footer>
+        </LayoutContainer>
+
     )
 }
 
