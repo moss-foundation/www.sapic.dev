@@ -21,7 +21,7 @@ const SimpleButton = ({
 
     const variantStyles: Record<SimpleButtonVariant, string> = {
         primary: "bg-blue-4 text-white hover:opacity-80 border border-blue-3",
-        default: "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 border border-neutral-200",
+        default: "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 border border-neutral-200 hover:border-neutral-300",
         ghost: "bg-transparent text-neutral-600 border border-transparent hover:border-neutral-200 hover:text-neutral-900",
     };
 

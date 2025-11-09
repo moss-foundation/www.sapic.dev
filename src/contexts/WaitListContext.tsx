@@ -19,3 +19,4 @@ export const WaitListProvider = ({ children }: WaitListProviderProps) => {
     );
 };
 
+

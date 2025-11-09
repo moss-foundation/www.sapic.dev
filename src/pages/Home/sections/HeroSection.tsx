@@ -283,16 +283,20 @@ const HeroSection = () => {
                                 </div>
 
                                 <motion.div
-                                    className="border rounded-xl md:rounded-2xl p-0.5 md:p-1 border-neutral-200 mt-6"
+                                    className="relative rounded-xl md:rounded-2xl p-0.5 md:p-1 mt-6 overflow-hidden"
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 1.3, ease: "easeOut" }}
                                 >
-                                    <img
-                                        src={screen}
-                                        alt="Sapic Console Screenshot"
-                                        className="w-full h-auto rounded-lg md:rounded-xl border border-neutral-100"
-                                    />
+                                    <div className="relative z-10 pt-20 px-10 rounded-xl bg-neutral-100">
+                                        <img
+                                            src={screen}
+                                            alt="Sapic Console Screenshot"
+                                            className="w-full h-auto rounded-lg md:rounded-xl border-8 border-neutral-200/50"
+                                        />
+                                    </div>
+
+                                    <div className="absolute bottom-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-20 pointer-events-none rounded-b-lg md:rounded-b-xl" />
                                 </motion.div>
 
                             </motion.div>
