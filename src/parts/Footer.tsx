@@ -10,11 +10,9 @@ const Footer = () => {
                         <Link to="/terms-of-use" className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
                             Terms of Use
                         </Link>
-                        <a href="#">
-                            <p className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
-                                Privacy Policy
-                            </p>
-                        </a>
+                        <Link to="/privacy-policy" className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
+                            Privacy Policy
+                        </Link>
                     </div>
 
                     <hr className="w-full border-t border-gray-200 md:hidden order-2" />

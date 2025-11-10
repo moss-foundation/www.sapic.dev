@@ -2,6 +2,7 @@ import { FAQPage } from "@/pages/FAQ/FAQPage";
 import { FeaturesPage } from "@/pages/Features/FeaturesPage";
 import { UseCasesPage } from "@/pages/UseCases/UseCasesPage";
 import { TermsOfUsePage } from "@/pages/TermsOfUse/TermsOfUsePage";
+import { PrivacyPolicyPage } from "@/pages/PrivacyPolicy/PrivacyPolicyPage";
 import Footer from "@/parts/Footer";
 import HomePage from "@pages/Home";
 import Header from "@parts/Header";
@@ -49,7 +50,13 @@ const termsOfUseRoute = createRoute({
     component: TermsOfUsePage,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, featuresRoute, useCasesRoute, faqRoute, termsOfUseRoute]);
+const privacyPolicyRoute = createRoute({
+    getParentRoute: () => rootRoute,
+    path: "/privacy-policy",
+    component: PrivacyPolicyPage,
+});
+
+const routeTree = rootRoute.addChildren([indexRoute, featuresRoute, useCasesRoute, faqRoute, termsOfUseRoute, privacyPolicyRoute]);
 export const router = createRouter({ routeTree });
 
 declare module "@tanstack/react-router" {
