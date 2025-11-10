@@ -10,43 +10,43 @@ import googleLogo from "@assets/images/google_cloud_logo.png";
 // TODO: replace with actual icons
 const GeneralIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
 );
 
 const GRPCIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
 );
 
 const WebSocketIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-        <path d="M8 12L12 8L16 12L12 16L8 12Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M8 12L12 8L16 12L12 16L8 12Z" stroke="currentColor" strokeWidth="2" fill="none" />
     </svg>
 );
 
 const GraphQLIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
     </svg>
 );
 
 const HTTPIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 7H8M6 5V9M14 7H18M16 5V9M4 17H8M6 15V19M14 17H18M16 15V19M10 7H14M12 5V9M10 17H14M12 15V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M4 7H8M6 5V9M14 7H18M16 5V9M4 17H8M6 15V19M14 17H18M16 15V19M10 7H14M12 5V9M10 17H14M12 15V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
 );
 
 const RESTIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-        <path d="M8 8H16M8 12H16M8 16H12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M8 8H16M8 12H16M8 16H12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
 );
 
@@ -203,22 +203,13 @@ const ForDevelopersSection = () => {
     return (
         <LayoutContainer>
             <FadeInElement>
-                <div className="flex flex-col items-start mx-auto">
-                    <h2 className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900">Everything your team needs and more</h2>
-                    <div className="mt-4 md:mt-6 max-w-full md:max-w-2xl space-y-4">
-                        <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
-                            Modern backends span dozens of services — APIs, queues, storage, and event streams — each with its own console and quirks. <span className="font-medium text-neutral-900">Sapic unifies them all</span> into one Git-native workspace where developers can design, test, and manage resources without switching tools.
-                        </p>
-                        <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
-                            Whether your team works on <span className="font-medium text-neutral-900">AWS, Google Cloud, or Azure</span>, Sapic automatically maps services, keeps contracts in sync, and gives you full visibility across environments.
-                        </p>
-                        <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
-                            Run integration tests, mock any resource, enforce policies, and observe data flow — <span className="font-medium text-neutral-900">all from a single desktop app</span> built for real engineering speed and reliability.
-                        </p>
-                        <p className="text-pretty text-sm md:text-base leading-normal font-medium text-neutral-900 mt-6">
-                            One console. Every service. Full control.
-                        </p>
-                    </div>
+                <div className="flex flex-col items-start gap-y-1.5 mb-6 md:mb-8 lg:mb-12">
+                    <h2 className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900">
+                        Everything your team needs and more
+                    </h2>
+                    <p className="mt-4 md:mt-5 lg:mt-6 max-w-full md:max-w-2xl text-pretty text-sm md:text-base leading-relaxed text-neutral-600">
+                        Backends aren't one thing anymore - they're dozens of moving parts. <span className="font-medium text-neutral-900">Our console unifies them into a single, AI-native hub where you can explore, change, and ship with confidence.</span>
+                    </p>
                 </div>
             </FadeInElement>
 
@@ -233,23 +224,23 @@ const ForDevelopersSection = () => {
                                     onClick={() => handleTabClick(index)}
                                     className="relative pb-2.5 transition-colors"
                                 >
-                                    <div className={`flex flex-row items-center justify-center gap-2.5 px-2 py-1 rounded-md transition-all duration-300 ${currentIndex === index
+                                    <div className={`group flex flex-row items-center cursor-pointer gap-2.5 px-3 py-1.5 rounded-md transition-all duration-300 ${currentIndex === index
                                         ? "text-neutral-900 bg-neutral-100 rounded-md"
-                                        : "text-neutral-500 hover:text-neutral-600"
+                                        : "text-neutral-500 hover:bg-neutral-100"
                                         }`}>
                                         {brand.frontCard.iconComponent ? (
-                                            <brand.frontCard.iconComponent className="size-5 flex-shrink-0" />
+                                            <brand.frontCard.iconComponent className={`size-5 flex-shrink-0 transition-colors ${currentIndex === index ? "" : "group-hover:text-neutral-900"}`} />
                                         ) : (
                                             <img
                                                 src={brand.frontCard.imgSrc}
                                                 alt={brand.frontCard.title}
-                                                className="size-5 object-contain flex-shrink-0"
+                                                className="size-6 object-contain flex-shrink-0"
                                             />
                                         )}
                                         <span
-                                            className={`text-sm transition-colors cursor-pointer ${currentIndex === index
+                                            className={`text-base transition-colors  ${currentIndex === index
                                                 ? "text-neutral-900"
-                                                : "text-neutral-500 hover:text-neutral-600"
+                                                : "text-neutral-500 group-hover:text-neutral-900"
                                                 }`}
                                         >
                                             {brand.frontCard.title}
