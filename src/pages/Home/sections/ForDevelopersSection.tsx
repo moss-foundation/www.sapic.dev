@@ -143,13 +143,20 @@ const ForDevelopersSection = () => {
             <FadeInElement>
                 <div className="flex flex-col items-start mx-auto">
                     <h2 className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900">Everything your team needs and more</h2>
-                    <p className="mt-4 md:mt-6 max-w-full md:max-w-2xl text-pretty text-sm md:text-base leading-relaxed text-neutral-600">
-                        When users take time to share feedback, they're invested in your success.
-                        <span className="font-medium text-neutral-900">
-                            When you show them you're listening—really listening—they become your biggest champions.
-                        </span>
-                        That's not just good product management. That's good business.
-                    </p>
+                    <div className="mt-4 md:mt-6 max-w-full md:max-w-2xl space-y-4">
+                        <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
+                            Modern backends span dozens of services — APIs, queues, storage, and event streams — each with its own console and quirks. <span className="font-medium text-neutral-900">Sapic unifies them all</span> into one Git-native workspace where developers can design, test, and manage resources without switching tools.
+                        </p>
+                        <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
+                            Whether your team works on <span className="font-medium text-neutral-900">AWS, Google Cloud, or Azure</span>, Sapic automatically maps services, keeps contracts in sync, and gives you full visibility across environments.
+                        </p>
+                        <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
+                            Run integration tests, mock any resource, enforce policies, and observe data flow — <span className="font-medium text-neutral-900">all from a single desktop app</span> built for real engineering speed and reliability.
+                        </p>
+                        <p className="text-pretty text-sm md:text-base leading-normal font-medium text-neutral-900 mt-6">
+                            One console. Every service. Full control.
+                        </p>
+                    </div>
                 </div>
             </FadeInElement>
 
