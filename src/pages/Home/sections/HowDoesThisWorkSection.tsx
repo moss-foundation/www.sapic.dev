@@ -8,6 +8,10 @@ interface Tab {
     subLabel?: string;
     icon: React.ReactNode;
     iconColor: string;
+    title: string;
+    description: string;
+    bulletPoints: string[];
+    outcome: string;
 }
 
 const tabs: Tab[] = [
@@ -16,19 +20,24 @@ const tabs: Tab[] = [
         label: 'Connect',
         subLabel: '(Optional)',
         iconColor: 'text-pink-600',
+        title: 'Ingest Your Specifications and Cloud Resources',
+        description: 'The foundation of Sapic is a single, reliable source of truth for your entire system.',
+        bulletPoints: [
+            'Connect Your Git Repos: Link GitHub, GitLab, or other providers. Sapic is Git-native, so your workflows and versions are always in sync.',
+            'Import Your Contracts: Automatically ingest your API specifications (OpenAPI, GraphQL, AsyncAPI, Protobuf) to create the blueprint of your system.',
+            'Discover Cloud Resources: Sapic connects to your AWS, Azure, or GCP accounts to automatically discover and map your serverless functions, queues, databases, and other resources.',
+        ],
+        outcome: 'A living, visual map of your backend architecture, so you finally have a clear view of all connections and dependencies.',
         icon: (
             <svg className="size-5" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                 <g fill="currentColor">
-                    <path
-                        d="M5.02539 6.32811C4.63105 5.60571 4.66304 4.72608 5.10742 4.03417L5.44113 3.5147L5.02539 2.9711C3.36745 3.91845 2.25 5.70379 2.25 7.74999C2.25 10.7875 4.7125 13.25 7.75 13.25C10.7875 13.25 13.25 10.7875 13.25 7.74999L12.5524 6.49602L10.6426 9.46678C10.0737 10.3513 8.97349 10.7185 7.99707 10.3711L7.80371 10.292C6.78185 9.81838 6.27115 8.66359 6.59863 7.59178L6.63574 7.46874C6.00824 7.36578 5.44893 7.00211 5.10352 6.46092L5.02539 6.32811Z"
-                        fill="currentColor" fillOpacity="0.3" stroke="none"></path>
-                    <path d="M15.75 15.75L11.6386 11.6386" fill="none" stroke="currentColor" strokeLinecap="round"
-                        strokeLinejoin="round" strokeWidth="1"></path>
-                    <path
-                        d="M4.8121 3.10599C3.274 4.08109 2.25 5.79419 2.25 7.74999C2.25 10.7876 4.7125 13.25 7.75 13.25C10.7875 13.25 13.25 10.7876 13.25 7.74999C13.25 7.46289 13.2213 7.18309 13.1789 6.90799"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path d="M9.66701 5.25H7L9.25 1.75L8.33299 4.75H11L8.75 8.25L9.66701 5.25Z" fill="currentColor"
-                        stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
+                    <rect x="2" y="6" width="4" height="6" rx="1" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <rect x="2" y="6" width="4" height="6" rx="1" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <rect x="12" y="6" width="4" height="6" rx="1" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <rect x="12" y="6" width="4" height="6" rx="1" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M6 9H12" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <circle cx="4" cy="9" r="0.75" fill="currentColor" stroke="none"/>
+                    <circle cx="14" cy="9" r="0.75" fill="currentColor" stroke="none"/>
                 </g>
             </svg>
         ),
@@ -37,31 +46,20 @@ const tabs: Tab[] = [
         id: 'design',
         label: 'Design & Create',
         iconColor: 'text-red-600',
+        title: 'Design with AI and Generate Your Assets',
+        description: 'Transform your specifications into a fully functional backend environment in minutes, not days.',
+        bulletPoints: [
+            'AI-Powered Scaffolding: Describe your intent in plain English. Our built-in AI agent helps you design new API endpoints, data models, and workflows.',
+            'One-Click Advanced Mocks: Instantly generate a full mock server from your API contracts. Switch between mock and real backend with a single click for seamless development and testing.',
+            'Generate Integration Tests: Automatically create robust integration tests that cover the entire flow of a request across multiple services and cloud resources.',
+        ],
+        outcome: 'Drastically reduce manual coding and setup time. Move from design to a testable environment instantly.',
         icon: (
             <svg className="size-5" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                 <g fill="currentColor">
-                    <path
-                        d="M13.25 6.75H4.75C4.19772 6.75 3.75 7.19772 3.75 7.75V12.25C3.75 12.8023 4.19772 13.25 4.75 13.25H13.25C13.8023 13.25 14.25 12.8023 14.25 12.25V7.75C14.25 7.19772 13.8023 6.75 13.25 6.75Z"
-                        fill="currentColor" fillOpacity="0.3" stroke="none"></path>
-                    <path d="M5.75 6.75V4C5.75 2.205 7.205 0.75 9 0.75C10.795 0.75 12.25 2.205 12.25 4V6.75" fill="none"
-                        stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path
-                        d="M13.25 6.75H4.75C4.19772 6.75 3.75 7.19772 3.75 7.75V12.25C3.75 12.8023 4.19772 13.25 4.75 13.25H13.25C13.8023 13.25 14.25 12.8023 14.25 12.25V7.75C14.25 7.19772 13.8023 6.75 13.25 6.75Z"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path
-                        d="M2.25 18C2.94036 18 3.5 17.4404 3.5 16.75C3.5 16.0596 2.94036 15.5 2.25 15.5C1.55964 15.5 1 16.0596 1 16.75C1 17.4404 1.55964 18 2.25 18Z"
-                        fill="currentColor" stroke="none"></path>
-                    <path
-                        d="M6.75 18C7.44036 18 8 17.4404 8 16.75C8 16.0596 7.44036 15.5 6.75 15.5C6.05964 15.5 5.5 16.0596 5.5 16.75C5.5 17.4404 6.05964 18 6.75 18Z"
-                        fill="currentColor" stroke="none"></path>
-                    <path
-                        d="M11.25 18C11.9404 18 12.5 17.4404 12.5 16.75C12.5 16.0596 11.9404 15.5 11.25 15.5C10.5596 15.5 10 16.0596 10 16.75C10 17.4404 10.5596 18 11.25 18Z"
-                        fill="currentColor" stroke="none"></path>
-                    <path
-                        d="M15.75 18C16.4404 18 17 17.4404 17 16.75C17 16.0596 16.4404 15.5 15.75 15.5C15.0596 15.5 14.5 16.0596 14.5 16.75C14.5 17.4404 15.0596 18 15.75 18Z"
-                        fill="currentColor" stroke="none"></path>
-                    <path d="M9 9.5V10.5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
-                        strokeWidth="1"></path>
+                    <path d="M9 2L10.5 6.5L15 8L10.5 9.5L9 14L7.5 9.5L3 8L7.5 6.5L9 2Z" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <path d="M9 2L10.5 6.5L15 8L10.5 9.5L9 14L7.5 9.5L3 8L7.5 6.5L9 2Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <circle cx="9" cy="8" r="1.5" fill="currentColor" stroke="none"/>
                 </g>
             </svg>
         ),
@@ -70,23 +68,25 @@ const tabs: Tab[] = [
         id: 'collaborate',
         label: 'Collaborate',
         iconColor: 'text-green-600',
+        title: 'Build and Validate as a Team',
+        description: 'Sapic creates a unified workspace where your team can build confidence together.',
+        bulletPoints: [
+            'Shared Workspaces & Environments: Create isolated environments (dev, staging) that your entire team can access with one click. Onboard new members in days, not weeks.',
+            'Contract-Driven Collaboration: Use your API specs as contracts between frontend and backend teams. Everyone works against the same definitive interface.',
+            'Real-Time Visibility: See what your teammates are building and testing. Comment and review workflows directly in the context of the resources.',
+        ],
+        outcome: 'Eliminate "it works on my machine" syndrome. Foster collaboration and speed up development cycles.',
         icon: (
             <svg className="size-5" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                 <g fill="currentColor">
-                    <path
-                        d="M1.75 11.25C1.75 10.6977 2.19772 10.25 2.75 10.25H9V15.25H2.75C2.19772 15.25 1.75 14.8023 1.75 14.25V11.25Z"
-                        fill="currentColor" fillOpacity="0.3" stroke="none"></path>
-                    <path
-                        d="M9.48497 6.975L11.455 3.598C11.673 3.224 11.403 2.754 10.97 2.754H7.02997C6.59697 2.754 6.32697 3.224 6.54497 3.598L8.51497 6.975C8.73197 7.346 9.26797 7.346 9.48497 6.975Z"
-                        fill="currentColor" fillOpacity="0.3" stroke="none"></path>
-                    <path d="M9 10.25V15" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"
-                        strokeWidth="1"></path>
-                    <path
-                        d="M15.25 10.25H2.75C2.19772 10.25 1.75 10.6977 1.75 11.25V14.25C1.75 14.8023 2.19772 15.25 2.75 15.25H15.25C15.8023 15.25 16.25 14.8023 16.25 14.25V11.25C16.25 10.6977 15.8023 10.25 15.25 10.25Z"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path
-                        d="M9.48497 6.975L11.455 3.598C11.673 3.224 11.403 2.754 10.97 2.754H7.02997C6.59697 2.754 6.32697 3.224 6.54497 3.598L8.51497 6.975C8.73197 7.346 9.26797 7.346 9.48497 6.975Z"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
+                    <circle cx="5.5" cy="5.5" r="2" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <circle cx="5.5" cy="5.5" r="2" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <circle cx="12.5" cy="5.5" r="2" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <circle cx="12.5" cy="5.5" r="2" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <circle cx="9" cy="12.5" r="2" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <circle cx="9" cy="12.5" r="2" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M7 6.5L8.5 10.5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M11 6.5L9.5 10.5" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
                 </g>
             </svg>
         ),
@@ -95,21 +95,25 @@ const tabs: Tab[] = [
         id: 'plan',
         label: 'Plan & Diff',
         iconColor: 'text-purple-600',
+        title: 'Simulate and Analyze Changes Safely',
+        description: 'Understand the impact of every change before it hits production.',
+        bulletPoints: [
+            'Smart "Plan" Mode: Like Terraform plan, but for your entire application flow. Sapic shows you exactly what will be affected — APIs, functions, data flows — when you apply a change.',
+            'Visual Diffs: See not just code differences, but architecture and contract differences in a clear, visual interface.',
+            'Detect Drift & Anomalies: Get alerted when your running environment drifts from its specified state, preventing configuration errors.',
+        ],
+        outcome: 'Make changes with confidence. Significantly reduce the risk of unexpected breakages and production rollbacks.',
         icon: (
             <svg className="size-5" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                 <g fill="currentColor">
-                    <path d="M7.75 7.75H10.25C10.802 7.75 11.25 8.198 11.25 8.75V15.25H6.75V8.75C6.75 8.198 7.198 7.75 7.75 7.75Z"
-                        fill="currentColor" fillOpacity="0.3" stroke="none"></path>
-                    <path d="M7.75 7.75H10.25C10.802 7.75 11.25 8.198 11.25 8.75V15.25H6.75V8.75C6.75 8.198 7.198 7.75 7.75 7.75Z"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path
-                        d="M3.25 11.75H6.75V15.25H3.25C2.698 15.25 2.25 14.802 2.25 14.25V12.75C2.25 12.198 2.698 11.75 3.25 11.75Z"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path
-                        d="M11.25 10.25H14.75C15.302 10.25 15.75 10.698 15.75 11.25V14.25C15.75 14.802 15.302 15.25 14.75 15.25H11.25V10.25Z"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path d="M9.25 4.75V0.75C9.25 0.75 8.792 1.556 7.819 1.742" fill="none" stroke="currentColor"
-                        strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
+                    <path d="M3 4H8V6H3V4Z" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <path d="M3 4H8V6H3V4Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M3 8H10V10H3V8Z" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <path d="M3 8H10V10H3V8Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M3 12H8V14H3V12Z" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <path d="M3 12H8V14H3V12Z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M12 4L15 7L12 10" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M15 7H11" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
                 </g>
             </svg>
         ),
@@ -118,19 +122,20 @@ const tabs: Tab[] = [
         id: 'apply',
         label: 'Apply',
         iconColor: 'text-blue-600',
+        title: 'Deploy with Confidence and Observe',
+        description: 'Execute your changes and monitor the entire system in one place.',
+        bulletPoints: [
+            'Safe Deployment: Apply your validated changes directly to your target environments (via your existing CI/CD or through Sapic).',
+            'End-to-End Observability: Don\'t just hope it worked. Our console provides live logs, traces, and metrics that are automatically correlated to the specific change you just made.',
+            'Continuous Validation: "Policies as Code" actively validate data and security rules throughout the entire workflow. Telemetry and drift alerts keep you informed in real-time.',
+        ],
+        outcome: 'Slash your Mean Time to Resolution (MTTR) and achieve a low change failure rate. Know the state of your system at all times.',
         icon: (
             <svg className="size-5" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                 <g fill="currentColor">
-                    <path
-                        d="M5.02539 6.32811C4.63105 5.60571 4.66304 4.72608 5.10742 4.03417L5.44113 3.5147L5.02539 2.9711C3.36745 3.91845 2.25 5.70379 2.25 7.74999C2.25 10.7875 4.7125 13.25 7.75 13.25C10.7875 13.25 13.25 10.7875 13.25 7.74999L12.5524 6.49602L10.6426 9.46678C10.0737 10.3513 8.97349 10.7185 7.99707 10.3711L7.80371 10.292C6.78185 9.81838 6.27115 8.66359 6.59863 7.59178L6.63574 7.46874C6.00824 7.36578 5.44893 7.00211 5.10352 6.46092L5.02539 6.32811Z"
-                        fill="currentColor" fillOpacity="0.3" stroke="none"></path>
-                    <path d="M15.75 15.75L11.6386 11.6386" fill="none" stroke="currentColor" strokeLinecap="round"
-                        strokeLinejoin="round" strokeWidth="1"></path>
-                    <path
-                        d="M4.8121 3.10599C3.274 4.08109 2.25 5.79419 2.25 7.74999C2.25 10.7876 4.7125 13.25 7.75 13.25C10.7875 13.25 13.25 10.7876 13.25 7.74999C13.25 7.46289 13.2213 7.18309 13.1789 6.90799"
-                        fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
-                    <path d="M9.66701 5.25H7L9.25 1.75L8.33299 4.75H11L8.75 8.25L9.66701 5.25Z" fill="currentColor"
-                        stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1"></path>
+                    <circle cx="9" cy="9" r="7" fill="currentColor" fillOpacity="0.3" stroke="none"/>
+                    <circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+                    <path d="M7 6L7 12L12 9L7 6Z" fill="currentColor" stroke="none"/>
                 </g>
             </svg>
         ),
@@ -231,14 +236,10 @@ const HowDoesThisWorkSection = () => {
             <FadeInElement>
                 <div className="flex flex-col items-start gap-y-1.5">
                     <h2 className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900">
-                        One tool, <span className="text-blue-4">thousands of use cases</span>
+                        From fragmented scripts to a <span className="text-blue-4">unified workflow</span>
                     </h2>
                     <p className="mt-4 md:mt-6 max-w-full md:max-w-2xl text-pretty text-sm md:text-base leading-relaxed text-neutral-600">
-                        When users take time to share feedback, they're invested in your success.
-                        <span className="font-medium text-neutral-900">
-                            {" "}When you show them you're listening—really listening—they become your biggest champions.
-                        </span>
-                        {" "}That's not just good product management. That's good business.
+                        Stop juggling a dozen tools. Sapic brings your entire backend development process into one intelligent, AI-powered console.
                     </p>
                 </div>
             </FadeInElement>
@@ -267,19 +268,52 @@ const HowDoesThisWorkSection = () => {
             </div>
 
             {/* Tab Content */}
-            <div className="min-h-[400px]">
+            <div className="min-h-[500px]">
                 {tabs.map((tab, index) => (
                     <div
                         key={tab.id}
                         className={`transition-opacity duration-300 ${activeTabIndex === index ? 'opacity-100' : 'opacity-0 hidden'
                             }`}
                     >
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="col-span-2 bg-neutral-50 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
-                                <p className="text-neutral-400 text-lg">Content for tab "{tab.label}"</p>
-                            </div>
-                            <div className="col-span-1 bg-neutral-50 rounded-xl p-8 min-h-[400px] flex items-center justify-center">
-                                <p className="text-neutral-400 text-sm">Additional content</p>
+                        <div className="bg-neutral-50 rounded-xl p-6 md:p-8 lg:p-10">
+                            <div className="space-y-6 md:space-y-8">
+                                <div>
+                                    <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-neutral-900 mb-3 md:mb-4">
+                                        {tab.title}
+                                    </h3>
+                                    <p className="text-sm md:text-base leading-relaxed text-neutral-700">
+                                        {tab.description}
+                                    </p>
+                                </div>
+
+                                <ul className="space-y-4 md:space-y-5">
+                                    {tab.bulletPoints.map((point, pointIndex) => (
+                                        <li key={pointIndex} className="flex items-start gap-3">
+                                            <span className="flex-shrink-0 mt-1.5">
+                                                <svg className="w-5 h-5 text-blue-4" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                                </svg>
+                                            </span>
+                                            <p className="text-sm md:text-base leading-relaxed text-neutral-700 flex-1">
+                                                {point}
+                                            </p>
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <div className="pt-4 md:pt-6 border-t border-neutral-200">
+                                    <div className="flex items-start gap-3">
+                                        <span className="text-blue-4 font-semibold text-lg md:text-xl flex-shrink-0">→</span>
+                                        <div>
+                                            <p className="text-xs md:text-sm font-semibold text-neutral-500 uppercase tracking-wide mb-2">
+                                                The Outcome
+                                            </p>
+                                            <p className="text-sm md:text-base leading-relaxed text-neutral-900 font-medium">
+                                                {tab.outcome}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
