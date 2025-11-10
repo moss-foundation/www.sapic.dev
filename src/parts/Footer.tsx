@@ -1,4 +1,5 @@
 import { LayoutContainer } from "@/components";
+import { Link } from "@tanstack/react-router";
 
 const Footer = () => {
     return (
@@ -6,11 +7,9 @@ const Footer = () => {
             <footer className="w-full py-6 md:py-8 border-t border-gray-200">
                 <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between">
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-6 order-1 md:order-2 pb-10 pt-6 md:pb-0 md:pt-0 w-full md:w-auto">
-                        <a href="#">
-                            <p className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
-                                Terms of Use
-                            </p>
-                        </a>
+                        <Link to="/terms-of-use" className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
+                            Terms of Use
+                        </Link>
                         <a href="#">
                             <p className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors">
                                 Privacy Policy
