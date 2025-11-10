@@ -2,6 +2,7 @@ import LayoutContainer from "@/components/LayoutContainer";
 import SimpleButton from "@/components/SimpleButton";
 import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
+import { GITHUB_ROADMAP_URL } from "@/lib/constants";
 
 const CallToActionSection = () => {
     const { openWaitList: openWaitlist } = useWaitList();
@@ -38,15 +39,19 @@ const CallToActionSection = () => {
                     <div className="mb-8 md:mb-10">
                         <h2
                             className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900">
-                            The future of Sapic <span className="text-blue-4"> depends on you</span>
+                            The future of Sapic <span className="text-blue-4">depends on you</span>
                         </h2>
-                        <p className="mt-4 md:mt-6 max-w-full md:max-w-2xl text-pretty text-sm md:text-base leading-relaxed text-neutral-600">
-                            When users take time to share feedback, they're invested in your success.
-                            <span className="font-medium text-neutral-900">
-                                When you show them you're listening—really listening—they become your biggest champions.
-                            </span>
-                            That's not just good product management. That's good business.
-                        </p>
+                        <div className="mt-4 md:mt-6 max-w-full md:max-w-2xl space-y-4">
+                            <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
+                                Building the ultimate backend console isn't something we can do alone. It's a partnership with the developers who use it every day.
+                            </p>
+                            <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
+                                When you take the time to share your feedback, you're not just reporting a bug or suggesting a feature — <span className="font-medium text-neutral-900">you're helping us close the gap between scattered tools and a truly unified workflow.</span> You're invested in a future with less friction, fewer rollbacks, and more time for building what matters.
+                            </p>
+                            <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
+                                <span className="font-medium text-neutral-900">When we show you we're listening — really listening — we build more than a product. We build a community of champions.</span> That's not just good product development. That's how we shape the future of backend engineering together.
+                            </p>
+                        </div>
                     </div>
                 </FadeInElement>
 
@@ -54,22 +59,26 @@ const CallToActionSection = () => {
                     <div className="flex flex-col gap-4 md:gap-6">
                         <div className="flex flex-row items-center justify-start gap-2 md:gap-3 flex-wrap">
                             <SimpleButton
-                                variant="default"
-                                size="medium"
-                                className="group inline-flex items-center justify-center gap-2"
+                                variant="primary"
+                                size="large"
+                                className="group inline-flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg"
                                 onClick={openWaitlist}
                             >
                                 Sign up to Waitlist
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" width="1em" height="1em"
-                                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 text-neutral-900"
+                                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 text-white"
                                     style={{ strokeWidth: 2 }}>
                                     <path fill="currentColor" fillRule="evenodd"
                                         d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12 17.937 22.75 12 22.75 1.25 17.937 1.25 12m12.28-3.53a.75.75 0 1 0-1.06 1.06l1.72 1.72H8a.75.75 0 0 0 0 1.5h6.19l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06z"
                                         clipRule="evenodd"></path>
                                 </svg>
                             </SimpleButton>
-                            <SimpleButton variant="ghost" size="medium">
+                            <SimpleButton 
+                                variant="ghost" 
+                                size="medium"
+                                onClick={() => window.open(GITHUB_ROADMAP_URL, "_blank")}
+                            >
                                 <span className="hidden lg:inline">
                                     Explore our roadmap
                                 </span>
