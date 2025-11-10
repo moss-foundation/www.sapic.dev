@@ -141,7 +141,7 @@ const Header = () => {
                                     <button
                                         key={item.sectionId}
                                         onClick={(e) => handleNavClick(item.sectionId, e)}
-                                        className={`relative px-2.5 py-2 rounded-md transition-all duration-200 ${
+                                        className={`relative px-2.5 py-2 rounded-md transition-all duration-200 cursor-pointer ${
                                             isActive
                                                 ? "text-neutral-900 font-semibold"
                                                 : "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50"
@@ -261,7 +261,7 @@ const Header = () => {
                                             >
                                                 <button
                                                     onClick={(e) => handleNavClick(item.sectionId, e)}
-                                                    className="text-neutral-900 text-xl font-normal transition-colors hover:text-neutral-600 text-left"
+                                                    className="text-neutral-900 text-xl font-normal transition-colors hover:text-neutral-600 text-left cursor-pointer"
                                                 >
                                                     {item.label}
                                                 </button>
