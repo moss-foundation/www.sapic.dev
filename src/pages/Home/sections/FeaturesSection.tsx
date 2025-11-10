@@ -24,7 +24,7 @@ const FeaturesSection = () => {
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
                                 <p className="text-xs md:text-sm font-medium text-violet-500">Feature 1</p>
-                                <div className="flex flex-col gap-1 text-xl md:text-2xl lg:text-3xl font-medium text-balance">
+                                <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
                                         One platform, hundreds of use cases.
                                     </p>
@@ -46,7 +46,7 @@ const FeaturesSection = () => {
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
                                 <p className="text-xs md:text-sm font-medium text-violet-500">Feature 2</p>
-                                <div className="flex flex-col gap-1 text-xl md:text-2xl lg:text-3xl font-medium text-balance">
+                                <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
                                         Instant meetings.
                                     </p>
@@ -68,7 +68,7 @@ const FeaturesSection = () => {
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
                                 <p className="text-xs md:text-sm font-medium text-violet-500">Feature 3</p>
-                                <div className="flex flex-col gap-1 text-xl md:text-2xl lg:text-3xl font-medium text-balance">
+                                <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
                                         Instant meetings.
                                     </p>
@@ -90,7 +90,7 @@ const FeaturesSection = () => {
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
                                 <p className="text-xs md:text-sm font-medium text-violet-500">Feature 4</p>
-                                <div className="flex flex-col gap-1 text-xl md:text-2xl lg:text-3xl font-medium text-balance">
+                                <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
                                         Instant meetings.
                                     </p>
@@ -112,7 +112,7 @@ const FeaturesSection = () => {
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
                                 <p className="text-xs md:text-sm font-medium text-violet-500">Feature 5</p>
-                                <div className="flex flex-col gap-1 text-xl md:text-2xl lg:text-3xl font-medium text-balance">
+                                <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
                                         Instant meetings.
                                     </p>
