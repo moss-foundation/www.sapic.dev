@@ -11,49 +11,17 @@ import { scrollToSection } from "@/lib/scrollToSection";
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState<string>("home");
     const { openWaitList: openWaitList } = useWaitList();
     const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY;
-            setIsScrolled(scrollTop > 20);
-
-            if (window.location.pathname === '/') {
-                const sections = ['home', 'how-it-works', 'features', 'use-cases', 'community', 'for-developers', 'faq', 'get-started'];
-                const headerHeight = 56;
-                
-                for (let i = sections.length - 1; i >= 0; i--) {
-                    const section = document.getElementById(sections[i]);
-                    if (section) {
-                        const rect = section.getBoundingClientRect();
-                        if (rect.top <= headerHeight + 100) {
-                            setActiveSection(sections[i]);
-                            break;
-                        }
-                    }
-                }
-            } else {
-                setActiveSection('');
-            }
+            setIsScrolled(scrollTop > 0);
         };
 
         window.addEventListener("scroll", handleScroll);
-        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    useEffect(() => {
-        const checkPath = () => {
-            if (window.location.pathname !== '/') {
-                setActiveSection('');
-            }
-        };
-        
-        checkPath();
-        window.addEventListener('popstate', checkPath);
-        return () => window.removeEventListener('popstate', checkPath);
     }, []);
 
     useEffect(() => {
@@ -68,16 +36,11 @@ const Header = () => {
         e.preventDefault();
         const isHomePage = window.location.pathname === '/';
         
-        setActiveSection(sectionId);
-        
         if (isHomePage) {
             scrollToSection(sectionId);
         } else {
             router.navigate({ to: '/' }).then(() => {
-                setTimeout(() => {
-                    scrollToSection(sectionId);
-                    setActiveSection(sectionId);
-                }, 100);
+                setTimeout(() => scrollToSection(sectionId), 100);
             });
         }
         
@@ -86,13 +49,9 @@ const Header = () => {
 
     const menuItems = [
         { label: "Home", sectionId: "home", to: "/" },
-        { label: "How It Works", sectionId: "how-it-works", to: "/" },
-        { label: "Features", sectionId: "features", to: "/" },
         { label: "Use Cases", sectionId: "use-cases", to: "/" },
-        { label: "Community", sectionId: "community", to: "/" },
-        { label: "For Developers", sectionId: "for-developers", to: "/" },
+        { label: "Features", sectionId: "features", to: "/" },
         { label: "FAQ", sectionId: "faq", to: "/" },
-        { label: "Get Started", sectionId: "get-started", to: "/" },
     ];
 
     return (
@@ -101,13 +60,15 @@ const Header = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className={`sticky top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
-                    isMobileMenuOpen
-                        ? "bg-white backdrop-blur-lg border-neutral-200 shadow-sm"
-                        : isScrolled
-                            ? "bg-white/95 backdrop-blur-lg border-neutral-200 shadow-sm"
-                            : "bg-white border-transparent"
-                }`}
+                className={`sticky top-0 left-0 right-0 z-50 border-b ${isMobileMenuOpen
+                    ? "bg-white/70 backdrop-blur-md border-neutral-100"
+                    : isScrolled
+                        ? "bg-white/50 backdrop-blur-md border-transparent"
+                        : "bg-white border-transparent"
+                    }`}
+                style={{
+                    transition: 'background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, border-color 0.3s ease-in-out'
+                }}
             >
                 <LayoutContainer>
                     <motion.div
@@ -116,48 +77,34 @@ const Header = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
                     >
-                        <motion.button
+                        <motion.div
+                            className="flex items-center gap-3 cursor-pointer"
                             onClick={(e) => handleNavClick("home", e)}
-                            className="flex items-center gap-2.5 cursor-pointer transition-opacity hover:opacity-80"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
                         >
-                            <img src={logoBlue} alt="Sapic" className="size-8" />
-                            <span className="text-lg font-semibold text-neutral-900">
+                            <img src={logoBlue} alt="Sapic" className="size-7.5" />
+                            <span className="text-lg font-medium text-neutral-900">
                                 Sapic
                             </span>
-                        </motion.button>
+                        </motion.div>
 
                         <motion.nav
-                            className="hidden md:flex items-center gap-0.5 font-medium text-sm"
+                            className="hidden md:flex items-center gap-6 font-medium text-sm"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
                         >
-                            {menuItems.map((item) => {
-                                const isActive = activeSection === item.sectionId;
-                                return (
-                                    <button
-                                        key={item.sectionId}
-                                        onClick={(e) => handleNavClick(item.sectionId, e)}
-                                        className={`relative px-2.5 py-2 rounded-md transition-all duration-200 cursor-pointer ${
-                                            isActive
-                                                ? "text-neutral-900 font-semibold"
-                                                : "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50"
-                                        }`}
-                                    >
-                                        {item.label}
-                                        {isActive && (
-                                            <motion.div
-                                                className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-5 bg-blue-4 rounded-full"
-                                                layoutId="activeIndicator"
-                                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                            />
-                                        )}
-                                    </button>
-                                );
-                            })}
+                            {menuItems.map((item) => (
+                                <button
+                                    key={item.sectionId}
+                                    onClick={(e) => handleNavClick(item.sectionId, e)}
+                                    className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg cursor-pointer"
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
                         </motion.nav>
 
                         <motion.div
@@ -166,20 +113,14 @@ const Header = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
                         >
-                            <div className="hidden md:flex items-center gap-2.5">
-                                <SimpleButton 
-                                    variant="ghost" 
-                                    size="small" 
-                                    onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}
-                                    className="text-neutral-600 hover:text-neutral-900"
-                                >
+                            <div className="hidden md:flex items-center gap-2">
+                                <SimpleButton variant="ghost" size="small" onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}>
                                     Join our Discord
                                 </SimpleButton>
                                 <SimpleButton
                                     variant="primary"
                                     size="small"
                                     onClick={openWaitList}
-                                    className="font-medium"
                                 >
                                     Get Started
                                 </SimpleButton>
