@@ -1,16 +1,18 @@
 import SimpleButton from "@/components/SimpleButton";
 import LayoutContainer from "@/components/LayoutContainer";
 import logoBlue from "@assets/images/logo_blue.svg";
-import { Link } from "@tanstack/react-router";
+import { useRouter } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useWaitList } from "@/hooks/useWaitList";
 import { DISCORD_INVITE_URL } from "@/lib/constants";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { openWaitList: openWaitList } = useWaitList();
+    const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -30,11 +32,26 @@ const Header = () => {
         }
     }, [isMobileMenuOpen]);
 
+    const handleNavClick = (sectionId: string, e: React.MouseEvent) => {
+        e.preventDefault();
+        const isHomePage = window.location.pathname === '/';
+        
+        if (isHomePage) {
+            scrollToSection(sectionId);
+        } else {
+            router.navigate({ to: '/' }).then(() => {
+                setTimeout(() => scrollToSection(sectionId), 100);
+            });
+        }
+        
+        setIsMobileMenuOpen(false);
+    };
+
     const menuItems = [
-        { label: "Home", to: "/" },
-        { label: "Use Cases", to: "/use-cases" },
-        { label: "Features", to: "/features" },
-        { label: "FAQ", to: "/faq" },
+        { label: "Home", sectionId: "home", to: "/" },
+        { label: "Use Cases", sectionId: "use-cases", to: "/" },
+        { label: "Features", sectionId: "features", to: "/" },
+        { label: "FAQ", sectionId: "faq", to: "/" },
     ];
 
     return (
@@ -61,7 +78,8 @@ const Header = () => {
                         transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
                     >
                         <motion.div
-                            className="flex items-center gap-3"
+                            className="flex items-center gap-3 cursor-pointer"
+                            onClick={(e) => handleNavClick("home", e)}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
@@ -78,30 +96,15 @@ const Header = () => {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
                         >
-                            <Link
-                                to="/"
-                                className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg"
-                            >
-                                Home
-                            </Link>
-                            <Link
-                                to="/use-cases"
-                                className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg"
-                            >
-                                Use Cases
-                            </Link>
-                            <Link
-                                to="/features"
-                                className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg"
-                            >
-                                Features
-                            </Link>
-                            <Link
-                                to="/faq"
-                                className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg"
-                            >
-                                FAQ
-                            </Link>
+                            {menuItems.map((item) => (
+                                <button
+                                    key={item.sectionId}
+                                    onClick={(e) => handleNavClick(item.sectionId, e)}
+                                    className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg cursor-pointer"
+                                >
+                                    {item.label}
+                                </button>
+                            ))}
                         </motion.nav>
 
                         <motion.div
@@ -176,7 +179,7 @@ const Header = () => {
                                     <nav className="flex flex-col gap-6 py-6">
                                         {menuItems.map((item, index) => (
                                             <motion.div
-                                                key={item.to}
+                                                key={item.sectionId}
                                                 initial={{ opacity: 0, y: -10 }}
                                                 animate={{
                                                     opacity: 1,
@@ -197,13 +200,12 @@ const Header = () => {
                                                     }
                                                 }}
                                             >
-                                                <Link
-                                                    to={item.to}
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                    className="text-neutral-900 text-xl font-normal transition-colors hover:text-neutral-600"
+                                                <button
+                                                    onClick={(e) => handleNavClick(item.sectionId, e)}
+                                                    className="text-neutral-900 text-xl font-normal transition-colors hover:text-neutral-600 text-left cursor-pointer"
                                                 >
                                                     {item.label}
-                                                </Link>
+                                                </button>
                                             </motion.div>
                                         ))}
                                     </nav>
