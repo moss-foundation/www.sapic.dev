@@ -1,7 +1,7 @@
 import LayoutContainer from "@/components/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
 
-import feature1 from "../images/feature_1.png";
+import feature1 from "../images/feature_1.svg";
 import feature2 from "../images/feature_2.png";
 import feature3 from "../images/feature_3.png";
 import feature4 from "../images/feature_4.png";
@@ -23,13 +23,20 @@ const FeaturesSection = () => {
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
-                                <p className="text-xs md:text-sm font-medium text-violet-500">Feature 1</p>
+                                <p className="text-xs md:text-sm font-medium text-blue-4">Integration tests</p>
                                 <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
-                                        One platform, hundreds of use cases.
+                                        Contract-driven integration tests.
                                     </p>
-                                    <p className="text-neutral-500">
-                                        Context perfectly connected.
+                                    <p className="text-neutral-500 flex items-center">
+                                        Auto-generated.
+                                        <span className="inline-block ml-2 mr-1">
+                                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-6">
+                                                <circle cx="14" cy="14" r="12" fill="#55A76A" />
+                                                <path d="M20 10.5L12.5 18L8.5 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        Green before you ship.
                                     </p>
                                 </div>
                             </div>
@@ -45,13 +52,13 @@ const FeaturesSection = () => {
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
-                                <p className="text-xs md:text-sm font-medium text-violet-500">Feature 2</p>
+                                <p className="text-xs md:text-sm font-medium text-blue-4">Smart automation</p>
                                 <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
-                                        Instant meetings.
+                                        WASM functions.
                                     </p>
                                     <p className="text-neutral-500">
-                                        Stay in flow.
+                                        Use built-ins or write your own.
                                     </p>
                                 </div>
                             </div>
@@ -67,13 +74,13 @@ const FeaturesSection = () => {
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
-                                <p className="text-xs md:text-sm font-medium text-violet-500">Feature 3</p>
+                                <p className="text-xs md:text-sm font-medium text-blue-4">Runtime Contexts</p>
                                 <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
-                                        Instant meetings.
+                                        Environments.
                                     </p>
                                     <p className="text-neutral-500">
-                                        Stay in flow.
+                                        Inherit, switch, reuse.
                                     </p>
                                 </div>
                             </div>
@@ -89,13 +96,13 @@ const FeaturesSection = () => {
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
-                                <p className="text-xs md:text-sm font-medium text-violet-500">Feature 4</p>
+                                <p className="text-xs md:text-sm font-medium text-blue-4">Guardrails</p>
                                 <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
-                                        Instant meetings.
+                                        Schemas & policies.
                                     </p>
                                     <p className="text-neutral-500">
-                                        Stay in flow.
+                                        Catch breaking changes early.
                                     </p>
                                 </div>
                             </div>
@@ -111,13 +118,13 @@ const FeaturesSection = () => {
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col bg-neutral-50 rounded-xl md:rounded-2xl pt-6 md:pt-10 gap-4 md:gap-5 h-full">
                             <div className="flex flex-col gap-1.5 px-5 md:px-10">
-                                <p className="text-xs md:text-sm font-medium text-violet-500">Feature 5</p>
+                                <p className="text-xs md:text-sm font-medium text-blue-4">Developer Speed</p>
                                 <div className="flex flex-col text-xl md:text-2xl lg:text-3xl font-medium text-balance">
                                     <p className="text-black">
-                                        Instant meetings.
+                                        Advanced mocks.
                                     </p>
                                     <p className="text-neutral-500">
-                                        Stay in flow.
+                                        Realistic APIs, zero deps.
                                     </p>
                                 </div>
                             </div>
