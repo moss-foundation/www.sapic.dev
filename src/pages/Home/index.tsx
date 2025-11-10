@@ -8,27 +8,56 @@ import Line from "@/components/Line";
 import JoinCommunitySection from "./sections/JoinCommunitySection";
 import CallToActionSection from "./sections/CallToAction";
 import HowDoesThisWorkSection from "./sections/HowDoesThisWorkSection";
+import { useEffect } from "react";
+import { handleHashNavigation } from "@/lib/scrollToSection";
 
 
 
 const HomePage = () => {
+    useEffect(() => {
+        handleHashNavigation();
+        
+        const handleHashChange = () => {
+            handleHashNavigation();
+        };
+        
+        window.addEventListener('hashchange', handleHashChange);
+        return () => window.removeEventListener('hashchange', handleHashChange);
+    }, []);
+
     return (
         <div className="min-h-screen flex flex-col gap-10 mb-16 lg:mb-32">
-            <HeroSection />
+            <section id="home" className="scroll-mt-20">
+                <HeroSection />
+            </section>
             <Line />
-            <HowDoesThisWorkSection />
+            <section id="how-it-works" className="scroll-mt-20">
+                <HowDoesThisWorkSection />
+            </section>
             <Line />
-            <FeaturesSection />
+            <section id="features" className="scroll-mt-20">
+                <FeaturesSection />
+            </section>
             <Line />
-            <UseCasesSection />
+            <section id="use-cases" className="scroll-mt-20">
+                <UseCasesSection />
+            </section>
             <Line />
-            <JoinCommunitySection />
+            <section id="community" className="scroll-mt-20">
+                <JoinCommunitySection />
+            </section>
             <Line />
-            <ForDevelopersSection />
+            <section id="for-developers" className="scroll-mt-20">
+                <ForDevelopersSection />
+            </section>
             <Line />
-            <FaqSection />
+            <section id="faq" className="scroll-mt-20">
+                <FaqSection />
+            </section>
             <Line />
-            <CallToActionSection />
+            <section id="get-started" className="scroll-mt-20">
+                <CallToActionSection />
+            </section>
         </div>
     );
 };
