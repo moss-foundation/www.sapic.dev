@@ -1,11 +1,54 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import LayoutContainer from "@/components/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
 
 import awsLogo from "@assets/images/aws_logo.png";
 import azureLogo from "@assets/images/azure_logo.png";
 import googleLogo from "@assets/images/google_cloud_logo.png";
+
+// TODO: replace with actual icons
+const GeneralIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    </svg>
+);
+
+const GRPCIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    </svg>
+);
+
+const WebSocketIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+        <path d="M8 12L12 8L16 12L12 16L8 12Z" stroke="currentColor" strokeWidth="2" fill="none"/>
+    </svg>
+);
+
+const GraphQLIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    </svg>
+);
+
+const HTTPIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 7H8M6 5V9M14 7H18M16 5V9M4 17H8M6 15V19M14 17H18M16 15V19M10 7H14M12 5V9M10 17H14M12 15V19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+);
+
+const RESTIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+        <path d="M8 8H16M8 12H16M8 16H12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+);
 
 import amazonDynamoDB from "@assets/images/amazon/AmazonDynamoDB.webp";
 import amazonLambda from "@assets/images/amazon/AmazonLambdas.webp";
@@ -24,10 +67,13 @@ import googleFunctions from "@assets/images/google/GoogleFunctions.webp";
 import googlePubSub from "@assets/images/google/GooglePubSub.webp";
 import googleStorage from "@assets/images/google/GoogleStorage.webp";
 
+type IconComponent = ({ className }: { className?: string }) => React.ReactElement;
+
 interface PartnersProps {
     frontCard: {
         title: string;
-        imgSrc: string;
+        imgSrc?: string;
+        iconComponent?: IconComponent;
         description: string;
     };
     cards: CardProps[];
@@ -36,10 +82,26 @@ interface PartnersProps {
 export interface CardProps {
     brand: string;
     product: string;
-    imgSrc: string;
+    imgSrc?: string;
+    iconComponent?: IconComponent;
 }
 
 const brandCards: PartnersProps[] = [
+    {
+        frontCard: {
+            title: "General",
+            iconComponent: GeneralIcon,
+            description:
+                "Create production-like behavior from schemas, components, and rules. Cover success paths, errors, delays, and events with one click.",
+        },
+        cards: [
+            { brand: "REST", product: "API", iconComponent: RESTIcon },
+            { brand: "gRPC", product: "Service", iconComponent: GRPCIcon },
+            { brand: "WebSocket", product: "Connection", iconComponent: WebSocketIcon },
+            { brand: "GraphQL", product: "API", iconComponent: GraphQLIcon },
+            { brand: "HTTP", product: "Request", iconComponent: HTTPIcon },
+        ],
+    },
     {
         frontCard: {
             title: "Amazon Web Services",
@@ -175,11 +237,15 @@ const ForDevelopersSection = () => {
                                         ? "text-neutral-900 bg-neutral-100 rounded-md"
                                         : "text-neutral-500 hover:text-neutral-600"
                                         }`}>
-                                        <img
-                                            src={brand.frontCard.imgSrc}
-                                            alt={brand.frontCard.title}
-                                            className="size-5 object-contain flex-shrink-0"
-                                        />
+                                        {brand.frontCard.iconComponent ? (
+                                            <brand.frontCard.iconComponent className="size-5 flex-shrink-0" />
+                                        ) : (
+                                            <img
+                                                src={brand.frontCard.imgSrc}
+                                                alt={brand.frontCard.title}
+                                                className="size-5 object-contain flex-shrink-0"
+                                            />
+                                        )}
                                         <span
                                             className={`text-sm transition-colors cursor-pointer ${currentIndex === index
                                                 ? "text-neutral-900"
@@ -224,11 +290,15 @@ const ForDevelopersSection = () => {
                                                     }}
                                                     className="flex flex-row items-center gap-4 lg:gap-5 absolute inset-0"
                                                 >
-                                                    <img
-                                                        src={card.imgSrc}
-                                                        alt={`${card.brand} ${card.product}`}
-                                                        className="size-9 lg:size-10 object-contain flex-shrink-0"
-                                                    />
+                                                    {card.iconComponent ? (
+                                                        <card.iconComponent className="size-9 lg:size-10 flex-shrink-0 text-neutral-700" />
+                                                    ) : (
+                                                        <img
+                                                            src={card.imgSrc}
+                                                            alt={`${card.brand} ${card.product}`}
+                                                            className="size-9 lg:size-10 object-contain flex-shrink-0"
+                                                        />
+                                                    )}
                                                     <div className="flex flex-col items-start gap-0.5">
                                                         <p className="text-sm text-neutral-500">{card.brand}</p>
                                                         <p className="text-lg lg:text-xl text-black font-semibold">
@@ -272,11 +342,15 @@ const ForDevelopersSection = () => {
                                             ? "text-neutral-900 bg-neutral-100 rounded-md"
                                             : "text-neutral-500 hover:text-neutral-600"
                                             }`}>
-                                            <img
-                                                src={brand.frontCard.imgSrc}
-                                                alt={brand.frontCard.title}
-                                                className="size-6 object-contain flex-shrink-0"
-                                            />
+                                            {brand.frontCard.iconComponent ? (
+                                                <brand.frontCard.iconComponent className="size-6 flex-shrink-0" />
+                                            ) : (
+                                                <img
+                                                    src={brand.frontCard.imgSrc}
+                                                    alt={brand.frontCard.title}
+                                                    className="size-6 object-contain flex-shrink-0"
+                                                />
+                                            )}
                                             <span
                                                 className={`text-base transition-colors cursor-pointer ${currentIndex === index
                                                     ? "text-neutral-900"
@@ -316,11 +390,15 @@ const ForDevelopersSection = () => {
                                                     }}
                                                     className="flex flex-row items-center gap-3 absolute inset-0"
                                                 >
-                                                    <img
-                                                        src={card.imgSrc}
-                                                        alt={`${card.brand} ${card.product}`}
-                                                        className="size-8 object-contain flex-shrink-0"
-                                                    />
+                                                    {card.iconComponent ? (
+                                                        <card.iconComponent className="size-8 flex-shrink-0 text-neutral-700" />
+                                                    ) : (
+                                                        <img
+                                                            src={card.imgSrc}
+                                                            alt={`${card.brand} ${card.product}`}
+                                                            className="size-8 object-contain flex-shrink-0"
+                                                        />
+                                                    )}
                                                     <div className="flex flex-col items-start gap-0.5">
                                                         <p className="text-sm text-neutral-500">{card.brand}</p>
                                                         <p className="text-lg text-black font-semibold">
