@@ -61,18 +61,10 @@ const CallToActionSection = () => {
                             <SimpleButton
                                 variant="primary"
                                 size="large"
-                                className="group inline-flex items-center justify-center gap-2 font-semibold shadow-md hover:shadow-lg"
+                                className="self-start w-full sm:w-auto"
                                 onClick={openWaitlist}
                             >
                                 Sign up to Waitlist
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 24 24" width="1em" height="1em"
-                                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 text-white"
-                                    style={{ strokeWidth: 2 }}>
-                                    <path fill="currentColor" fillRule="evenodd"
-                                        d="M1.25 12C1.25 6.063 6.063 1.25 12 1.25S22.75 6.063 22.75 12 17.937 22.75 12 22.75 1.25 17.937 1.25 12m12.28-3.53a.75.75 0 1 0-1.06 1.06l1.72 1.72H8a.75.75 0 0 0 0 1.5h6.19l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06z"
-                                        clipRule="evenodd"></path>
-                                </svg>
                             </SimpleButton>
                             <SimpleButton 
                                 variant="ghost" 
