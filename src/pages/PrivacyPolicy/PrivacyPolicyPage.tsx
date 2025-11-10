@@ -32,7 +32,7 @@ export const PrivacyPolicyPage = () => {
                                     1. Introduction
                                 </h2>
                                 <p className="text-sm md:text-base leading-relaxed text-neutral-700">
-                                    Sapic AS ("we," "us," "our"), a company registered in Norway, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website https://sapic.com, join our waitlist, or use our Sapic platform (the "Service").
+                                    Sapic AS ("we," "us," "our"), a company registered in Norway, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website https://sapic.dev, join our waitlist, or use our Sapic platform (the "Service").
                                 </p>
                             </section>
 
@@ -44,7 +44,7 @@ export const PrivacyPolicyPage = () => {
                                     Sapic AS is the data controller for the personal data processed in accordance with this policy.
                                 </p>
                                 <p className="text-sm md:text-base leading-relaxed text-neutral-700 mt-3">
-                                    Contact: <a href="mailto:privacy@sapic.com" className="text-blue-4 hover:text-blue-5 underline">privacy@sapic.com</a>
+                                    Contact: <a href="mailto:privacy@sapic.dev" className="text-blue-4 hover:text-blue-5 underline">privacy@sapic.dev</a>
                                 </p>
                             </section>
 
@@ -177,7 +177,7 @@ export const PrivacyPolicyPage = () => {
                                     <li>Data Portability.</li>
                                 </ul>
                                 <p className="text-sm md:text-base leading-relaxed text-neutral-700 mt-4">
-                                    To exercise these rights, please contact us at <a href="mailto:privacy@sapic.com" className="text-blue-4 hover:text-blue-5 underline">privacy@sapic.com</a>. You also have the right to lodge a complaint with the Norwegian Data Protection Authority (Datatilsynet).
+                                    To exercise these rights, please contact us at <a href="mailto:privacy@sapic.dev" className="text-blue-4 hover:text-blue-5 underline">privacy@sapic.dev</a>. You also have the right to lodge a complaint with the Norwegian Data Protection Authority (Datatilsynet).
                                 </p>
                             </section>
 
@@ -204,7 +204,7 @@ export const PrivacyPolicyPage = () => {
                                     12. Contact Us
                                 </h2>
                                 <p className="text-sm md:text-base leading-relaxed text-neutral-700">
-                                    If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:privacy@sapic.com" className="text-blue-4 hover:text-blue-5 underline">privacy@sapic.com</a>.
+                                    If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:privacy@sapic.dev" className="text-blue-4 hover:text-blue-5 underline">privacy@sapic.dev</a>.
                                 </p>
                             </section>
                         </div>

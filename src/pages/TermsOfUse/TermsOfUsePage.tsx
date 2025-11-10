@@ -162,7 +162,7 @@ export const TermsOfUsePage = () => {
                                     13. Contact Us
                                 </h2>
                                 <p className="text-sm md:text-base leading-relaxed text-neutral-700">
-                                    If you have any questions about these Terms, please contact us at: <a href="mailto:legal@sapic.com" className="text-blue-4 hover:text-blue-5 underline">legal@sapic.com</a>.
+                                    If you have any questions about these Terms, please contact us at: <a href="mailto:legal@sapic.dev" className="text-blue-4 hover:text-blue-5 underline">legal@sapic.dev</a>.
                                 </p>
                             </section>
                         </div>
