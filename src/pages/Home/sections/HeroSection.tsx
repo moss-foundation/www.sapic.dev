@@ -1,5 +1,5 @@
-import SimpleButton from "@/components/SimpleButton";
-import LayoutContainer from "@/components/LayoutContainer";
+import Button from "@/components/ui/Button";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState, useRef } from "react";
 import { useWaitList } from "@/hooks/useWaitList";
@@ -106,7 +106,7 @@ const HeroSection = () => {
             <LayoutContainer className="relative w-full">
                 <div className="pt-28 lg:pt-36 lg:min-h-screen relative">
                     <div className="h-full flex flex-col relative z-10">
-                        <div className="flex flex-col gap-8 md:gap-10 lg:gap-10 relative" style={{ padding: '2px' }}>
+                        <div className="flex flex-col gap-4 md:gap-10 relative" style={{ padding: '2px' }}>
                             <motion.div
                                 className="flex flex-col gap-4 md:gap-5"
                                 initial={{ opacity: 0, y: 20 }}
@@ -164,14 +164,14 @@ const HeroSection = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" }}
                                 >
-                                    <SimpleButton
+                                    <Button
                                         variant="primary"
                                         size="large"
                                         className="self-start w-full sm:w-auto mt-4"
                                         onClick={openWaitList}
                                     >
                                         Sign up for Sapic Beta
-                                    </SimpleButton>
+                                    </Button>
                                 </motion.div>
                             </motion.div>
 

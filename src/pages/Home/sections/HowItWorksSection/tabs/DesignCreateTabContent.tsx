@@ -1,5 +1,5 @@
-import Tag from "@/components/Tag";
-import tttt from "../../images/1321316787.svg";
+import Tag from "@/components/ui/Tag";
+import image from "../../../images/1321316787.svg";
 
 const DesignCreateTabContent = () => {
     return (
@@ -33,7 +33,7 @@ const DesignCreateTabContent = () => {
                 <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                     <div className="bg-neutral-50 rounded-xl md:rounded-2xl pt-6 px-6 md:pt-8 md:px-8 lg:overflow-hidden relative h-full">
                         <div className="relative w-full lg:h-full overflow-hidden lg:overflow-visible rounded-xl">
-                            <img src={tttt} alt="Design & Create UI" className="w-full h-auto lg:h-full object-contain lg:object-cover object-center lg:object-top rounded-t-xl border-t border-x border-neutral-200 shadow-2xl" />
+                            <img src={image} alt="Design & Create UI" className="w-full h-auto lg:h-full object-contain lg:object-cover object-center lg:object-top rounded-t-xl border-t border-x border-neutral-200 shadow-2xl" />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { useReward } from "react-rewards";
-import SimpleButton from "./SimpleButton";
+import Button from "../ui/Button";
 import logoBlue from "@assets/images/logo_blue.svg";
 import { DISCORD_INVITE_URL } from "@/lib/constants";
 
@@ -243,7 +243,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                     />
                                 </div>
 
-                                <SimpleButton
+                                <Button
                                     type="submit"
                                     variant="primary"
                                     size="large"
@@ -251,7 +251,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting ? "Joining..." : "Join Waitlist"}
-                                </SimpleButton>
+                                </Button>
                             </form>
 
                             {/* Divider */}
@@ -265,7 +265,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                             </div>
 
                             {/* Discord button */}
-                            <SimpleButton
+                            <Button
                                 variant="default"
                                 size="large"
                                 className="flex flex-row items-center gap-2 w-full justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
@@ -286,7 +286,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                     />
                                 </svg>
                                 Join our Discord
-                            </SimpleButton>
+                            </Button>
                         </motion.div>
                     </div>
                 </>

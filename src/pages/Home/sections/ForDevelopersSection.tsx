@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "motion/react";
 import React, { useEffect, useState, useRef } from "react";
-import LayoutContainer from "@/components/LayoutContainer";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
 
 import awsLogo from "@assets/images/aws_logo.png";

@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import LayoutContainer from "@/components/LayoutContainer";
+import React, { useEffect, useRef, useState } from "react";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
-import CollaborateTabContent from "@/components/CollaborateTabContent";
-import ConnectTabContent from "./HowItWorksSection/ConnectTabContent";
-import DesignCreateTabContent from "./HowItWorksSection/DesignCreateTabContent";
-import PlanDiffTabContent from "./HowItWorksSection/PlanDiffTabContent";
-import ApplyTabContent from "./HowItWorksSection/ApplyTabContent";
+import ConnectTabContent from "./tabs/ConnectTabContent";
+import DesignCreateTabContent from "./tabs/DesignCreateTabContent";
+import CollaborateTabContent from "./tabs/CollaborateTabContent";
+import PlanDiffTabContent from "./tabs/PlanDiffTabContent";
+import ApplyTabContent from "./tabs/ApplyTabContent";
 import ConnectionsIcon from "@/icons/Connections";
 import PuzzleIcon from "@/icons/Puzzle";
 import UsersIcon from "@/icons/Users";
@@ -65,7 +65,7 @@ const HowItWorksSection = () => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
     const sectionRef = useRef<HTMLDivElement>(null);
     const isScrollingToTab = useRef(false);
-    const scrollTimeoutRef = useRef<number | null>(null);
+    const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const scrollToTab = (tabIndex: number) => {
         // On mobile, just change the tab without scrolling
@@ -158,7 +158,7 @@ const HowItWorksSection = () => {
     return (
         <div
             ref={sectionRef}
-            className="py-12 md:py-16 lg:py-0 lg:h-[500vh]"
+            className="lg:h-[500vh]"
         >
             <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:items-center lg:justify-center">
                 <LayoutContainer>
@@ -238,3 +238,4 @@ const HowItWorksSection = () => {
 };
 
 export default HowItWorksSection;
+

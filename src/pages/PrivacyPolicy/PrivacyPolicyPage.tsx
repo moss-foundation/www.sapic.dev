@@ -1,4 +1,4 @@
-import LayoutContainer from "@/components/LayoutContainer";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import { useEffect } from "react";
 
 export const PrivacyPolicyPage = () => {
@@ -6,10 +6,10 @@ export const PrivacyPolicyPage = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const currentDate = new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    const currentDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
     });
 
     return (

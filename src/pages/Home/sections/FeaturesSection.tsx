@@ -1,4 +1,4 @@
-import LayoutContainer from "@/components/LayoutContainer";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
 
 import feature1 from "../images/feature_1.png";

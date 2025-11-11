@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Tag from "@/components/Tag";
-import changes_frame from "../../images/changes_frame.svg";
-import changes_diff_frame from "../../images/changes_diff_frame.svg";
+import Tag from "@/components/ui/Tag";
+import changes_frame from "../../../images/changes_frame.svg";
+import changes_diff_frame from "../../../images/changes_diff_frame.svg";
 
 const PlanDiffTabContent = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);

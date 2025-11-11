@@ -1,5 +1,5 @@
-import SimpleButton from "@/components/SimpleButton";
-import Tag from "@/components/Tag";
+import Button from "@/components/ui/Button";
+import Tag from "@/components/ui/Tag";
 import GitHubIcon from "@/icons/GitHub";
 import GitLabIcon from "@/icons/GitLab";
 
@@ -54,13 +54,13 @@ const ConnectTabContent = () => {
                                 Let us know what else you'd like by adding a ticket to our roadmap.
                             </p>
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-x-2.5 mt-2">
-                                <SimpleButton variant="primary" size="small">
+                                <Button variant="primary" size="small" className="self-start w-full sm:w-auto">
                                     Explore our roadmap
-                                </SimpleButton>
+                                </Button>
                                 <p className="text-neutral-600 text-xs hidden md:block">Or</p>
-                                <SimpleButton variant="default" size="small">
+                                <Button variant="default" size="small" className="self-start w-full sm:w-auto">
                                     Join our Discord community
-                                </SimpleButton>
+                                </Button>
                             </div>
                         </div>
                     </div>

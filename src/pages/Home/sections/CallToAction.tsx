@@ -1,5 +1,5 @@
-import LayoutContainer from "@/components/LayoutContainer";
-import SimpleButton from "@/components/SimpleButton";
+import LayoutContainer from "@/components/containers/LayoutContainer";
+import Button from "@/components/ui/Button";
 import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
 import { GITHUB_ROADMAP_URL } from "@/lib/constants";
@@ -28,13 +28,8 @@ const CallToActionSection = () => {
                         </h2>
                         <div className="mt-4 md:mt-6 max-w-full md:max-w-2xl space-y-4">
                             <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
-                                Building the ultimate backend console isn't something we can do alone. It's a partnership with the developers who use it every day.
-                            </p>
-                            <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
-                                When you take the time to share your feedback, you're not just reporting a bug or suggesting a feature — <span className="font-medium text-neutral-900">you're helping us close the gap between scattered tools and a truly unified workflow.</span> You're invested in a future with less friction, fewer rollbacks, and more time for building what matters.
-                            </p>
-                            <p className="text-pretty text-sm md:text-base leading-normal text-neutral-600">
-                                <span className="font-medium text-neutral-900">When we show you we're listening — really listening — we build more than a product. We build a community of champions.</span> That's not just good product development. That's how we shape the future of backend engineering together.
+                                <span className="font-medium text-neutral-900">Your voice drives Sapic.</span>
+                                By contributing feedback and examples from real projects, you help transform fragmented workflows into a single, reliable path from design to apply. <span className="font-medium text-neutral-900">Join the community to co-design features, guide decisions, and make backend engineering feel effortless.</span>
                             </p>
                         </div>
                     </div>
@@ -43,15 +38,15 @@ const CallToActionSection = () => {
                 <FadeInElement delay={0.2}>
                     <div className="flex flex-col gap-4 md:gap-6">
                         <div className="flex flex-row items-center justify-start gap-2 md:gap-3 flex-wrap">
-                            <SimpleButton
+                            <Button
                                 variant="primary"
                                 size="large"
                                 className="self-start w-full sm:w-auto"
                                 onClick={openWaitlist}
                             >
                                 Sign up to Waitlist
-                            </SimpleButton>
-                            <SimpleButton
+                            </Button>
+                            <Button
                                 variant="ghost"
                                 size="medium"
                                 onClick={() => window.open(GITHUB_ROADMAP_URL, "_blank")}
@@ -62,7 +57,7 @@ const CallToActionSection = () => {
                                 <span className="inline lg:hidden">
                                     Our Roadmap
                                 </span>
-                            </SimpleButton>
+                            </Button>
                         </div>
                     </div>
                 </FadeInElement>

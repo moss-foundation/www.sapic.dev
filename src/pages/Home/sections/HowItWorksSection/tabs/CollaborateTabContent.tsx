@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
-import Tag from "./Tag";
 import GitHubIcon from "@/icons/GitHub";
 import GitLabIcon from "@/icons/GitLab";
-import CollaborativeCursor from "./CollaborativeCursor";
 import InfoIcon from "@/icons/Info";
+import { CollaborativeCursor, Tag } from "@/components";
 
 const CollaborateTabContent = () => {
     const [myCursorPos, setMyCursorPos] = useState({ x: 0, y: 0 });

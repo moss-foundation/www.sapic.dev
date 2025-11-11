@@ -1,5 +1,5 @@
-import LayoutContainer from "@/components/LayoutContainer";
-import SimpleButton from "@/components/SimpleButton";
+import LayoutContainer from "@/components/containers/LayoutContainer";
+import Button from "@/components/ui/Button";
 import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
 import { DISCORD_INVITE_URL, GITHUB_ROADMAP_URL } from "@/lib/constants";
@@ -31,25 +31,26 @@ const JoinCommunitySection = () => {
                         <FadeInElement delay={0.25} className="mt-6 flex flex-col gap-5">
 
                             <div className="flex flex-row items-center justify-start gap-2 md:gap-3 flex-wrap">
-                                <SimpleButton
+                                <Button
                                     variant="primary"
                                     size="medium"
                                     className="self-start w-full sm:w-auto"
                                     onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}
                                 >
                                     Join our Discord
-                                </SimpleButton>
-                                <SimpleButton
+                                </Button>
+                                <Button
                                     variant="default"
                                     size="medium"
                                     className="self-start w-full sm:w-auto"
                                     onClick={openWaitList}
                                 >
                                     Sign up to Waitlist
-                                </SimpleButton>
-                                <SimpleButton
+                                </Button>
+                                <Button
                                     variant="ghost"
                                     size="medium"
+                                    className="self-start w-full sm:w-auto"
                                     onClick={() => window.open(GITHUB_ROADMAP_URL, "_blank")}
                                 >
                                     <span className="hidden lg:inline">
@@ -58,9 +59,9 @@ const JoinCommunitySection = () => {
                                     <span className="inline lg:hidden">
                                         Our Roadmap
                                     </span>
-                                </SimpleButton>
+                                </Button>
                             </div>
-                            <p className="text-xs md:text-sm text-neutral-500 font-normal">Influence the roadmap • Co-design features with creators • Share your ideas and feedback</p>
+                            <p className="text-xs md:text-sm text-neutral-500 font-normal text-center md:text-left">Influence the roadmap • Co-design features with creators • Share your ideas and feedback</p>
                         </FadeInElement>
 
                     </div>

@@ -4,7 +4,7 @@ import FeaturesSection from "./sections/FeaturesSection";
 import UseCasesSection from "./sections/UseCasesSection";
 import ForDevelopersSection from "./sections/ForDevelopersSection";
 import FaqSection from "./sections/FaqSection";
-import Line from "@/components/Line";
+import Line from "@/components/decorations/Line";
 import JoinCommunitySection from "./sections/JoinCommunitySection";
 import CallToActionSection from "./sections/CallToAction";
 import HowItWorksSection from "./sections/HowItWorksSection";

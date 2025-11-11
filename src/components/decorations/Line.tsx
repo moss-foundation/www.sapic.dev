@@ -1,4 +1,4 @@
-import LayoutContainer from "./LayoutContainer";
+import LayoutContainer from "../containers/LayoutContainer";
 
 interface LineProps {
     className?: string;

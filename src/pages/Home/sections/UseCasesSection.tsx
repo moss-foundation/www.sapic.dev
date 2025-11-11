@@ -1,4 +1,4 @@
-import LayoutContainer from "@/components/LayoutContainer";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
 
 const UseCasesSection = () => {
