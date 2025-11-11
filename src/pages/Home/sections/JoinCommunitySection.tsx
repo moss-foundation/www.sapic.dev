@@ -2,10 +2,12 @@ import LayoutContainer from "@/components/containers/LayoutContainer";
 import Button from "@/components/ui/Button";
 import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
-import { DISCORD_INVITE_URL, GITHUB_ROADMAP_URL } from "@/lib/constants";
+import { DISCORD_INVITE_URL } from "@/lib/constants";
+import { useNavigate } from "react-router-dom";
 
 const JoinCommunitySection = () => {
     const { openWaitList: openWaitList } = useWaitList();
+    const navigate = useNavigate();
 
     return (
         <LayoutContainer>
@@ -51,7 +53,7 @@ const JoinCommunitySection = () => {
                                     variant="ghost"
                                     size="medium"
                                     className="self-start w-full sm:w-auto"
-                                    onClick={() => window.open(GITHUB_ROADMAP_URL, "_blank")}
+                                    onClick={() => navigate("/roadmap")}
                                 >
                                     <span className="hidden lg:inline">
                                         Explore our roadmap

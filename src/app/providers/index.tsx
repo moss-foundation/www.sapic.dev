@@ -1,5 +1,5 @@
-import { RouterProvider } from "@tanstack/react-router";
-import { router } from "@app/router";
+import { BrowserRouter } from "react-router-dom";
+import AppLayout from "@app/router/routes";
 import { WaitListProvider } from "@/contexts/WaitListContext";
 import { useWaitList } from "@/hooks/useWaitList";
 import WaitListModal from "@/components/modals/WaitListModal";
@@ -9,7 +9,9 @@ const AppProviderContent = () => {
 
     return (
         <>
-            <RouterProvider router={router} />
+            <BrowserRouter>
+                <AppLayout />
+            </BrowserRouter>
             <WaitListModal isOpen={isOpen} onClose={closeWaitList} />
         </>
     );

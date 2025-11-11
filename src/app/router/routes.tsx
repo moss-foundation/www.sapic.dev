@@ -3,64 +3,30 @@ import { FeaturesPage } from "@/pages/Features/FeaturesPage";
 import { UseCasesPage } from "@/pages/UseCases/UseCasesPage";
 import { TermsOfUsePage } from "@/pages/TermsOfUse/TermsOfUsePage";
 import { PrivacyPolicyPage } from "@/pages/PrivacyPolicy/PrivacyPolicyPage";
+import { RoadmapPage } from "@/pages/Roadmap/RoadmapPage";
 import Footer from "@/parts/Footer";
 import HomePage from "@pages/Home";
 import Header from "@parts/Header";
-import { createRootRoute, createRoute, createRouter, Outlet } from "@tanstack/react-router";
+import { Routes, Route } from "react-router-dom";
 
-const rootRoute = createRootRoute({
-    component: () => (
+const AppLayout = () => {
+    return (
         <>
             <Header />
             <div id="root-content">
-                <Outlet />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/features" element={<FeaturesPage />} />
+                    <Route path="/use-cases" element={<UseCasesPage />} />
+                    <Route path="/faq" element={<FAQPage />} />
+                    <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                    <Route path="/roadmap" element={<RoadmapPage />} />
+                </Routes>
             </div>
             <Footer />
         </>
-    ),
-});
+    );
+};
 
-const indexRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: "/",
-    component: HomePage,
-});
-
-const featuresRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: "/features",
-    component: FeaturesPage,
-});
-
-const useCasesRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: "/use-cases",
-    component: UseCasesPage,
-});
-
-const faqRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: "/faq",
-    component: FAQPage,
-});
-
-const termsOfUseRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: "/terms-of-use",
-    component: TermsOfUsePage,
-});
-
-const privacyPolicyRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: "/privacy-policy",
-    component: PrivacyPolicyPage,
-});
-
-const routeTree = rootRoute.addChildren([indexRoute, featuresRoute, useCasesRoute, faqRoute, termsOfUseRoute, privacyPolicyRoute]);
-export const router = createRouter({ routeTree });
-
-declare module "@tanstack/react-router" {
-    interface Register {
-        router: typeof router;
-    }
-}
+export default AppLayout;

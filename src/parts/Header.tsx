@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button";
 import LayoutContainer from "@/components/containers/LayoutContainer";
 import logoBlue from "@assets/images/logo_blue.svg";
-import { useRouter } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useWaitList } from "@/hooks/useWaitList";
@@ -12,7 +12,7 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { openWaitList: openWaitList } = useWaitList();
-    const router = useRouter();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,9 +39,8 @@ const Header = () => {
         if (isHomePage) {
             scrollToSection(sectionId);
         } else {
-            router.navigate({ to: '/' }).then(() => {
-                setTimeout(() => scrollToSection(sectionId), 100);
-            });
+            navigate('/');
+            setTimeout(() => scrollToSection(sectionId), 100);
         }
 
         setIsMobileMenuOpen(false);

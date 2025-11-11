@@ -2,12 +2,13 @@ import LayoutContainer from "@/components/containers/LayoutContainer";
 import Button from "@/components/ui/Button";
 import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
-import { GITHUB_ROADMAP_URL } from "@/lib/constants";
+import { useNavigate } from "react-router-dom";
 
 import logoBlack from "@assets/images/logo_black.svg";
 
 const CallToActionSection = () => {
     const { openWaitList: openWaitlist } = useWaitList();
+    const navigate = useNavigate();
 
     return (
         <LayoutContainer>
@@ -49,7 +50,7 @@ const CallToActionSection = () => {
                             <Button
                                 variant="ghost"
                                 size="medium"
-                                onClick={() => window.open(GITHUB_ROADMAP_URL, "_blank")}
+                                onClick={() => navigate("/roadmap")}
                             >
                                 <span className="hidden lg:inline">
                                     Explore our roadmap

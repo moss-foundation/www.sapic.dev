@@ -2,8 +2,11 @@ import Button from "@/components/ui/Button";
 import Tag from "@/components/ui/Tag";
 import GitHubIcon from "@/icons/GitHub";
 import GitLabIcon from "@/icons/GitLab";
+import { useNavigate } from "react-router-dom";
 
 const ConnectTabContent = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="flex flex-col gap-y-6 lg:gap-y-8">
             <p className="text-pretty text-sm md:text-base leading-relaxed text-balance text-neutral-900 lg:pr-10">
@@ -54,7 +57,12 @@ const ConnectTabContent = () => {
                                 Let us know what else you'd like by adding a ticket to our roadmap.
                             </p>
                             <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-x-2.5 mt-2">
-                                <Button variant="primary" size="small" className="self-start w-full sm:w-auto">
+                                <Button
+                                    variant="primary"
+                                    size="small"
+                                    className="self-start w-full sm:w-auto"
+                                    onClick={() => navigate("/roadmap")}
+                                >
                                     Explore our roadmap
                                 </Button>
                                 <p className="text-neutral-600 text-xs hidden md:block">Or</p>
