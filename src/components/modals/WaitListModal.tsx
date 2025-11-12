@@ -1,9 +1,28 @@
 import { AnimatePresence, motion } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useReward } from "react-rewards";
 import Button from "../ui/Button";
 import logoBlue from "@assets/images/logo_blue.svg";
-import { DISCORD_INVITE_URL } from "@/lib/constants";
+import { DISCORD_INVITE_URL, TURNSTILE_SITE_KEY } from "@/lib/constants";
+
+
+declare global {
+    interface Window {
+        turnstile?: {
+            render: (
+                element: HTMLElement | string,
+                options: {
+                    sitekey: string;
+                    callback?: (token: string) => void;
+                    "error-callback"?: () => void;
+                    "expired-callback"?: () => void;
+                }
+            ) => string;
+            reset: (widgetId: string) => void;
+            remove: (widgetId: string) => void;
+        };
+    }
+}
 
 interface WaitListModalProps {
     isOpen: boolean;
@@ -14,6 +33,9 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     const [email, setEmail] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [confettiPositions, setConfettiPositions] = useState<Array<{ id: string; x: number; y: number; angle: number }>>([]);
+    const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+    const turnstileWidgetId = useRef<string | null>(null);
+    const turnstileContainerRef = useRef<HTMLDivElement>(null);
 
     const { reward: reward0 } = useReward("confetti-0", "confetti", {
         lifetime: 250,
@@ -100,23 +122,71 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
+            // Initialize Turnstile when modal opens
+            const initTurnstile = () => {
+                if (window.turnstile && turnstileContainerRef.current && !turnstileWidgetId.current) {
+                    turnstileWidgetId.current = window.turnstile.render(turnstileContainerRef.current, {
+                        sitekey: TURNSTILE_SITE_KEY,
+                        callback: (token: string) => {
+                            setTurnstileToken(token);
+                        },
+                        "error-callback": () => {
+                            setTurnstileToken(null);
+                        },
+                        "expired-callback": () => {
+                            setTurnstileToken(null);
+                        },
+                    });
+                }
+            };
+
+            initTurnstile();
+
+            // If Turnstile script hasn't loaded yet, wait for it
+            if (!window.turnstile) {
+                const checkTurnstile = setInterval(() => {
+                    if (window.turnstile) {
+                        clearInterval(checkTurnstile);
+                        initTurnstile();
+                    }
+                }, 100);
+
+                setTimeout(() => clearInterval(checkTurnstile), 5000);
+            }
         } else {
             document.body.style.overflow = "unset";
+            // Remove Turnstile widget when modal closes
+            if (window.turnstile && turnstileWidgetId.current) {
+                window.turnstile.remove(turnstileWidgetId.current);
+                turnstileWidgetId.current = null;
+                setTurnstileToken(null);
+            }
         }
         return () => {
             document.body.style.overflow = "unset";
         };
     }, [isOpen]);
 
+    // Cleanup Turnstile widget on unmount
+    useEffect(() => {
+        return () => {
+            if (window.turnstile && turnstileWidgetId.current) {
+                window.turnstile.remove(turnstileWidgetId.current);
+                turnstileWidgetId.current = null;
+            }
+        };
+    }, []);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (isSubmitting) return;
+        if (isSubmitting || !turnstileToken) return;
 
         // Block the form
         setIsSubmitting(true);
 
-        // TODO: Handle waitlist submission
+        // TODO: Handle waitlist submission with turnstileToken
         console.log("Submitted email:", email);
+        console.log("Turnstile token:", turnstileToken);
 
         // Generate random confetti positions
         const positions = generateConfettiPositions();
@@ -243,12 +313,17 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                     />
                                 </div>
 
+                                {/* Turnstile widget */}
+                                <div className="flex justify-center">
+                                    <div ref={turnstileContainerRef} id="turnstile-widget"></div>
+                                </div>
+
                                 <Button
                                     type="submit"
                                     variant="primary"
                                     size="large"
                                     className="w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || !turnstileToken}
                                 >
                                     {isSubmitting ? "Joining..." : "Join Waitlist"}
                                 </Button>
