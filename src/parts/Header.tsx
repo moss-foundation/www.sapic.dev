@@ -1,7 +1,7 @@
-import SimpleButton from "@/components/SimpleButton";
-import LayoutContainer from "@/components/LayoutContainer";
+import Button from "@/components/ui/Button";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import logoBlue from "@assets/images/logo_blue.svg";
-import { useRouter } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useWaitList } from "@/hooks/useWaitList";
@@ -12,7 +12,7 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { openWaitList: openWaitList } = useWaitList();
-    const router = useRouter();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,15 +35,14 @@ const Header = () => {
     const handleNavClick = (sectionId: string, e: React.MouseEvent) => {
         e.preventDefault();
         const isHomePage = window.location.pathname === '/';
-        
+
         if (isHomePage) {
             scrollToSection(sectionId);
         } else {
-            router.navigate({ to: '/' }).then(() => {
-                setTimeout(() => scrollToSection(sectionId), 100);
-            });
+            navigate('/');
+            setTimeout(() => scrollToSection(sectionId), 100);
         }
-        
+
         setIsMobileMenuOpen(false);
     };
 
@@ -114,26 +113,26 @@ const Header = () => {
                             transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
                         >
                             <div className="hidden md:flex items-center gap-2">
-                                <SimpleButton variant="ghost" size="small" onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}>
+                                <Button variant="ghost" size="small" onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}>
                                     Join our Discord
-                                </SimpleButton>
-                                <SimpleButton
+                                </Button>
+                                <Button
                                     variant="primary"
                                     size="small"
                                     onClick={openWaitList}
                                 >
                                     Get Started
-                                </SimpleButton>
+                                </Button>
                             </div>
 
                             <div className="md:hidden flex items-center gap-2">
-                                <SimpleButton
+                                <Button
                                     variant="primary"
                                     size="small"
                                     onClick={openWaitList}
                                 >
                                     Get Started
-                                </SimpleButton>
+                                </Button>
                                 <button
                                     aria-label="Toggle menu"
                                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -235,14 +234,14 @@ const Header = () => {
                                             }
                                         }}
                                     >
-                                        <SimpleButton
+                                        <Button
                                             variant="primary"
                                             size="large"
                                             className="w-full"
                                             onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}
                                         >
                                             Join our Discord
-                                        </SimpleButton>
+                                        </Button>
                                     </motion.div>
                                 </LayoutContainer>
                             </div>

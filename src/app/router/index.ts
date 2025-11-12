@@ -1,1 +1,1 @@
-export { router } from "./routes";
+export { default as AppLayout } from "./routes";

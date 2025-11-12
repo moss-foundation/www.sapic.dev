@@ -1,4 +1,4 @@
-import LayoutContainer from "@/components/LayoutContainer";
+import LayoutContainer from "@/components/containers/LayoutContainer";
 import { useEffect } from "react";
 
 export const TermsOfUsePage = () => {
@@ -6,16 +6,16 @@ export const TermsOfUsePage = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    const currentDate = new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    const currentDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
     });
 
     return (
-        <div className="min-h-screen bg-white py-12 md:py-16 lg:py-20">
-            <LayoutContainer>
-                <div className="max-w-4xl mx-auto">
+        <div className="min-h-screen bg-white">
+            <LayoutContainer className="py-12 md:py-16 lg:py-20">
+                <div className="max-w-4xl">
                     <div className="mb-8 md:mb-12">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900 mb-4">
                             Sapic Terms of Use

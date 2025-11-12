@@ -12,12 +12,11 @@
         "format:check": "prettier --check ."
     },
     "dependencies": {
-        "@tanstack/react-router": "^1.133.22",
-        "@tanstack/react-router-devtools": "^1.133.22",
         "motion": "^12.23.24",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
         "react-rewards": "^2.1.0",
+        "react-router-dom": "^7.9.5",
         "react-use": "^17.6.0"
     },
     "devDependencies": {
@@ -26,6 +25,7 @@
         "@types/node": "^24.6.0",
         "@types/react": "^19.1.16",
         "@types/react-dom": "^19.1.9",
+        "@types/react-router-dom": "^5.3.3",
         "@vitejs/plugin-react": "^5.0.4",
         "autoprefixer": "^10.4.21",
         "eslint": "^9.36.0",

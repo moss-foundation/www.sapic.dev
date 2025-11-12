@@ -1,5 +1,5 @@
 import { LayoutContainer } from "@/components";
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (

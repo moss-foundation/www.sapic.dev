@@ -4,10 +4,10 @@ import FeaturesSection from "./sections/FeaturesSection";
 import UseCasesSection from "./sections/UseCasesSection";
 import ForDevelopersSection from "./sections/ForDevelopersSection";
 import FaqSection from "./sections/FaqSection";
-import Line from "@/components/Line";
+import Line from "@/components/decorations/Line";
 import JoinCommunitySection from "./sections/JoinCommunitySection";
 import CallToActionSection from "./sections/CallToAction";
-import HowDoesThisWorkSection from "./sections/HowDoesThisWorkSection";
+import HowItWorksSection from "./sections/HowItWorksSection";
 import { useEffect } from "react";
 import { handleHashNavigation } from "@/lib/scrollToSection";
 
@@ -16,11 +16,11 @@ import { handleHashNavigation } from "@/lib/scrollToSection";
 const HomePage = () => {
     useEffect(() => {
         handleHashNavigation();
-        
+
         const handleHashChange = () => {
             handleHashNavigation();
         };
-        
+
         window.addEventListener('hashchange', handleHashChange);
         return () => window.removeEventListener('hashchange', handleHashChange);
     }, []);
@@ -32,7 +32,7 @@ const HomePage = () => {
             </section>
             <Line />
             <section id="how-it-works" className="scroll-mt-20">
-                <HowDoesThisWorkSection />
+                <HowItWorksSection />
             </section>
             <Line />
             <section id="features" className="scroll-mt-20">
