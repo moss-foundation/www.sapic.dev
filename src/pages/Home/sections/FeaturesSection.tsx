@@ -31,15 +31,15 @@ const FeaturesSection = () => {
                                     <p className="text-black">
                                         Contract-driven integration tests.
                                     </p>
-                                    <p className="text-neutral-500 flex items-center">
-                                        Auto-generated.
-                                        <span className="inline-block ml-2 mr-1">
+                                    <p className="text-neutral-500 flex items-center flex-wrap gap-x-2">
+                                        <span>Auto-generated.</span>
+                                        <span className="inline-flex flex-shrink-0">
                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-6">
                                                 <circle cx="14" cy="14" r="12" fill="#55A76A" />
-                                                <path d="M20 10.5L12.5 18L8.5 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M20 10.5L12.5 18L8.5 14" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
                                         </span>
-                                        Green before you ship.
+                                        <span>Green before you ship.</span>
                                     </p>
                                 </div>
                             </div>
