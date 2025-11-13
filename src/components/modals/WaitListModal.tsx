@@ -314,8 +314,8 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                 </div>
 
                                 {/* Turnstile widget */}
-                                <div className="flex justify-center">
-                                    <div ref={turnstileContainerRef} id="turnstile-widget"></div>
+                                <div className="w-full mb-8">
+                                    <div ref={turnstileContainerRef} id="turnstile-widget" className="w-full"></div>
                                 </div>
 
                                 <Button
