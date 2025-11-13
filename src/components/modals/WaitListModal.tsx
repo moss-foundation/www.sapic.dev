@@ -3,8 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import { useReward } from "react-rewards";
 import Button from "../ui/Button";
 import logoBlue from "@assets/images/logo_blue.svg";
-import { DISCORD_INVITE_URL, TURNSTILE_SITE_KEY } from "@/lib/constants";
+import { DISCORD_INVITE_URL, TURNSTILE_SITE_KEY, WAITLIST_ENDPOINT } from "@/lib/constants";
 
+interface WaitlistPayload {
+    email: string;
+    earlyAccess: boolean;
+    turnstileResponse: string;
+}
 
 declare global {
     interface Window {
@@ -12,8 +17,8 @@ declare global {
             render: (
                 element: HTMLElement | string,
                 options: {
-                    sitekey: string;
-                    callback?: (token: string) => void;
+                    "sitekey": string;
+                    "callback"?: (token: string) => void;
                     "error-callback"?: () => void;
                     "expired-callback"?: () => void;
                 }
@@ -32,7 +37,9 @@ interface WaitListModalProps {
 const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     const [email, setEmail] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [confettiPositions, setConfettiPositions] = useState<Array<{ id: string; x: number; y: number; angle: number }>>([]);
+    const [confettiPositions, setConfettiPositions] = useState<
+        Array<{ id: string; x: number; y: number; angle: number }>
+    >([]);
     const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
     const turnstileWidgetId = useRef<string | null>(null);
     const turnstileContainerRef = useRef<HTMLDivElement>(null);
@@ -96,11 +103,11 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
 
         // Divide screen into zones to ensure better distribution
         const zones = [
-            { xMin: 0, xMax: 33, yMin: 0, yMax: 50 },    // Top-left
-            { xMin: 33, xMax: 66, yMin: 0, yMax: 50 },   // Top-center
-            { xMin: 66, xMax: 100, yMin: 0, yMax: 50 },  // Top-right
-            { xMin: 0, xMax: 50, yMin: 50, yMax: 100 },  // Bottom-left
-            { xMin: 50, xMax: 100, yMin: 50, yMax: 100 } // Bottom-right
+            { xMin: 0, xMax: 33, yMin: 0, yMax: 50 }, // Top-left
+            { xMin: 33, xMax: 66, yMin: 0, yMax: 50 }, // Top-center
+            { xMin: 66, xMax: 100, yMin: 0, yMax: 50 }, // Top-right
+            { xMin: 0, xMax: 50, yMin: 50, yMax: 100 }, // Bottom-left
+            { xMin: 50, xMax: 100, yMin: 50, yMax: 100 }, // Bottom-right
         ];
 
         // Shuffle zones and pick random positions from different zones
@@ -124,19 +131,26 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
             document.body.style.overflow = "hidden";
             // Initialize Turnstile when modal opens
             const initTurnstile = () => {
-                if (window.turnstile && turnstileContainerRef.current && !turnstileWidgetId.current) {
-                    turnstileWidgetId.current = window.turnstile.render(turnstileContainerRef.current, {
-                        sitekey: TURNSTILE_SITE_KEY,
-                        callback: (token: string) => {
-                            setTurnstileToken(token);
-                        },
-                        "error-callback": () => {
-                            setTurnstileToken(null);
-                        },
-                        "expired-callback": () => {
-                            setTurnstileToken(null);
-                        },
-                    });
+                if (
+                    window.turnstile &&
+                    turnstileContainerRef.current &&
+                    !turnstileWidgetId.current
+                ) {
+                    turnstileWidgetId.current = window.turnstile.render(
+                        turnstileContainerRef.current,
+                        {
+                            "sitekey": TURNSTILE_SITE_KEY,
+                            "callback": (token: string) => {
+                                setTurnstileToken(token);
+                            },
+                            "error-callback": () => {
+                                setTurnstileToken(null);
+                            },
+                            "expired-callback": () => {
+                                setTurnstileToken(null);
+                            },
+                        }
+                    );
                 }
             };
 
@@ -177,7 +191,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         };
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (isSubmitting || !turnstileToken) return;
 
@@ -187,6 +201,25 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         // TODO: Handle waitlist submission with turnstileToken
         console.log("Submitted email:", email);
         console.log("Turnstile token:", turnstileToken);
+
+        const payload: WaitlistPayload = {
+            email: email,
+            earlyAccess: true, // FIXME: set appropriate category
+            turnstileResponse: turnstileToken,
+        };
+        const response = await fetch(WAITLIST_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+            // TODO: Proper user interaction
+            alert(`Failed to add to waitlist: ${response.status}`);
+            setIsSubmitting(false);
+
+            return;
+        }
 
         // Generate random confetti positions
         const positions = generateConfettiPositions();
@@ -234,7 +267,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                     />
 
                     {/* Confetti sources - positioned across entire viewport */}
-                    {confettiPositions.map((pos) => (
+                    {confettiPositions.map(pos => (
                         <span
                             key={pos.id}
                             id={pos.id}
@@ -258,7 +291,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                             className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative"
-                            onClick={(e) => e.stopPropagation()}
+                            onClick={e => e.stopPropagation()}
                         >
                             <button
                                 onClick={onClose}
@@ -292,7 +325,8 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                 Join the waitlist
                             </h2>
                             <p className="text-neutral-600 text-sm md:text-base text-center mb-6">
-                                Be the first to know when Sapic launches. Get exclusive early access and special perks.
+                                Be the first to know when Sapic launches. Get exclusive early access
+                                and special perks.
                             </p>
 
                             {/* Form */}
@@ -305,7 +339,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                         type="email"
                                         id="email"
                                         value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={e => setEmail(e.target.value)}
                                         placeholder="Enter your email"
                                         required
                                         disabled={isSubmitting}
@@ -315,7 +349,11 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
 
                                 {/* Turnstile widget */}
                                 <div className="w-full mb-8">
-                                    <div ref={turnstileContainerRef} id="turnstile-widget" className="w-full"></div>
+                                    <div
+                                        ref={turnstileContainerRef}
+                                        id="turnstile-widget"
+                                        className="w-full"
+                                    ></div>
                                 </div>
 
                                 <Button
@@ -371,4 +409,3 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
 };
 
 export default WaitListModal;
-
