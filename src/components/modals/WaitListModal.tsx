@@ -5,12 +5,6 @@ import Button from "../ui/Button";
 import logoBlue from "@assets/images/logo_blue.svg";
 import { DISCORD_INVITE_URL, TURNSTILE_SITE_KEY, WAITLIST_ENDPOINT } from "@/lib/constants";
 
-interface WaitlistPayload {
-    email: string;
-    earlyAccess: boolean;
-    turnstileResponse: string;
-}
-
 declare global {
     interface Window {
         turnstile?: {
@@ -202,9 +196,8 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         console.log("Submitted email:", email);
         console.log("Turnstile token:", turnstileToken);
 
-        const payload: WaitlistPayload = {
+        const payload = {
             email: email,
-            earlyAccess: true, // FIXME: set appropriate category
             turnstileResponse: turnstileToken,
         };
         const response = await fetch(WAITLIST_ENDPOINT, {
