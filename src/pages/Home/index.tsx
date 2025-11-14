@@ -11,8 +11,6 @@ import HowItWorksSection from "./sections/HowItWorksSection";
 import { useEffect } from "react";
 import { handleHashNavigation } from "@/lib/scrollToSection";
 
-
-
 const HomePage = () => {
     useEffect(() => {
         handleHashNavigation();

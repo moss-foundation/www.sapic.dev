@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import { useReward } from "react-rewards";
+import { useFingerprint } from "@/hooks/useFingerprint";
 import Button from "../ui/Button";
 import logoBlue from "@assets/images/logo_blue.svg";
 import { DISCORD_INVITE_URL, TURNSTILE_SITE_KEY, WAITLIST_ENDPOINT } from "@/lib/constants";
@@ -12,6 +13,7 @@ declare global {
                 element: HTMLElement | string,
                 options: {
                     "sitekey": string;
+                    "theme"?: "light" | "dark" | "auto";
                     "callback"?: (token: string) => void;
                     "error-callback"?: () => void;
                     "expired-callback"?: () => void;
@@ -37,6 +39,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
     const turnstileWidgetId = useRef<string | null>(null);
     const turnstileContainerRef = useRef<HTMLDivElement>(null);
+    const { fingerprintId, isLoading: isFingerprintLoading, getFingerprint } = useFingerprint();
 
     const { reward: reward0 } = useReward("confetti-0", "confetti", {
         lifetime: 250,
@@ -123,6 +126,12 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
+
+            // Load fingerprint data when modal opens
+            if (!fingerprintId && !isFingerprintLoading) {
+                getFingerprint();
+            }
+
             // Initialize Turnstile when modal opens
             const initTurnstile = () => {
                 if (
@@ -134,6 +143,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                         turnstileContainerRef.current,
                         {
                             "sitekey": TURNSTILE_SITE_KEY,
+                            "theme": "light",
                             "callback": (token: string) => {
                                 setTurnstileToken(token);
                             },
@@ -173,7 +183,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         return () => {
             document.body.style.overflow = "unset";
         };
-    }, [isOpen]);
+    }, [isOpen, fingerprintId, isFingerprintLoading, getFingerprint]);
 
     // Cleanup Turnstile widget on unmount
     useEffect(() => {
@@ -192,13 +202,16 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         // Block the form
         setIsSubmitting(true);
 
-        // TODO: Handle waitlist submission with turnstileToken
-        console.log("Submitted email:", email);
-        console.log("Turnstile token:", turnstileToken);
+        // Get visitor fingerprint data if not already loaded
+        let currentFingerprintId: string | null = fingerprintId;
+        if (!currentFingerprintId && !isFingerprintLoading) {
+            currentFingerprintId = await getFingerprint();
+        }
 
         const payload = {
             email: email,
             turnstileResponse: turnstileToken,
+            fingerprintId: currentFingerprintId,
         };
         const response = await fetch(WAITLIST_ENDPOINT, {
             method: "POST",
