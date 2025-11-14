@@ -13,6 +13,7 @@ declare global {
                 element: HTMLElement | string,
                 options: {
                     "sitekey": string;
+                    "theme"?: "light" | "dark" | "auto";
                     "callback"?: (token: string) => void;
                     "error-callback"?: () => void;
                     "expired-callback"?: () => void;
@@ -38,8 +39,6 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
     const turnstileWidgetId = useRef<string | null>(null);
     const turnstileContainerRef = useRef<HTMLDivElement>(null);
-
-    // Get visitor fingerprint data
     const { fingerprintId, isLoading: isFingerprintLoading, getFingerprint } = useFingerprint();
 
     const { reward: reward0 } = useReward("confetti-0", "confetti", {
@@ -144,6 +143,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                         turnstileContainerRef.current,
                         {
                             "sitekey": TURNSTILE_SITE_KEY,
+                            "theme": "light",
                             "callback": (token: string) => {
                                 setTurnstileToken(token);
                             },
