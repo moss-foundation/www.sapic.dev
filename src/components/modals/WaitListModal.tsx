@@ -211,7 +211,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         const payload = {
             email: email,
             turnstileResponse: turnstileToken,
-            fingerprint_id: currentFingerprintId,
+            fingerprintId: currentFingerprintId,
         };
         const response = await fetch(WAITLIST_ENDPOINT, {
             method: "POST",
