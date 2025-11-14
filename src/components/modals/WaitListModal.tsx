@@ -33,6 +33,8 @@ interface WaitListModalProps {
 const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     const [email, setEmail] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [isFormBlocked, setIsFormBlocked] = useState(false);
     const [confettiPositions, setConfettiPositions] = useState<
         Array<{ id: string; x: number; y: number; angle: number }>
     >([]);
@@ -126,50 +128,58 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
-
-            // Load fingerprint data when modal opens
+            if (!isFormBlocked) {
+                setErrorMessage(null);
+            }
             if (!fingerprintId && !isFingerprintLoading) {
                 getFingerprint();
             }
-
-            // Initialize Turnstile when modal opens
-            const initTurnstile = () => {
-                if (
-                    window.turnstile &&
-                    turnstileContainerRef.current &&
-                    !turnstileWidgetId.current
-                ) {
-                    turnstileWidgetId.current = window.turnstile.render(
-                        turnstileContainerRef.current,
-                        {
-                            "sitekey": TURNSTILE_SITE_KEY,
-                            "theme": "light",
-                            "callback": (token: string) => {
-                                setTurnstileToken(token);
-                            },
-                            "error-callback": () => {
-                                setTurnstileToken(null);
-                            },
-                            "expired-callback": () => {
-                                setTurnstileToken(null);
-                            },
-                        }
-                    );
-                }
-            };
-
-            initTurnstile();
-
-            // If Turnstile script hasn't loaded yet, wait for it
-            if (!window.turnstile) {
-                const checkTurnstile = setInterval(() => {
-                    if (window.turnstile) {
-                        clearInterval(checkTurnstile);
-                        initTurnstile();
+            if (!isFormBlocked) {
+                const initTurnstile = () => {
+                    if (
+                        window.turnstile &&
+                        turnstileContainerRef.current &&
+                        !turnstileWidgetId.current
+                    ) {
+                        turnstileWidgetId.current = window.turnstile.render(
+                            turnstileContainerRef.current,
+                            {
+                                "sitekey": TURNSTILE_SITE_KEY,
+                                "theme": "light",
+                                "callback": (token: string) => {
+                                    setTurnstileToken(token);
+                                },
+                                "error-callback": () => {
+                                    setTurnstileToken(null);
+                                },
+                                "expired-callback": () => {
+                                    setTurnstileToken(null);
+                                },
+                            }
+                        );
                     }
-                }, 100);
+                };
 
-                setTimeout(() => clearInterval(checkTurnstile), 5000);
+                initTurnstile();
+
+                // If Turnstile script hasn't loaded yet, wait for it
+                if (!window.turnstile) {
+                    const checkTurnstile = setInterval(() => {
+                        if (window.turnstile && !isFormBlocked) {
+                            clearInterval(checkTurnstile);
+                            initTurnstile();
+                        }
+                    }, 100);
+
+                    setTimeout(() => clearInterval(checkTurnstile), 5000);
+                }
+            } else {
+                // Remove Turnstile widget if form is blocked
+                if (window.turnstile && turnstileWidgetId.current) {
+                    window.turnstile.remove(turnstileWidgetId.current);
+                    turnstileWidgetId.current = null;
+                    setTurnstileToken(null);
+                }
             }
         } else {
             document.body.style.overflow = "unset";
@@ -183,7 +193,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         return () => {
             document.body.style.overflow = "unset";
         };
-    }, [isOpen, fingerprintId, isFingerprintLoading, getFingerprint]);
+    }, [isOpen, fingerprintId, isFingerprintLoading, getFingerprint, isFormBlocked]);
 
     // Cleanup Turnstile widget on unmount
     useEffect(() => {
@@ -199,7 +209,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         e.preventDefault();
         if (isSubmitting || !turnstileToken) return;
 
-        // Block the form
+        setErrorMessage(null);
         setIsSubmitting(true);
 
         // Get visitor fingerprint data if not already loaded
@@ -220,10 +230,16 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         });
 
         if (!response.ok) {
-            // TODO: Proper user interaction
-            alert(`Failed to add to waitlist: ${response.status}`);
+            if (response.status === 409) {
+                setErrorMessage("This email has already been added to the waitlist");
+                setIsFormBlocked(true);
+            } else if (response.status === 429) {
+                setErrorMessage("This device has already been used to submit a request. If you believe this is not the case or you want to update the email associated with the request, please contact our support team on our Discord server.");
+                setIsFormBlocked(true);
+            } else {
+                setErrorMessage("Failed to add to waitlist. Please try again later.");
+            }
             setIsSubmitting(false);
-
             return;
         }
 
@@ -253,6 +269,8 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         setTimeout(() => {
             setEmail("");
             setIsSubmitting(false);
+            setErrorMessage(null);
+            setIsFormBlocked(false);
             setConfettiPositions([]);
             onClose();
         }, 2500);
@@ -348,29 +366,43 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                         onChange={e => setEmail(e.target.value)}
                                         placeholder="Enter your email"
                                         required
-                                        disabled={isSubmitting}
+                                        disabled={isSubmitting || isFormBlocked}
                                         className="w-full px-4 py-2 bg-neutral-50 border border-neutral-200 rounded-lg text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-4 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                     />
                                 </div>
 
                                 {/* Turnstile widget */}
-                                <div className="w-full mb-8">
-                                    <div
-                                        ref={turnstileContainerRef}
-                                        id="turnstile-widget"
-                                        className="w-full"
-                                    ></div>
-                                </div>
+                                {!isFormBlocked && (
+                                    <div className="w-full mb-8">
+                                        <div
+                                            ref={turnstileContainerRef}
+                                            id="turnstile-widget"
+                                            className="w-full"
+                                        ></div>
+                                    </div>
+                                )}
 
                                 <Button
                                     type="submit"
                                     variant="primary"
                                     size="large"
                                     className="w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                                    disabled={isSubmitting || !turnstileToken}
+                                    disabled={isSubmitting || !turnstileToken || isFormBlocked}
                                 >
                                     {isSubmitting ? "Joining..." : "Join Waitlist"}
                                 </Button>
+
+                                {/* Error message */}
+                                {errorMessage && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-800"
+                                    >
+                                        {errorMessage}
+                                    </motion.div>
+                                )}
                             </form>
 
                             {/* Divider */}

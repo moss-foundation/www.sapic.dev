@@ -3,5 +3,5 @@ export const TWITTER_URL = "https://twitter.com/sapicdev"; // Update with actual
 export const REDDIT_URL = "https://reddit.com/r/sapic"; // Update with actual Reddit URL
 export const GITHUB_ROADMAP_URL = "https://github.com/sapic-dev/sapic"; // Update with actual roadmap URL
 
-export const TURNSTILE_SITE_KEY = "0x4AAAAAACAkMNbbuqXBlSvE";
-export const WAITLIST_ENDPOINT = "https://api.sapic.dev/waitlist-worker/waitlist";
+export const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+export const WAITLIST_ENDPOINT = import.meta.env.VITE_WAITLIST_ENDPOINT;
