@@ -1,0 +1,67 @@
+name: Deploy
+
+on:
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  ref: main
+
+            - name: Verify branch
+              run: |
+                  if [ "${{ github.ref }}" != "refs/heads/main" ]; then
+                      echo "❌ This workflow can only be run from the main branch"
+                      exit 1
+                  fi
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 9.15.0
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: "pnpm"
+
+            - name: Setup Terraform
+              uses: hashicorp/setup-terraform@v3
+              with:
+                  terraform_version: "1.5.0"
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Build
+              env:
+                  VITE_TURNSTILE_SITE_KEY: ${{ secrets.VITE_TURNSTILE_SITE_KEY }}
+                  VITE_WAITLIST_ENDPOINT: ${{ secrets.VITE_WAITLIST_ENDPOINT }}
+              run: pnpm build
+
+            - name: Create infrastructure with Terraform
+              working-directory: infra
+              env:
+                  TF_TOKEN_app_terraform_io: ${{ secrets.TF_API_TOKEN }}
+                  TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  TF_VAR_cloudflare_sapic_dev_zone_id: ${{ secrets.CLOUDFLARE_SAPIC_DEV_ZONE_ID }}
+              run: |
+                  terraform init
+                  terraform apply -auto-approve
+
+            - name: Deploy to Cloudflare Pages
+              env:
+                  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+              run: |
+                  pnpm wrangler pages deploy dist \
+                    --project-name=www-sapic-dev \
+                    --branch=main \
+                    --commit-dirty=true
+
