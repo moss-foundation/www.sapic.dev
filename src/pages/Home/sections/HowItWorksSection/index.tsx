@@ -11,7 +11,6 @@ import PuzzleIcon from "@/icons/Puzzle";
 import UsersIcon from "@/icons/Users";
 import DiffIcon from "@/icons/Diff";
 import ApplyIcon from "@/icons/Apply";
-import { Underlined } from "@/components";
 
 interface Tab {
     id: string;
@@ -168,7 +167,7 @@ const HowItWorksSection = () => {
                                 How It Works
                             </h2>
                             <p className="mt-4 md:mt-5 lg:mt-6 max-w-full md:max-w-2xl text-pretty text-sm md:text-base leading-relaxed text-neutral-600">
-                                We didn't reinvent the wheel, just made it fit <Underlined text="everywhere" color="purple" style="wavy" />.
+                                We didn't reinvent the wheel, just made it fit everywhere.
                             </p>
                         </div>
                     </FadeInElement>
