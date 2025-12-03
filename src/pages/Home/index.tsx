@@ -29,6 +29,7 @@ const HomePage = () => {
                 <HeroSection />
             </section>
             <Line />
+
             <section id="how-it-works" className="scroll-mt-20">
                 <HowItWorksSection />
             </section>
