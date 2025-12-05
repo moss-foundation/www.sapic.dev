@@ -1,6 +1,6 @@
 import HeroSection from "./sections/HeroSection";
 import FeaturesSection from "./sections/FeaturesSection";
-
+import DemoScreensSection from "./sections/DemoScreensSection";
 import UseCasesSection from "./sections/UseCasesSection";
 import ForDevelopersSection from "./sections/ForDevelopersSection";
 import FaqSection from "./sections/FaqSection";
@@ -27,6 +27,10 @@ const HomePage = () => {
         <div className="min-h-screen flex flex-col gap-10 mb-16 lg:mb-32">
             <section id="home" className="scroll-mt-20">
                 <HeroSection />
+            </section>
+
+            <section id="demo" className="scroll-mt-20">
+                <DemoScreensSection />
             </section>
             <Line />
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import LayoutContainer from "@/components/containers/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
 import ConnectTabContent from "./tabs/ConnectTabContent";
@@ -62,104 +62,14 @@ const tabs: Tab[] = [
 
 const HowItWorksSection = () => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const isScrollingToTab = useRef(false);
-    const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    const scrollToTab = (tabIndex: number) => {
-        // On mobile, just change the tab without scrolling
-        if (window.innerWidth < 1024) {
-            setActiveTabIndex(tabIndex);
-            return;
-        }
-
-        const section = sectionRef.current;
-        if (!section) return;
-
-        // Set flag to prevent scroll handler from updating state
-        isScrollingToTab.current = true;
-
-        // Clear any existing timeout
-        if (scrollTimeoutRef.current) {
-            clearTimeout(scrollTimeoutRef.current);
-        }
-
-        // Immediately update the active tab
+    const handleTabClick = (tabIndex: number) => {
         setActiveTabIndex(tabIndex);
-
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const viewportHeight = window.innerHeight;
-
-        // Calculate the scroll position for the selected tab
-        const scrollProgress = tabIndex / tabs.length;
-        const targetScroll = sectionTop + (scrollProgress * (sectionHeight - viewportHeight));
-
-        window.scrollTo({
-            top: targetScroll,
-            behavior: 'smooth'
-        });
-
-        // Reset the flag after a longer delay to ensure smooth scroll completes
-        scrollTimeoutRef.current = setTimeout(() => {
-            isScrollingToTab.current = false;
-        }, 1500);
     };
 
-    useEffect(() => {
-        const section = sectionRef.current;
-        if (!section) return;
-
-        // Only enable scroll-based tab switching on desktop (>= 1024px)
-        const mediaQuery = window.matchMedia('(min-width: 1024px)');
-
-        let rafId: number | null = null;
-
-        const handleScroll = () => {
-            // Skip if not desktop
-            if (!mediaQuery.matches) return;
-
-            // Cancel any pending animation frame
-            if (rafId) {
-                cancelAnimationFrame(rafId);
-            }
-
-            // Use requestAnimationFrame for better performance
-            rafId = requestAnimationFrame(() => {
-                // Skip if user clicked on a tab
-                if (isScrollingToTab.current) return;
-
-                const rect = section.getBoundingClientRect();
-                const sectionHeight = section.offsetHeight;
-                const viewportHeight = window.innerHeight;
-
-                const scrollProgress = Math.max(0, Math.min(1, -rect.top / (sectionHeight - viewportHeight)));
-                const newTabIndex = Math.min(tabs.length - 1, Math.floor(scrollProgress * tabs.length));
-
-                setActiveTabIndex(newTabIndex);
-            });
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            if (rafId) {
-                cancelAnimationFrame(rafId);
-            }
-            if (scrollTimeoutRef.current) {
-                clearTimeout(scrollTimeoutRef.current);
-            }
-        };
-    }, []);
-
     return (
-        <div
-            ref={sectionRef}
-            className="lg:h-[500vh]"
-        >
-            <div className="lg:sticky lg:top-0 lg:h-screen lg:flex lg:items-center lg:justify-center">
+        <div>
+            <div className="lg:flex lg:items-center lg:justify-center lg:py-12">
                 <LayoutContainer>
                     <FadeInElement>
                         <div className="flex flex-col items-start gap-y-1.5 mb-6 md:mb-8 lg:mb-12">
@@ -182,7 +92,7 @@ const HowItWorksSection = () => {
                                         ? 'bg-neutral-100 text-neutral-900'
                                         : 'text-neutral-500 active:bg-neutral-100/50'
                                         }`}
-                                    onClick={() => scrollToTab(index)}
+                                    onClick={() => handleTabClick(index)}
                                 >
                                     <div className={tab.iconColor}>{tab.icon}</div>
                                     <p className="font-medium">
@@ -194,7 +104,7 @@ const HowItWorksSection = () => {
                         ))}
                     </div>
 
-                    {/* Desktop (>= 1024px): Wrapped tabs with scroll-based switching */}
+                    {/* Desktop (>= 1024px): Wrapped tabs */}
                     <div className="hidden lg:flex flex-row items-center justify-start gap-x-2.5 flex-wrap gap-y-2 mb-8">
                         {tabs.map((tab, index) => (
                             <FadeInElement key={tab.id} delay={index * 0.1}>
@@ -204,7 +114,7 @@ const HowItWorksSection = () => {
                                         ? 'bg-neutral-100 text-neutral-900 border border-neutral-200'
                                         : 'text-neutral-500 hover:text-neutral-900 border border-transparent hover:border-neutral-200'
                                         }`}
-                                    onClick={() => scrollToTab(index)}
+                                    onClick={() => handleTabClick(index)}
                                 >
                                     <div className={tab.iconColor}>{tab.icon}</div>
                                     <p>
@@ -220,9 +130,9 @@ const HowItWorksSection = () => {
                         {tabs.map((tab, index) => (
                             <FadeInElement key={tab.id} delay={index * 0.5}>
                                 <div
-                                    className={`relative lg:absolute lg:inset-0 transition-opacity duration-700 ease-in-out ${activeTabIndex === index
+                                    className={`transition-opacity duration-700 ease-in-out ${activeTabIndex === index
                                         ? 'opacity-100 pointer-events-auto'
-                                        : 'hidden lg:block lg:opacity-0 lg:pointer-events-none'
+                                        : 'hidden opacity-0 pointer-events-none'
                                         }`}
                                 >
                                     {tab.content}
