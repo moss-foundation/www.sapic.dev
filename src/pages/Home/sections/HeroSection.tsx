@@ -3,7 +3,6 @@ import LayoutContainer from "@/components/containers/LayoutContainer";
 import { motion } from "motion/react";
 import { useWaitList } from "@/hooks/useWaitList";
 
-import screen from "@assets/images/screen.png";
 import amazonDynamoDB from "@assets/images/amazon/AmazonDynamoDB.webp";
 import amazonLambda from "@assets/images/amazon/AmazonLambdas.webp";
 import amazonS3 from "@assets/images/amazon/AmazonS3.webp";
@@ -185,7 +184,7 @@ const HeroSection = () => {
                             </motion.div>
 
 
-                            <motion.div
+                            {/* <motion.div
                                 className="flex flex-col gap-1 md:gap-2"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -308,7 +307,7 @@ const HeroSection = () => {
                                     <div className="absolute bottom-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-20 pointer-events-none rounded-b-lg md:rounded-b-xl" />
                                 </motion.div>
 
-                            </motion.div>
+                            </motion.div> */}
                         </div>
                     </div>
                 </div>

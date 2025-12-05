@@ -201,8 +201,8 @@ const HowItWorksSection = () => {
                                 <div
                                     key={tab.id}
                                     className={`flex flex-row items-center gap-1 text-base px-3 py-1.5 rounded-lg transition-all duration-300 cursor-pointer ${activeTabIndex === index
-                                        ? 'bg-neutral-100 text-neutral-900'
-                                        : 'text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900'
+                                        ? 'bg-neutral-100 text-neutral-900 border border-neutral-200'
+                                        : 'text-neutral-500 hover:text-neutral-900 border border-transparent hover:border-neutral-200'
                                         }`}
                                     onClick={() => scrollToTab(index)}
                                 >
