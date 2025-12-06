@@ -84,7 +84,7 @@ const HeroSection = () => {
 
     return (
 
-        <LayoutContainer className="relative w-full pt-28 lg:pt-42 mb-28">
+        <LayoutContainer className="relative w-full pt-28 lg:pt-42 mb-10 xl:mb-28">
             <div className="h-full flex flex-col relative z-10">
                 <div className="flex flex-col gap-4 md:gap-10 relative" style={{ padding: '2px' }}>
                     <motion.div

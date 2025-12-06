@@ -12,17 +12,6 @@ const FeaturesSection = () => {
 
     return (
         <LayoutContainer className="flex flex-col gap-8 md:gap-10 w-full">
-            {/* <FadeInElement>
-                <div className="flex flex-col items-start">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold w-full lg:w-3/5 text-neutral-900">
-                        Feel the <span className="text-blue-4">best experience</span> with our features
-                    </h2>
-                    <p className="text-pretty text-sm md:text-base leading-relaxed text-neutral-500 mt-4 md:mt-6 max-w-full md:max-w-2xl">
-                        Bring all your APIs, databases, cloud resources, events, and endpoints together in one consistent interface.
-                    </p>
-                </div>
-            </FadeInElement> */}
-
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 <FadeInElement delay={0.2}>
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
@@ -74,7 +63,7 @@ const FeaturesSection = () => {
                             <p className="text-neutral-600 text-sm">Every resource is defined through a contract with reusable input/output schemas that stay always in sync with your system.</p>
                         </div>
 
-                        <div className="w-full flex-1 overflow-hidden mt-6">
+                        <div className="w-full flex-1 overflow-hidden my-6">
                             <svg width="100%" height="100%" viewBox="0 0 318 208" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
                                 <line x1="30" y1="16.5" x2="-4.37112e-08" y2="16.5" stroke="#E5E5E5" strokeDasharray="2 2" />
                                 <rect x="30.5" y="0.5" width="78" height="31" rx="5.5" stroke="#E5E5E5" />
@@ -155,7 +144,7 @@ const FeaturesSection = () => {
                         </div>
 
 
-                        <div className="px-6">
+                        <div className="px-6 pb-6">
                             <p className="text-sm text-neutral-900 mb-1.5">Control of where you store:</p>
                             <div className="flex overflow-hidden flex-col gap-y-2">
                                 <div className="flex flex-col gap-y-1.5 py-1">
@@ -243,18 +232,18 @@ const FeaturesSection = () => {
                 </FadeInElement>
 
                 <FadeInElement delay={0.1} className="md:col-span-2">
-                    <div className="flex flex-row border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
-                        <div className="flex flex-col gap-1 p-5 md:p-6 w-1/2">
+                    <div className="flex flex-col md:flex-row border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
+                        <div className="flex flex-col gap-1 p-4 sm:p-5 md:p-6 w-full md:w-1/2">
                             <p className="text-neutral-900 text-base md:text-lg font-medium">
                                 Integration Testing
                             </p>
                             <p className="text-neutral-600 text-sm">Build test flows visually using live resource information, invocation rules, and data schemas — no scripting required.</p>
 
-                            <div className="flex flex-row items-center justify-start gap-2 md:gap-3 flex-wrap mt-2">
+                            <div className="hidden md:flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-2 md:gap-3 mt-2 sm:mt-3">
                                 <Button
                                     variant="primary"
                                     size="small"
-                                    className="self-start w-full sm:w-auto"
+                                    className="w-full sm:w-auto"
                                     onClick={openWaitList}
                                 >
                                     Sign up to Waitlist
@@ -262,17 +251,20 @@ const FeaturesSection = () => {
                                 <Button
                                     variant="default"
                                     size="small"
-                                    className="self-start w-full sm:w-auto"
+                                    className="w-full sm:w-auto"
                                     onClick={() => navigate("/roadmap")}
                                 >
                                     <span className="hidden lg:inline">
                                         Our Roadmap
                                     </span>
+                                    <span className="lg:hidden">
+                                        Roadmap
+                                    </span>
                                 </Button>
                             </div>
                         </div>
 
-                        <div className="relative w-1/2 overflow-hidden flex items-center justify-center">
+                        <div className="relative w-full md:w-1/2 overflow-hidden flex items-center justify-center min-h-[200px] sm:min-h-[250px] md:min-h-0">
                             <svg width="125%" height="125%" viewBox="0 0 442 514" fill="none" xmlns="http://www.w3.org/2000/svg" className="block" style={{ transform: "scale(0.9)", transformOrigin: "center center" }}>
                                 <rect x="141.5" y="337.5" width="258" height="76" rx="11.5" fill="white" />
                                 <rect x="141.5" y="337.5" width="258" height="76" rx="11.5" stroke="#E5E5E5" />
