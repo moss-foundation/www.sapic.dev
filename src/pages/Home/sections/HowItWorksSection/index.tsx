@@ -82,42 +82,19 @@ const HowItWorksSection = () => {
                         </div>
                     </FadeInElement>
 
-                    {/* Mobile & Tablet (< 1024px): Scrollable horizontal tabs */}
-                    <div className="flex lg:hidden flex-row items-center justify-start gap-x-2 overflow-x-auto mb-6 md:mb-8 pb-2 -mx-4 px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                        {tabs.map((tab, index) => (
-                            <FadeInElement key={tab.id} delay={index * 0.1}>
-                                <div
-                                    key={tab.id}
-                                    className={`flex flex-row items-center gap-1.5 text-sm md:text-base px-3 py-2 rounded-lg transition-all duration-300 cursor-pointer whitespace-nowrap flex-shrink-0 ${activeTabIndex === index
-                                        ? 'bg-neutral-100 text-neutral-900'
-                                        : 'text-neutral-500 active:bg-neutral-100/50'
-                                        }`}
-                                    onClick={() => handleTabClick(index)}
-                                >
-                                    <div className={tab.iconColor}>{tab.icon}</div>
-                                    <p className="font-medium">
-                                        {tab.label}
-                                        {tab.subLabel && <span className="text-neutral-500"> {tab.subLabel}</span>}
-                                    </p>
-                                </div>
-                            </FadeInElement>
-                        ))}
-                    </div>
 
-                    {/* Desktop (>= 1024px): Wrapped tabs */}
-                    <div className="hidden lg:flex flex-row items-center justify-start gap-x-2.5 flex-wrap gap-y-2 mb-8">
+                    <div className="flex flex-row items-center justify-start gap-x-2 lg:gap-x-2.5 gap-y-2 overflow-x-auto lg:flex-wrap mb-6 md:mb-8 pb-2 -mx-4 px-4 lg:mx-0 lg:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                         {tabs.map((tab, index) => (
-                            <FadeInElement key={tab.id} delay={index * 0.1}>
+                            <FadeInElement key={tab.id}>
                                 <div
-                                    key={tab.id}
-                                    className={`flex flex-row items-center gap-1 px-3 py-1.5 rounded-lg transition-all duration-300 cursor-pointer ${activeTabIndex === index
-                                        ? 'bg-neutral-100 text-neutral-900 border border-neutral-200'
-                                        : 'text-neutral-500 hover:text-neutral-900 border border-transparent hover:border-neutral-200'
+                                    className={`flex flex-row items-center gap-1.5 lg:gap-1 text-sm md:text-base lg:text-sm px-3 py-2 lg:py-1.5 rounded-lg transition-all duration-300 cursor-pointer whitespace-nowrap flex-shrink-0 ${activeTabIndex === index
+                                        ? 'bg-neutral-100 text-neutral-900 lg:border lg:border-neutral-200'
+                                        : 'text-neutral-500 active:bg-neutral-100/50 lg:hover:text-neutral-900 lg:border lg:border-transparent lg:hover:border-neutral-200'
                                         }`}
                                     onClick={() => handleTabClick(index)}
                                 >
                                     <div className={tab.iconColor}>{tab.icon}</div>
-                                    <p>
+                                    <p className="font-medium lg:font-normal">
                                         {tab.label}
                                         {tab.subLabel && <span className="text-neutral-500"> {tab.subLabel}</span>}
                                     </p>

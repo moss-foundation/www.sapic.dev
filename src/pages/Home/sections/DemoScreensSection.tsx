@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import screen from "@assets/images/screen.png";
 import screen2 from "@assets/images/screen2.png";
@@ -34,8 +34,6 @@ const DemoScreensSection = () => {
     const [activeScreenIndex, setActiveScreenIndex] = useState(2);
     const previousActiveIndexRef = useRef<number>(2);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const touchStartX = useRef<number>(0);
-    const touchEndX = useRef<number>(0);
 
     const handleTabClick = (index: number) => {
         if (index === activeScreenIndex) return;
@@ -50,34 +48,23 @@ const DemoScreensSection = () => {
         }
     };
 
-    const handleSwipe = () => {
-        const swipeThreshold = 50;
-        const diff = touchStartX.current - touchEndX.current;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swipe left - next screen
-                const nextIndex = (activeScreenIndex + 1) % screens.length;
-                handleTabClick(nextIndex);
-            } else {
-                // Swipe right - previous screen
-                const prevIndex = (activeScreenIndex - 1 + screens.length) % screens.length;
-                handleTabClick(prevIndex);
-            }
+    // Block scroll when modal is open
+    useEffect(() => {
+        if (isModalOpen) {
+            // Save current scroll position
+            const scrollY = window.scrollY;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
+        } else {
+            // Restore scroll position
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
         }
-    };
-
-    const handleTouchStart = (e: React.TouchEvent) => {
-        touchStartX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        touchEndX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = () => {
-        handleSwipe();
-    };
+    }, [isModalOpen]);
 
     return (
         <LayoutContainer>
@@ -232,15 +219,12 @@ const DemoScreensSection = () => {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.3 }}
-                                onTouchStart={handleTouchStart}
-                                onTouchMove={handleTouchMove}
-                                onTouchEnd={handleTouchEnd}
                                 onClick={(e) => e.stopPropagation()}
                                 className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
                             />
 
-                            {/* Swipe indicator */}
-                            <p className="text-white text-sm mt-4 opacity-70">Swipe to change screens</p>
+                            {/* Tab indicator */}
+                            <p className="text-white text-sm mt-4 opacity-70">Tap tabs to change screens</p>
                         </div>
                     </motion.div>
                 )}
