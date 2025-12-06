@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import screen from "@assets/images/screen.png";
 import screen2 from "@assets/images/screen2.png";
 import screen3 from "@assets/images/screen3.png";
@@ -33,11 +33,50 @@ const screens: ScreenTab[] = [
 const DemoScreensSection = () => {
     const [activeScreenIndex, setActiveScreenIndex] = useState(2);
     const previousActiveIndexRef = useRef<number>(2);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const touchStartX = useRef<number>(0);
+    const touchEndX = useRef<number>(0);
 
     const handleTabClick = (index: number) => {
         if (index === activeScreenIndex) return;
         previousActiveIndexRef.current = activeScreenIndex;
         setActiveScreenIndex(index);
+    };
+
+    const handleScreenClick = () => {
+        // Open modal only on mobile devices
+        if (window.innerWidth < 768) {
+            setIsModalOpen(true);
+        }
+    };
+
+    const handleSwipe = () => {
+        const swipeThreshold = 50;
+        const diff = touchStartX.current - touchEndX.current;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - next screen
+                const nextIndex = (activeScreenIndex + 1) % screens.length;
+                handleTabClick(nextIndex);
+            } else {
+                // Swipe right - previous screen
+                const prevIndex = (activeScreenIndex - 1 + screens.length) % screens.length;
+                handleTabClick(prevIndex);
+            }
+        }
+    };
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        touchEndX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+        handleSwipe();
     };
 
     return (
@@ -109,11 +148,12 @@ const DemoScreensSection = () => {
                         decoding="async"
                         fetchPriority="high"
                         draggable={false}
+                        onClick={handleScreenClick}
                         style={{
                             zIndex: 30,
                             imageRendering: "auto"
                         }}
-                        className="w-full h-auto rounded-lg md:rounded-xl border border-neutral-200/50 relative object-contain"
+                        className="w-full h-auto rounded-lg md:rounded-xl border border-neutral-200/50 relative object-contain cursor-pointer md:cursor-default"
                     />
                 </div>
             </div>
@@ -141,6 +181,70 @@ const DemoScreensSection = () => {
                     <p className="text-sm sm:text-xs md:text-sm text-neutral-500 whitespace-nowrap">Works Offline</p>
                 </div>
             </div>
+
+            {/* Modal for mobile */}
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 md:hidden"
+                        onClick={() => setIsModalOpen(false)}
+                    >
+                        <div className="relative w-full h-full flex flex-col items-center justify-center p-4">
+                            {/* Close button */}
+                            <button
+                                onClick={() => setIsModalOpen(false)}
+                                className="absolute top-4 right-4 z-10 text-white hover:text-neutral-300 transition-colors"
+                                aria-label="Close"
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
+
+
+                            <div className="flex flex-row items-center justify-center gap-x-2.5 flex-wrap gap-y-1.5 mb-4">
+                                {screens.map((screen, index) => (
+                                    <div
+                                        key={screen.id}
+                                        className={`flex flex-row items-center gap-1 text-sm px-3 py-2 rounded-lg transition-all duration-300 cursor-pointer ${activeScreenIndex === index
+                                            ? 'bg-white text-neutral-900'
+                                            : 'text-white hover:text-neutral-300'
+                                            }`}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleTabClick(index);
+                                        }}
+                                    >
+                                        <p>{screen.label}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <motion.img
+                                key={`modal-${activeScreenIndex}`}
+                                src={screens[activeScreenIndex].image}
+                                alt={`Sapic Console Screenshot ${activeScreenIndex + 1}`}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                                onTouchStart={handleTouchStart}
+                                onTouchMove={handleTouchMove}
+                                onTouchEnd={handleTouchEnd}
+                                onClick={(e) => e.stopPropagation()}
+                                className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                            />
+
+                            {/* Swipe indicator */}
+                            <p className="text-white text-sm mt-4 opacity-70">Swipe to change screens</p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
         </LayoutContainer>
     );
