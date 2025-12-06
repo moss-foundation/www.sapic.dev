@@ -99,7 +99,7 @@ const FaqSection = () => {
                 <FadeInElement delay={0.4}>
                     <div className="mt-8 md:mt-10 flex max-w-full md:max-w-2xl gap-3 md:gap-4">
                         <div className="w-1 flex-shrink-0 rounded-full bg-blue-4"></div>
-                        <p className="text-pretty text-sm md:text-base text-neutral-500">Have more questions? Join our community on Discord, check out our roadmap on GitHub, or sign up for the waitlist to get early access and updates.</p>
+                        <p className="text-pretty text-sm text-neutral-500">Have more questions? Join our community on Discord, check out our roadmap on GitHub, or sign up for the waitlist to get early access and updates.</p>
                     </div>
                 </FadeInElement>
             </div>

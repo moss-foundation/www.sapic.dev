@@ -61,7 +61,7 @@ const Header = () => {
                 className={`sticky top-0 left-0 right-0 z-50 border-b ${isMobileMenuOpen
                     ? "bg-white/70 backdrop-blur-md border-neutral-100"
                     : isScrolled
-                        ? "bg-white/50 backdrop-blur-md border-transparent"
+                        ? "bg-white/50 backdrop-blur-md border-neutral-200"
                         : "bg-white border-transparent"
                     }`}
                 style={{
@@ -95,7 +95,7 @@ const Header = () => {
                         </motion.div>
 
                         <motion.nav
-                            className="hidden md:flex items-center gap-6 font-medium text-sm"
+                            className="hidden md:flex items-center gap-6 text-sm"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}

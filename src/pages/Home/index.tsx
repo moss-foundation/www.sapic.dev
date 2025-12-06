@@ -1,7 +1,6 @@
 import HeroSection from "./sections/HeroSection";
 import FeaturesSection from "./sections/FeaturesSection";
 import DemoScreensSection from "./sections/DemoScreensSection";
-import UseCasesSection from "./sections/UseCasesSection";
 import ForDevelopersSection from "./sections/ForDevelopersSection";
 import FaqSection from "./sections/FaqSection";
 import Line from "@/components/decorations/Line";
@@ -32,18 +31,17 @@ const HomePage = () => {
             <section id="demo" className="scroll-mt-20">
                 <DemoScreensSection />
             </section>
+
+            <Line />
+
+            <section id="features" className="scroll-mt-20">
+                <FeaturesSection />
+            </section>
+
             <Line />
 
             <section id="how-it-works" className="scroll-mt-20">
                 <HowItWorksSection />
-            </section>
-            <Line />
-            <section id="features" className="scroll-mt-20">
-                <FeaturesSection />
-            </section>
-            <Line />
-            <section id="use-cases" className="scroll-mt-20">
-                <UseCasesSection />
             </section>
             <Line />
             <section id="community" className="scroll-mt-20">

@@ -200,9 +200,9 @@ const ForDevelopersSection = () => {
                                     onClick={() => handleTabClick(index)}
                                     className="relative pb-2.5 transition-colors"
                                 >
-                                    <div className={`group flex flex-row items-center cursor-pointer gap-2.5 px-3 py-1.5 rounded-md transition-all duration-300 ${currentIndex === index
-                                        ? "text-neutral-900 bg-neutral-100 rounded-md"
-                                        : "text-neutral-500 hover:bg-neutral-100"
+                                    <div className={`group flex flex-row items-center border cursor-pointer gap-2.5 px-3 py-1.5 rounded-lg transition-all duration-300 ${currentIndex === index
+                                        ? "text-neutral-900 bg-neutral-100 rounded-md  border-neutral-200"
+                                        : "text-neutral-500 hover:bg-neutral-100 border-transparent"
                                         }`}>
                                         {brand.frontCard.iconComponent ? (
                                             <brand.frontCard.iconComponent className={`size-5 flex-shrink-0 transition-colors ${currentIndex === index ? "" : "group-hover:text-neutral-900"}`} />
@@ -214,7 +214,7 @@ const ForDevelopersSection = () => {
                                             />
                                         )}
                                         <p
-                                            className={`text-base transition-colors  ${currentIndex === index
+                                            className={`text-sm transition-colors  ${currentIndex === index
                                                 ? "text-neutral-900"
                                                 : "text-neutral-500 group-hover:text-neutral-900"
                                                 }`}

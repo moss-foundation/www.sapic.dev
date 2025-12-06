@@ -83,108 +83,107 @@ const HeroSection = () => {
     const { openWaitList: openWaitList } = useWaitList();
 
     return (
-        <>
-            <LayoutContainer className="relative w-full">
-                <div className="pt-28 lg:pt-42 lg:min-h-screen relative">
-                    <div className="h-full flex flex-col relative z-10">
-                        <div className="flex flex-col gap-4 md:gap-10 relative" style={{ padding: '2px' }}>
-                            <motion.div
-                                className="flex flex-col items-center gap-4 md:gap-5"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, ease: "easeOut" }}
+
+        <LayoutContainer className="relative w-full pt-28 lg:pt-42 mb-28">
+            <div className="h-full flex flex-col relative z-10">
+                <div className="flex flex-col gap-4 md:gap-10 relative" style={{ padding: '2px' }}>
+                    <motion.div
+                        className="flex flex-col items-center gap-4 md:gap-5"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+
+
+                        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-semibold text-neutral-900 leading-tight text-center max-w-full">
+                            <AnimatedText
+                                text={`Unified AI-Native Resource Console`}
+                                delay={0.2}
+                                delta={0.08}
+                            />
+                        </h1>
+
+                        <motion.p
+                            className="mt-2 md:mt-4 max-w-full text-pretty text-base leading-relaxed text-gray-600 text-center mx-auto px-20"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
+                        >
+                            With our AI-Native Resource Console, you can create and chat with your APIs, queues, databases, and cloud services.
+                            Run actions, trigger functions, inspect events, and generate tests or mocks using natural language.
+                            AI & Git native with batteries included.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" }}
+                        >
+                            <Button
+                                variant="primary"
+                                size="large"
+                                className="self-center w-full sm:w-auto mt-4"
+                                onClick={openWaitList}
                             >
+                                Sign up for Sapic Beta
+                            </Button>
+                        </motion.div>
 
 
-                                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif font-semibold text-neutral-900 leading-tight text-center max-w-full">
-                                    <AnimatedText
-                                        text={`AI-Native Resource Console`}
-                                        delay={0.2}
-                                        delta={0.08}
-                                    />
-                                </h1>
-
-                                <motion.p
-                                    className="mt-2 md:mt-4 max-w-full text-pretty text-base leading-relaxed text-gray-600 text-center mx-auto px-20"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
-                                >
-                                    With our AI-Native Resource Console, you can create and chat with your APIs, queues, databases, and cloud services.
-                                    Run actions, trigger functions, inspect events, and generate tests or mocks using natural language.
-                                    AI & Git native with batteries included.
-                                </motion.p>
-
+                        <motion.div
+                            className="relative w-full overflow-hidden mt-8 md:mt-10 group"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 1.1, ease: "easeOut" }}
+                        >
+                            <div className="relative flex items-center h-16">
                                 <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.9, ease: "easeOut" }}
+                                    className="flex gap-8 md:gap-12"
+                                    animate={{
+                                        x: [0, -100 * resources.length],
+                                    }}
+                                    transition={{
+                                        x: {
+                                            repeat: Infinity,
+                                            repeatType: "loop",
+                                            duration: 40,
+                                            ease: "linear",
+                                        },
+                                    }}
                                 >
-                                    <Button
-                                        variant="primary"
-                                        size="large"
-                                        className="self-center w-full sm:w-auto mt-4"
-                                        onClick={openWaitList}
-                                    >
-                                        Sign up for Sapic Beta
-                                    </Button>
-                                </motion.div>
-
-
-                                <motion.div
-                                    className="relative w-full overflow-hidden mt-8 md:mt-10 group"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.5, delay: 1.1, ease: "easeOut" }}
-                                >
-                                    <div className="relative flex items-center h-16">
-                                        <motion.div
-                                            className="flex gap-8 md:gap-12"
-                                            animate={{
-                                                x: [0, -100 * resources.length],
-                                            }}
-                                            transition={{
-                                                x: {
-                                                    repeat: Infinity,
-                                                    repeatType: "loop",
-                                                    duration: 40,
-                                                    ease: "linear",
-                                                },
-                                            }}
+                                    {[...resources, ...resources, ...resources].map((resource, index) => (
+                                        <div
+                                            key={`${resource.brand}-${resource.product}-${index}`}
+                                            className="flex flex-row items-center gap-3 flex-shrink-0"
                                         >
-                                            {[...resources, ...resources, ...resources].map((resource, index) => (
-                                                <div
-                                                    key={`${resource.brand}-${resource.product}-${index}`}
-                                                    className="flex flex-row items-center gap-3 flex-shrink-0"
-                                                >
-                                                    <img
-                                                        src={resource.imgSrc}
-                                                        alt={`${resource.brand} ${resource.product}`}
-                                                        className="size-8 md:size-10 object-contain grayscale transition-all duration-700 group-hover:grayscale-0"
-                                                    />
-                                                    <div className="flex flex-col items-start">
-                                                        <span className="text-xs text-neutral-500 whitespace-nowrap">
-                                                            {resource.brand}
-                                                        </span>
-                                                        <span className="text-sm md:text-base text-neutral-700 font-semibold whitespace-nowrap">
-                                                            {resource.product}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </motion.div>
-                                    </div>
-
-                                    {/* Left fade gradient */}
-                                    <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-
-                                    {/* Right fade gradient */}
-                                    <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+                                            <img
+                                                src={resource.imgSrc}
+                                                alt={`${resource.brand} ${resource.product}`}
+                                                className="size-8 md:size-10 object-contain grayscale transition-all duration-700 group-hover:grayscale-0"
+                                            />
+                                            <div className="flex flex-col items-start">
+                                                <span className="text-xs text-neutral-500 whitespace-nowrap">
+                                                    {resource.brand}
+                                                </span>
+                                                <span className="text-sm md:text-base text-neutral-700 font-semibold whitespace-nowrap">
+                                                    {resource.product}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </motion.div>
-                            </motion.div>
+                            </div>
+
+                            {/* Left fade gradient */}
+                            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+
+                            {/* Right fade gradient */}
+                            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+                        </motion.div>
+                    </motion.div>
 
 
-                            {/* <motion.div
+                    {/* <motion.div
                                 className="flex flex-col gap-1 md:gap-2"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -308,11 +307,9 @@ const HeroSection = () => {
                                 </motion.div>
 
                             </motion.div> */}
-                        </div>
-                    </div>
                 </div>
-            </LayoutContainer>
-        </>
+            </div>
+        </LayoutContainer>
     );
 };
 

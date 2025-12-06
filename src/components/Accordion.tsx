@@ -15,7 +15,7 @@ export const Accordion = ({ title, children, className, defaultOpen = false }: A
     return (
         <button className={`w-full cursor-pointer ${className}`} onClick={() => setIsOpen(!isOpen)}>
             <div className="flex items-center w-full justify-between gap-4">
-                <p className="text-base md:text-lg font-medium text-left">{title}</p>
+                <p className="text-sm md:text-lg font-medium text-left">{title}</p>
                 <ArrowHeadBottom className={`${isOpen ? "-rotate-180" : ""} transition flex-shrink-0`} />
             </div>
 

@@ -110,7 +110,7 @@ const HowItWorksSection = () => {
                             <FadeInElement key={tab.id} delay={index * 0.1}>
                                 <div
                                     key={tab.id}
-                                    className={`flex flex-row items-center gap-1 text-base px-3 py-1.5 rounded-lg transition-all duration-300 cursor-pointer ${activeTabIndex === index
+                                    className={`flex flex-row items-center gap-1 px-3 py-1.5 rounded-lg transition-all duration-300 cursor-pointer ${activeTabIndex === index
                                         ? 'bg-neutral-100 text-neutral-900 border border-neutral-200'
                                         : 'text-neutral-500 hover:text-neutral-900 border border-transparent hover:border-neutral-200'
                                         }`}
