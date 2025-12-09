@@ -22,30 +22,210 @@ const FeaturesSection = () => {
                             <p className="text-neutral-600 text-sm">Bring all your APIs, databases, cloud resources, events, and endpoints together in one consistent interface.</p>
                         </div>
 
-                        <div className="w-full px-5 md:px-8 pb-6 flex-1 flex items-center justify-center">
-                            <svg width="100%" height="100%" viewBox="0 0 138 138" fill="none" xmlns="http://www.w3.org/2000/svg" className="block">
-                                <g opacity="0.1">
-                                    <path d="M4 4H5V5H4V4ZM12 4H13V5H12V4ZM20 4H21V5H20V4ZM28 4H29V5H28V4ZM36 4H37V5H36V4ZM44 4H45V5H44V4ZM52 4H53V5H52V4ZM60 4H61V5H60V4ZM68 4H69V5H68V4ZM76 4H77V5H76V4ZM84 4H85V5H84V4ZM92 4H93V5H92V4ZM100 4H101V5H100V4ZM108 4H109V5H108V4ZM116 4H117V5H116V4ZM124 4H125V5H124V4ZM132 4H133V5H132V4ZM4 12H5V13H4V12ZM12 12H13V13H12V12ZM20 12H21V13H20V12ZM28 12H29V13H28V12ZM36 12H37V13H36V12ZM44 12H45V13H44V12ZM52 12H53V13H52V12ZM60 12H61V13H60V12ZM68 12H69V13H68V12ZM76 12H77V13H76V12ZM84 12H85V13H84V12ZM92 12H93V13H92V12ZM100 12H101V13H100V12ZM108 12H109V13H108V12ZM116 12H117V13H116V12ZM124 12H125V13H124V12ZM132 12H133V13H132V12ZM4 20H5V21H4V20ZM12 20H13V21H12V20ZM20 20H21V21H20V20ZM28 20H29V21H28V20ZM36 20H37V21H36V20ZM44 20H45V21H44V20ZM52 20H53V21H52V20ZM60 20H61V21H60V20ZM68 20H69V21H68V20ZM76 20H77V21H76V20ZM84 20H85V21H84V20ZM92 20H93V21H92V20ZM100 20H101V21H100V20ZM108 20H109V21H108V20ZM116 20H117V21H116V20ZM124 20H125V21H124V20ZM132 20H133V21H132V20ZM4 28H5V29H4V28ZM12 28H13V29H12V28ZM20 28H21V29H20V28ZM28 28H29V29H28V28ZM36 28H37V29H36V28ZM44 28H45V29H44V28ZM52 28H53V29H52V28ZM60 28H61V29H60V28ZM68 28H69V29H68V28ZM76 28H77V29H76V28ZM84 28H85V29H84V28ZM92 28H93V29H92V28ZM100 28H101V29H100V28ZM108 28H109V29H108V28ZM116 28H117V29H116V28ZM124 28H125V29H124V28ZM132 28H133V29H132V28ZM4 36H5V37H4V36ZM12 36H13V37H12V36ZM20 36H21V37H20V36ZM28 36H29V37H28V36ZM36 36H37V37H36V36ZM44 36H45V37H44V36ZM52 36H53V37H52V36ZM60 36H61V37H60V36ZM68 36H69V37H68V36ZM76 36H77V37H76V36ZM84 36H85V37H84V36ZM92 36H93V37H92V36ZM100 36H101V37H100V36ZM108 36H109V37H108V36ZM116 36H117V37H116V36ZM124 36H125V37H124V36ZM132 36H133V37H132V36ZM4 44H5V45H4V44ZM12 44H13V45H12V44ZM20 44H21V45H20V44ZM28 44H29V45H28V44ZM36 44H37V45H36V44ZM44 44H45V45H44V44ZM52 44H53V45H52V44ZM60 44H61V45H60V44ZM68 44H69V45H68V44ZM76 44H77V45H76V44ZM84 44H85V45H84V44ZM92 44H93V45H92V44ZM100 44H101V45H100V44ZM108 44H109V45H108V44ZM116 44H117V45H116V44ZM124 44H125V45H124V44ZM132 44H133V45H132V44ZM4 52H5V53H4V52ZM12 52H13V53H12V52ZM20 52H21V53H20V52ZM28 52H29V53H28V52ZM36 52H37V53H36V52ZM44 52H45V53H44V52ZM52 52H53V53H52V52ZM60 52H61V53H60V52ZM68 52H69V53H68V52ZM76 52H77V53H76V52ZM84 52H85V53H84V52ZM92 52H93V53H92V52ZM100 52H101V53H100V52ZM108 52H109V53H108V52ZM116 52H117V53H116V52ZM124 52H125V53H124V52ZM132 52H133V53H132V52ZM4 60H5V61H4V60ZM12 60H13V61H12V60ZM20 60H21V61H20V60ZM28 60H29V61H28V60ZM36 60H37V61H36V60ZM44 60H45V61H44V60ZM52 60H53V61H52V60ZM60 60H61V61H60V60ZM68 60H69V61H68V60ZM76 60H77V61H76V60ZM84 60H85V61H84V60ZM92 60H93V61H92V60ZM100 60H101V61H100V60ZM108 60H109V61H108V60ZM116 60H117V61H116V60ZM124 60H125V61H124V60ZM132 60H133V61H132V60ZM4 68H5V69H4V68ZM12 68H13V69H12V68ZM20 68H21V69H20V68ZM28 68H29V69H28V68ZM36 68H37V69H36V68ZM44 68H45V69H44V68ZM52 68H53V69H52V68ZM60 68H61V69H60V68ZM68 68H69V69H68V68ZM76 68H77V69H76V68ZM84 68H85V69H84V68ZM92 68H93V69H92V68ZM100 68H101V69H100V68ZM108 68H109V69H108V68ZM116 68H117V69H116V68ZM124 68H125V69H124V68ZM132 68H133V69H132V68ZM4 76H5V77H4V76ZM12 76H13V77H12V76ZM20 76H21V77H20V76ZM28 76H29V77H28V76ZM36 76H37V77H36V76ZM44 76H45V77H44V76ZM52 76H53V77H52V76ZM60 76H61V77H60V76ZM68 76H69V77H68V76ZM76 76H77V77H76V76ZM84 76H85V77H84V76ZM92 76H93V77H92V76ZM100 76H101V77H100V76ZM108 76H109V77H108V76ZM116 76H117V77H116V76ZM124 76H125V77H124V76ZM132 76H133V77H132V76ZM4 84H5V85H4V84ZM12 84H13V85H12V84ZM20 84H21V85H20V84ZM28 84H29V85H28V84ZM36 84H37V85H36V84ZM44 84H45V85H44V84ZM52 84H53V85H52V84ZM60 84H61V85H60V84ZM68 84H69V85H68V84ZM76 84H77V85H76V84ZM84 84H85V85H84V84ZM92 84H93V85H92V84ZM100 84H101V85H100V84ZM108 84H109V85H108V84ZM116 84H117V85H116V84ZM124 84H125V85H124V84ZM132 84H133V85H132V84ZM4 92H5V93H4V92ZM12 92H13V93H12V92ZM20 92H21V93H20V92ZM28 92H29V93H28V92ZM36 92H37V93H36V92ZM44 92H45V93H44V92ZM52 92H53V93H52V92ZM60 92H61V93H60V92ZM68 92H69V93H68V92ZM76 92H77V93H76V92ZM84 92H85V93H84V92ZM92 92H93V93H92V92ZM100 92H101V93H100V92ZM108 92H109V93H108V92ZM116 92H117V93H116V92ZM124 92H125V93H124V92ZM132 92H133V93H132V92ZM4 100H5V101H4V100ZM12 100H13V101H12V100ZM20 100H21V101H20V100ZM28 100H29V101H28V100ZM36 100H37V101H36V100ZM44 100H45V101H44V100ZM52 100H53V101H52V100ZM60 100H61V101H60V100ZM68 100H69V101H68V100ZM76 100H77V101H76V100ZM84 100H85V101H84V100ZM92 100H93V101H92V100ZM100 100H101V101H100V100ZM108 100H109V101H108V100ZM116 100H117V101H116V100ZM124 100H125V101H124V100ZM132 100H133V101H132V100ZM4 108H5V109H4V108ZM12 108H13V109H12V108ZM20 108H21V109H20V108ZM28 108H29V109H28V108ZM36 108H37V109H36V108ZM44 108H45V109H44V108ZM52 108H53V109H52V108ZM60 108H61V109H60V108ZM68 108H69V109H68V108ZM76 108H77V109H76V108ZM84 108H85V109H84V108ZM92 108H93V109H92V108ZM100 108H101V109H100V108ZM108 108H109V109H108V108ZM116 108H117V109H116V108ZM124 108H125V109H124V108ZM132 108H133V109H132V108ZM4 116H5V117H4V116ZM12 116H13V117H12V116ZM20 116H21V117H20V116ZM28 116H29V117H28V116ZM36 116H37V117H36V116ZM44 116H45V117H44V116ZM52 116H53V117H52V116ZM60 116H61V117H60V116ZM68 116H69V117H68V116ZM76 116H77V117H76V116ZM84 116H85V117H84V116ZM92 116H93V117H92V116ZM100 116H101V117H100V116ZM108 116H109V117H108V116ZM116 116H117V117H116V116ZM124 116H125V117H124V116ZM132 116H133V117H132V116ZM4 124H5V125H4V124ZM12 124H13V125H12V124ZM20 124H21V125H20V124ZM28 124H29V125H28V124ZM36 124H37V125H36V124ZM44 124H45V125H44V124ZM52 124H53V125H52V124ZM60 124H61V125H60V124ZM68 124H69V125H68V124ZM76 124H77V125H76V124ZM84 124H85V125H84V124ZM92 124H93V125H92V124ZM100 124H101V125H100V124ZM108 124H109V125H108V124ZM116 124H117V125H116V124ZM124 124H125V125H124V124ZM132 124H133V125H132V124ZM4 132H5V133H4V132ZM12 132H13V133H12V132ZM20 132H21V133H20V132ZM28 132H29V133H28V132ZM36 132H37V133H36V132ZM44 132H45V133H44V132ZM52 132H53V133H52V132ZM60 132H61V133H60V132ZM68 132H69V133H68V132ZM76 132H77V133H76V132ZM84 132H85V133H84V132ZM92 132H93V133H92V132ZM100 132H101V133H100V132ZM108 132H109V133H108V132ZM116 132H117V133H116V132ZM124 132H125V133H124V132ZM132 132H133V133H132V132Z" fill="#242529" />
+                        <div className="w-full px-5 md:px-6 pb-4 flex-1 flex items-center justify-center">
+
+                            <svg width="100%" height="100%" viewBox="-5 0 160 155" fill="none" xmlns="http://www.w3.org/2000/svg" className="block mx-auto" preserveAspectRatio="xMidYMid meet">
+                                <g clip-path="url(#clip0_10572_37230)">
+                                    <rect width="155" height="155" fill="white" />
+                                    <rect x="-4.28516" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.15" x="67.1426" y="11.9043" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="11.9043" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.3" x="31.4277" y="23.8086" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.3" x="114.762" y="23.8086" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="23.8086" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="35.7148" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="47.6191" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.6" x="79.0469" y="47.6191" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="47.6191" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.6" x="67.1426" y="59.5234" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.45" x="79.0469" y="59.5234" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.3" x="90.9531" y="59.5234" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="59.5234" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.6" x="55.2383" y="71.4277" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.45" x="67.1426" y="71.4277" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.3" x="79.0469" y="71.4277" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.15" x="90.9531" y="71.4277" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="71.4277" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.3" x="67.1426" y="83.334" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.15" x="79.0469" y="83.334" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="83.334" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="95.2383" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="107.143" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.3" x="43.334" y="119.047" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect opacity="0.3" x="114.762" y="119.047" width="11.9048" height="11.9048" fill="#737373" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="119.047" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="130.953" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="-4.28516" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="7.61914" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="19.5234" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="31.4277" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="43.334" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="55.2383" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="67.1426" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="79.0469" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="90.9531" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="102.857" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="114.762" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="126.666" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="138.572" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect x="150.477" y="142.857" width="11.9048" height="11.9048" stroke="#E5E5E5" stroke-width="0.238095" />
+                                    <rect width="155" height="155" fill="url(#paint0_radial_10572_37230)" />
                                 </g>
-                                <g opacity="0.1">
-                                    <path d="M4.5 9V0M9 4.5H0" stroke="#242529" />
-                                </g>
-                                <g opacity="0.1">
-                                    <path d="M132.5 9V0M137 4.5H128" stroke="#242529" />
-                                </g>
-                                <g opacity="0.1">
-                                    <path d="M132.5 137V128M137 132.5H128" stroke="#242529" />
-                                </g>
-                                <g opacity="0.1">
-                                    <path d="M4.5 137V128M9 132.5H0" stroke="#242529" />
-                                </g>
-                                <path d="M37.8038 65.4568L33.2247 65.737C33.1464 65.3478 32.9781 64.9976 32.7198 64.6862C32.4615 64.3671 32.121 64.1142 31.6983 63.9274C31.2834 63.7328 30.7864 63.6355 30.2072 63.6355C29.4322 63.6355 28.7786 63.799 28.2464 64.1259C27.7141 64.445 27.448 64.873 27.448 65.4101C27.448 65.8381 27.6202 66.2 27.9646 66.4958C28.309 66.7916 28.9 67.0289 29.7375 67.208L33.0016 67.8617C34.755 68.2197 36.0622 68.7957 36.9232 69.5896C37.7842 70.3834 38.2147 71.4264 38.2147 72.7183C38.2147 73.8936 37.8664 74.9248 37.1698 75.8121C36.4809 76.6994 35.5338 77.3921 34.3284 77.8902C33.1307 78.3805 31.7492 78.6257 30.1837 78.6257C27.7963 78.6257 25.8942 78.1315 24.4774 77.143C23.0685 76.1468 22.2427 74.7925 22 73.0803L26.9196 72.8234C27.0683 73.5472 27.4284 74.0998 27.9998 74.4812C28.5712 74.8548 29.3031 75.0416 30.1954 75.0416C31.0721 75.0416 31.7766 74.8743 32.3089 74.5396C32.849 74.1971 33.1229 73.7574 33.1307 73.2204C33.1229 72.7689 32.9311 72.3992 32.5554 72.1113C32.1797 71.8155 31.6005 71.5898 30.8177 71.4341L27.6945 70.8154C25.9333 70.4652 24.6222 69.8581 23.7612 68.9942C22.908 68.1302 22.4814 67.0289 22.4814 65.6903C22.4814 64.5384 22.7945 63.546 23.4207 62.7132C24.0547 61.8805 24.9432 61.2384 26.086 60.7869C27.2366 60.3355 28.583 60.1098 30.125 60.1098C32.4028 60.1098 34.1953 60.5885 35.5025 61.5458C36.8175 62.5031 37.5846 63.8068 37.8038 65.4568Z" fill="#D4D4D4" />
-                                <path d="M46.1764 78.614C45.0257 78.614 44.0003 78.4155 43.1002 78.0186C42.2 77.6139 41.4877 77.0185 40.9632 76.2324C40.4466 75.4385 40.1883 74.4501 40.1883 73.2671C40.1883 72.2708 40.3723 71.4341 40.7402 70.757C41.1081 70.0799 41.609 69.5351 42.243 69.1226C42.8771 68.7101 43.5972 68.3988 44.4034 68.1886C45.2175 67.9785 46.0707 67.8306 46.963 67.745C48.0119 67.636 48.8573 67.5348 49.4992 67.4414C50.141 67.3403 50.6068 67.1924 50.8964 66.9978C51.186 66.8032 51.3308 66.5153 51.3308 66.1339V66.0638C51.3308 65.3245 51.096 64.7524 50.6263 64.3477C50.1645 63.943 49.507 63.7406 48.6538 63.7406C47.7536 63.7406 47.0374 63.9391 46.5051 64.336C45.9729 64.7252 45.6206 65.2155 45.4484 65.807L40.8223 65.4334C41.0572 64.3438 41.519 63.402 42.2078 62.6082C42.8966 61.8065 43.7851 61.1917 44.8731 60.7636C45.969 60.3277 47.237 60.1098 48.6773 60.1098C49.6792 60.1098 50.6381 60.2266 51.5539 60.4601C52.4775 60.6935 53.2955 61.0555 54.0078 61.5458C54.728 62.0361 55.2954 62.6665 55.7103 63.4371C56.1252 64.1998 56.3326 65.1143 56.3326 66.1806V78.2754H51.5891V75.7888H51.4482C51.1586 76.3491 50.7711 76.8434 50.2858 77.2714C49.8005 77.6917 49.2174 78.0225 48.5364 78.2638C47.8554 78.4973 47.0687 78.614 46.1764 78.614ZM47.6088 75.1817C48.3446 75.1817 48.9943 75.0377 49.5579 74.7497C50.1215 74.454 50.5637 74.057 50.8846 73.5589C51.2056 73.0608 51.366 72.4965 51.366 71.8661V69.9632C51.2095 70.0643 50.9942 70.1577 50.7203 70.2433C50.4541 70.3212 50.1528 70.3951 49.8162 70.4652C49.4796 70.5274 49.143 70.5858 48.8064 70.6403C48.4698 70.687 48.1646 70.7298 47.8906 70.7687C47.3035 70.8543 46.7908 70.9905 46.3525 71.1773C45.9142 71.3641 45.5737 71.617 45.331 71.9362C45.0884 72.2475 44.967 72.6366 44.967 73.1036C44.967 73.7807 45.2136 74.2983 45.7067 74.6563C46.2077 75.0066 46.8417 75.1817 47.6088 75.1817Z" fill="#D4D4D4" />
-                                <path d="M59.8825 85V60.3433H64.8138V63.3553H65.0369C65.2561 62.8728 65.5731 62.3825 65.9879 61.8843C66.4106 61.3785 66.9585 60.9582 67.6317 60.6235C68.3127 60.281 69.1581 60.1098 70.1678 60.1098C71.4829 60.1098 72.6961 60.4523 73.8076 61.1372C74.9191 61.8143 75.8076 62.8378 76.4729 64.2076C77.1382 65.5696 77.4709 67.278 77.4709 69.3327C77.4709 71.333 77.1461 73.0219 76.4964 74.3995C75.8545 75.7693 74.9778 76.8083 73.8663 77.5166C72.7627 78.2171 71.5259 78.5673 70.1561 78.5673C69.1855 78.5673 68.3597 78.4078 67.6787 78.0887C67.0055 77.7696 66.4537 77.3687 66.0232 76.8862C65.5926 76.3958 65.2639 75.9016 65.0369 75.4035H64.8843V85H59.8825ZM64.7786 69.3094C64.7786 70.3757 64.9273 71.3057 65.2247 72.0996C65.5222 72.8935 65.9527 73.5122 66.5163 73.9559C67.0799 74.3917 67.7648 74.6096 68.571 74.6096C69.3851 74.6096 70.0739 74.3878 70.6375 73.9442C71.2011 73.4928 71.6277 72.8701 71.9173 72.0762C72.2147 71.2746 72.3635 70.3523 72.3635 69.3094C72.3635 68.2742 72.2186 67.3636 71.929 66.5775C71.6394 65.7914 71.2128 65.1766 70.6492 64.7329C70.0856 64.2893 69.3929 64.0675 68.571 64.0675C67.757 64.0675 67.0681 64.2815 66.5045 64.7096C65.9488 65.1377 65.5222 65.7447 65.2247 66.5308C64.9273 67.3169 64.7786 68.2431 64.7786 69.3094Z" fill="#D4D4D4" />
-                                <path d="M80.4748 78.2754V60.3433H85.4766V78.2754H80.4748ZM82.9874 58.0317C82.2438 58.0317 81.6059 57.7866 81.0736 57.2962C80.5492 56.7981 80.2869 56.2027 80.2869 55.51C80.2869 54.8251 80.5492 54.2375 81.0736 53.7472C81.6059 53.2491 82.2438 53 82.9874 53C83.7311 53 84.3651 53.2491 84.8895 53.7472C85.4218 54.2375 85.6879 54.8251 85.6879 55.51C85.6879 56.2027 85.4218 56.7981 84.8895 57.2962C84.3651 57.7866 83.7311 58.0317 82.9874 58.0317Z" fill="#D4D4D4" />
-                                <path d="M97.3011 78.6257C95.4538 78.6257 93.8649 78.2365 92.5342 77.4582C91.2113 76.6721 90.1937 75.5825 89.4814 74.1893C88.777 72.7962 88.4247 71.1929 88.4247 69.3794C88.4247 67.5426 88.7809 65.9315 89.4932 64.5462C90.2133 63.153 91.2348 62.0673 92.5577 61.2889C93.8805 60.5029 95.4538 60.1098 97.2776 60.1098C98.851 60.1098 100.229 60.3939 101.411 60.9621C102.593 61.5302 103.528 62.328 104.217 63.3553C104.906 64.3827 105.285 65.5891 105.356 66.9745H100.636C100.503 66.0794 100.15 65.3595 99.5789 64.8147C99.0154 64.2621 98.2757 63.9858 97.3598 63.9858C96.5849 63.9858 95.9078 64.1959 95.3286 64.6162C94.7572 65.0287 94.311 65.6319 93.9901 66.4258C93.6692 67.2196 93.5087 68.1808 93.5087 69.3094C93.5087 70.4535 93.6653 71.4264 93.9784 72.228C94.2993 73.0297 94.7494 73.6406 95.3286 74.0609C95.9078 74.4812 96.5849 74.6914 97.3598 74.6914C97.9313 74.6914 98.444 74.5746 98.8979 74.3411C99.3598 74.1076 99.7394 73.7691 100.037 73.3254C100.342 72.874 100.542 72.3331 100.636 71.7027H105.356C105.277 73.0725 104.902 74.2788 104.229 75.3218C103.563 76.3569 102.643 77.1664 101.469 77.7501C100.295 78.3338 98.9058 78.6257 97.3011 78.6257Z" fill="#D4D4D4" />
-                                <path d="M122 78.2754V82.0463H106.208V78.2754H122Z" fill="#A0BDF8" />
+                                <defs>
+                                    <radialGradient id="paint0_radial_10572_37230" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(77.5 77.5) rotate(90) scale(77.5)">
+                                        <stop stop-color="white" stop-opacity="0" />
+                                        <stop offset="1" stop-color="white" />
+                                    </radialGradient>
+                                    <clipPath id="clip0_10572_37230">
+                                        <rect width="155" height="155" fill="white" />
+                                    </clipPath>
+                                </defs>
                             </svg>
+
+
+
+
+
 
 
 

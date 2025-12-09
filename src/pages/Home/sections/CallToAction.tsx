@@ -4,12 +4,20 @@ import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
 import { useNavigate } from "react-router-dom";
 
+import sapicIconDev from "@assets/images/sapic_icon_dev.svg";
+
 const CallToActionSection = () => {
     const { openWaitList: openWaitlist } = useWaitList();
     const navigate = useNavigate();
 
     return (
         <LayoutContainer>
+            <FadeInElement>
+                <div className="relative mb-6 md:mb-8 lg:mb-10 inline-flex justify-center antialiased">
+                    <img src={sapicIconDev} alt="Sapic" className="size-14" />
+                </div>
+            </FadeInElement>
+
             <FadeInElement delay={0.1}>
                 <div className="mb-8 md:mb-10">
                     <h2
