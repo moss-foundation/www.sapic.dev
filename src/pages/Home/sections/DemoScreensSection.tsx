@@ -106,7 +106,7 @@ const FEATURES = [
     },
     {
         icon: <UsersIcon className="size-5 sm:size-4.5 flex-shrink-0" />,
-        label: "Easy to collaborate",
+        label: "Easy to Collaborate",
     },
     {
         icon: (
