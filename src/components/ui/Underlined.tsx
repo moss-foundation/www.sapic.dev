@@ -10,10 +10,12 @@ interface UnderlinedProps {
 const Underlined = ({ text, color = "blue", style = "solid", tooltip }: UnderlinedProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
+    const colorClass = color === "purple" ? "decoration-purple-500" : "decoration-blue-500";
+
     const styleClasses = {
-        solid: `underline decoration-${color}-500 decoration-2 underline-offset-5`,
-        wavy: `underline decoration-wavy decoration-${color}-500 decoration-2 underline-offset-5`,
-        double: `underline decoration-double decoration-${color}-500 decoration-2 underline-offset-5`,
+        solid: `underline ${colorClass} decoration-2 underline-offset-5`,
+        wavy: `underline decoration-wavy ${colorClass} decoration-2 underline-offset-5`,
+        double: `underline decoration-double ${colorClass} decoration-2 underline-offset-5`,
     };
 
     return (
