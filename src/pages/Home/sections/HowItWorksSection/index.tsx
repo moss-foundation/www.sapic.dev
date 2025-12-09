@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "motion/react";
 import LayoutContainer from "@/components/containers/LayoutContainer";
 import FadeInElement from "@/components/FadeInElement";
 import ConnectTabContent from "./tabs/ConnectTabContent";
@@ -62,10 +63,35 @@ const tabs: Tab[] = [
 
 const HowItWorksSection = () => {
     const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const [progress, setProgress] = useState(0);
+    const tabsDuration = 15 * 1000;
+    const startTimeRef = useRef(Date.now());
 
     const handleTabClick = (tabIndex: number) => {
         setActiveTabIndex(tabIndex);
+        setProgress(0);
+        startTimeRef.current = Date.now();
     };
+
+    useEffect(() => {
+        // Reset the timer when the index changes
+        startTimeRef.current = Date.now();
+        setProgress(0);
+
+        const progressInterval = setInterval(() => {
+            const elapsed = Date.now() - startTimeRef.current;
+            const newProgress = Math.min((elapsed / tabsDuration) * 100, 100);
+            setProgress(newProgress);
+
+            if (elapsed >= tabsDuration) {
+                setActiveTabIndex((prev) => (prev + 1) % tabs.length);
+            }
+        }, 50);
+
+        return () => {
+            clearInterval(progressInterval);
+        };
+    }, [activeTabIndex, tabsDuration]);
 
     return (
         <div>
@@ -83,22 +109,59 @@ const HowItWorksSection = () => {
                     </FadeInElement>
 
 
-                    <div className="flex flex-row items-center justify-start gap-x-2 lg:gap-x-2.5 gap-y-2 overflow-x-auto lg:flex-wrap mb-6 md:mb-8 pb-2 -mx-4 px-4 lg:mx-0 lg:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                    <div className="flex flex-row flex-wrap items-center justify-start gap-3 md:gap-4 mb-6 md:mb-8">
                         {tabs.map((tab, index) => (
                             <FadeInElement key={tab.id}>
-                                <div
-                                    className={`flex flex-row items-center gap-1.5 lg:gap-1 text-sm md:text-base lg:text-sm px-3 py-2 lg:py-1.5 rounded-lg transition-all duration-300 cursor-pointer whitespace-nowrap flex-shrink-0 ${activeTabIndex === index
-                                        ? 'bg-neutral-100 text-neutral-900 lg:border lg:border-neutral-200'
-                                        : 'text-neutral-500 active:bg-neutral-100/50 lg:hover:text-neutral-900 lg:border lg:border-transparent lg:hover:border-neutral-200'
-                                        }`}
+                                <button
+                                    className="relative transition-colors"
                                     onClick={() => handleTabClick(index)}
                                 >
-                                    <div className={tab.iconColor}>{tab.icon}</div>
-                                    <p className="font-medium lg:font-normal">
-                                        {tab.label}
-                                        {tab.subLabel && <span className="text-neutral-500"> {tab.subLabel}</span>}
-                                    </p>
-                                </div>
+                                    <div
+                                        className={`flex flex-row items-center gap-2 text-sm px-3 py-1.5 rounded-lg border transition-all duration-300 cursor-pointer whitespace-nowrap ${activeTabIndex === index
+                                            ? 'bg-neutral-100 text-neutral-900 border-neutral-200'
+                                            : 'text-neutral-500 hover:bg-neutral-100 border-transparent'
+                                            }`}
+                                    >
+                                        <div className={tab.iconColor}>{tab.icon}</div>
+                                        <p className="font-normal">
+                                            {tab.label}
+                                            {tab.subLabel && <span className="text-neutral-500"> {tab.subLabel}</span>}
+                                        </p>
+                                    </div>
+
+                                    {/* Animated border progress - gradient stroke on top of gray border */}
+                                    {activeTabIndex === index && (
+                                        <svg
+                                            className="absolute inset-0 pointer-events-none"
+                                            width="100%"
+                                            height="100%"
+                                        >
+                                            <defs>
+                                                <linearGradient id={`howItWorksBorderGradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stopColor="#d4e2ff" />
+                                                    <stop offset="100%" stopColor="#3574f0" />
+                                                </linearGradient>
+                                            </defs>
+                                            <motion.rect
+                                                x="0.5"
+                                                y="0.5"
+                                                width="calc(100% - 1px)"
+                                                height="calc(100% - 1px)"
+                                                rx="8"
+                                                fill="none"
+                                                stroke={`url(#howItWorksBorderGradient-${index})`}
+                                                strokeWidth="1"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                pathLength="100"
+                                                strokeDasharray="100"
+                                                initial={{ strokeDashoffset: 100 }}
+                                                animate={{ strokeDashoffset: 100 - progress }}
+                                                transition={{ duration: 0.05, ease: "linear" }}
+                                            />
+                                        </svg>
+                                    )}
+                                </button>
                             </FadeInElement>
                         ))}
                     </div>
