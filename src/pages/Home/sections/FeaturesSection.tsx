@@ -329,7 +329,7 @@ const FeaturesSection = () => {
                             <div className="flex overflow-hidden flex-col gap-y-2">
                                 <div className="flex flex-col gap-y-1.5 py-1">
                                     <p className="text-sm text-neutral-900">
-                                        <svg height="1em" width="1em" className="inline h-4 w-4 mr-2 text-green-600" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <svg height="1em" width="1em" className="inline h-4 w-4 mr-1 text-green-600" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="currentColor"><polyline fill="none" points="4 11 8 15 16 5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polyline></g>
                                         </svg>
                                         Contracts <span className="text-neutral-500">(VCS Backends)</span>
@@ -344,7 +344,7 @@ const FeaturesSection = () => {
 
                                 <div className="flex flex-col gap-y-1.5 py-1">
                                     <p className="text-sm text-neutral-900">
-                                        <svg height="1em" width="1em" className="inline h-4 w-4 mr-2 text-green-600" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <svg height="1em" width="1em" className="inline h-4 w-4 mr-1 text-green-600" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="currentColor"><polyline fill="none" points="4 11 8 15 16 5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polyline></g>
                                         </svg>
                                         Secrets <span className="text-neutral-500">(Vault Backends)</span>
@@ -359,7 +359,7 @@ const FeaturesSection = () => {
 
                                 <div className="flex flex-col gap-y-1.5 py-1">
                                     <p className="text-sm text-neutral-900">
-                                        <svg height="1em" width="1em" className="inline h-4 w-4 mr-2 text-green-600" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <svg height="1em" width="1em" className="inline h-4 w-4 mr-1 text-green-600" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <g fill="currentColor"><polyline fill="none" points="4 11 8 15 16 5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></polyline></g>
                                         </svg>
                                         Stack <span className="text-neutral-500">(State Backends)</span>

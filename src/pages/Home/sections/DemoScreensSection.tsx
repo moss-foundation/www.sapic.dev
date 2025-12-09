@@ -7,6 +7,7 @@ import screenshotLambda from "@assets/images/screenshot_lambda.png";
 import screenshotEndpoint from "@assets/images/screenshot_endpoint.png";
 import screenshotConfiguration from "@assets/images/screenshot_configuration.png";
 
+
 interface ScreenTab {
     id: string;
     label: string;
@@ -222,7 +223,7 @@ const ActiveScreen = ({
 const FeatureBadge = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
     <div className="flex flex-row items-center justify-center gap-2 sm:gap-1.5">
         {icon}
-        <p className="text-sm sm:text-xs md:text-sm text-neutral-500 whitespace-nowrap">{label}</p>
+        <p className="text-sm sm:text-xs md:text-sm text-neutral-600 whitespace-nowrap">{label}</p>
     </div>
 );
 
@@ -333,7 +334,7 @@ const DemoScreensSection = () => {
             </div>
 
             {/* Feature Badges */}
-            <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-10 w-full md:w-auto mt-6 sm:mt-8">
+            <div className="grid grid-cols-2 md:flex md:flex-row md:flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 w-full md:w-auto mt-6 sm:mt-8">
                 {FEATURES.map(feature => (
                     <FeatureBadge key={feature.label} icon={feature.icon} label={feature.label} />
                 ))}

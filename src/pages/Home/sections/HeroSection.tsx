@@ -13,6 +13,7 @@ import azureCosmosDB from "@assets/images/azure/AzureCosmosDB.webp";
 import azureFunctions from "@assets/images/azure/AzureFunctions.webp";
 import azureServiceBus from "@assets/images/azure/AzureServiceBus.webp";
 import googleStorage from "@assets/images/google/GoogleStorage.webp";
+import { Underlined } from "@/components";
 
 interface ResourceProps {
     brand: string;
@@ -109,8 +110,10 @@ const HeroSection = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
                         >
-                            With our AI-Native Resource Console, you can create and chat with your APIs, queues, databases, and cloud services.
-                            Run actions, trigger functions, inspect events, and generate tests or mocks using natural language.
+                            With our AI-Native Resource Console, you can create and chat with your APIs, queues, databases, and other cloud services.
+                            Run <Underlined text="actions" color="blue" style="solid" tooltip="For example, calling and inspecting HTTP endpoints, Lambdas, connecting to the database, etc." />,
+                            inspect <Underlined text="events" color="purple" style="solid" tooltip="Just like in the API client you can subscribe to WS events, you can also subscribe to SQS, SNS, Pub/Sub, etc." />,
+                            and generate integration tests or mocks using natural language.<br />
                             AI & Git native with batteries included.
                         </motion.p>
 
