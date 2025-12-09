@@ -17,7 +17,7 @@ const Button = ({
     ...props
 }: ButtonProps) => {
     const baseStyles =
-        "transition-all duration-500 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer";
+        "transition-all duration-500 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer select-none";
 
     const variantStyles: Record<ButtonVariant, string> = {
         primary: "bg-blue-4 text-white hover:opacity-80 border border-blue-2",

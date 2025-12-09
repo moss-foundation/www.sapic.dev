@@ -49,7 +49,7 @@ const Header = () => {
 
     const menuItems = [
         { label: "Home", sectionId: "home", to: "/" },
-        { label: "Use Cases", sectionId: "use-cases", to: "/" },
+        { label: "Demo", sectionId: "demo", to: "/" },
         { label: "Features", sectionId: "features", to: "/" },
         { label: "FAQ", sectionId: "faq", to: "/" },
     ];
@@ -99,7 +99,7 @@ const Header = () => {
                                 <button
                                     key={item.sectionId}
                                     onClick={(e) => handleNavClick(item.sectionId, e)}
-                                    className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg cursor-pointer"
+                                    className="text-neutral-800 transition-colors hover:bg-neutral-100 px-3 py-1.5 transition-all duration-500 rounded-lg cursor-pointer select-none"
                                 >
                                     {item.label}
                                 </button>
