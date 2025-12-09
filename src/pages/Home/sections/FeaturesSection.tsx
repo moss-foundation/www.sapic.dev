@@ -13,7 +13,7 @@ const FeaturesSection = () => {
     return (
         <LayoutContainer className="flex flex-col gap-8 md:gap-10 w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                <FadeInElement delay={0.2}>
+                <FadeInElement delay={0.1}>
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col gap-1 p-5 md:p-6">
                             <p className="text-neutral-900 text-base md:text-lg font-medium">
@@ -23,7 +23,6 @@ const FeaturesSection = () => {
                         </div>
 
                         <div className="w-full px-5 md:px-6 pb-4 flex-1 flex items-center justify-center">
-
                             <svg width="100%" height="100%" viewBox="-5 0 160 155" fill="none" xmlns="http://www.w3.org/2000/svg" className="block mx-auto" preserveAspectRatio="xMidYMid meet">
                                 <g clip-path="url(#clip0_10572_37230)">
                                     <rect width="155" height="155" fill="white" />
@@ -314,7 +313,7 @@ const FeaturesSection = () => {
                 </FadeInElement>
 
 
-                <FadeInElement delay={0.2}>
+                <FadeInElement delay={0.3}>
                     <div className="border border-neutral-200 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col gap-1 p-5 md:pt-6 md:px-6 md:pb-2.5">
                             <p className="text-neutral-900 text-base md:text-lg font-medium">
@@ -373,11 +372,10 @@ const FeaturesSection = () => {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </FadeInElement>
 
-                <FadeInElement delay={0.2}>
+                <FadeInElement delay={0.4}>
                     <div className="border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col gap-1 p-5 md:p-6">
                             <p className="text-neutral-900 text-base md:text-lg font-medium">
@@ -411,7 +409,7 @@ const FeaturesSection = () => {
                     </div>
                 </FadeInElement>
 
-                <FadeInElement delay={0.1} className="md:col-span-2">
+                <FadeInElement delay={0.5} className="md:col-span-2">
                     <div className="flex flex-col md:flex-row border border-neutral-200 p-0.5 md:p-1 rounded-xl md:rounded-2xl h-full">
                         <div className="flex flex-col gap-1 p-4 sm:p-5 md:p-6 w-full md:w-1/2">
                             <p className="text-neutral-900 text-base md:text-lg font-medium">
