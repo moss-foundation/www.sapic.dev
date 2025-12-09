@@ -14,7 +14,7 @@ const JoinCommunitySection = () => {
             <section className="relative">
                 <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                     {/* Main content block */}
-                    <div className="w-full lg:w-1/2 flex flex-col gap-6">
+                    <div className="w-full lg:w-1/2 flex flex-col gap-6 order-2 lg:order-1">
                         <FadeInElement>
                             <div className="flex flex-col items-start gap-y-1.5">
                                 <h2 className="max-w-full lg:max-w-xl text-3xl md:text-4xl lg:text-5xl font-semibold font-serif !leading-[1.2] tracking-tight text-neutral-900"> Join our <span className="text-blue-4">open-source</span> community</h2>
@@ -79,7 +79,7 @@ const JoinCommunitySection = () => {
                     </div>
 
                     {/* SVG image block */}
-                    <div className="w-full lg:w-1/2 flex items-center justify-end">
+                    <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end order-1 lg:order-2">
                         <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_10608_35608)">
                                 <rect width="280" height="280" fill="white" />
