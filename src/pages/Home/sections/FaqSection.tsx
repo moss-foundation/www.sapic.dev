@@ -4,68 +4,43 @@ import FadeInElement from "@/components/FadeInElement";
 const FaqSection = () => {
     const faqs = [
         {
-            question: "What is Sapic and how is it different from a classical API client (Postman/cURL)?",
-            answer: "Sapic is a one-console platform for modern backends, not just a request runner. Beyond issuing HTTP calls it understands resources (APIs, queues, storage), contracts, and environment wiring. Sapic gives contract-synced mock servers, end-to-end integration tests, policy guardrails, observable traces in contract context, and Git-native versioning — all aimed at preventing drift and catching failures earlier.",
-            defaultOpen: true,
-        },
-        {
-            question: "Which cloud resources and protocols does Sapic support?",
-            answer: "Sapic is built to work with cloud-native backends (REST APIs, event/queue systems, databases, object stores). v0 focuses on AWS + REST (examples: Lambda, SQS, S3, DynamoDB, SNS) and standard API specs — with plans to expand cloud and protocol coverage.",
+            question: "Is Sapic open-source?",
+            answer: "We plan to open-source the project and fully release the source code of the desktop app and the core after the first version is released.",
             defaultOpen: false,
         },
         {
-            question: "What are contract-synced mocks?",
-            answer: "Mocks generated from your API/event contracts that stay in sync as the spec evolves. Toggle mock ↔ real, seed scenarios, and reproduce edge cases without brittle manual stubs.",
+            question: "Is the collaboration feature free?",
+            answer: "Yes, using the collaboration feature is completely free. You can freely work together via Git or, if needed, connect your own backend for cloud-based workspace state storage to enable real-time collaboration.",
+            defaultOpen: false,
+        },
+        {
+            question: "Can the app work offline if needed?",
+            answer: "Absolutely! Unlike other apps, we don't place any restrictions on your work or force you to use the cloud. You can work offline and sync your changes when you're back online.",
+            defaultOpen: false,
+        },
+        {
+            question: "What do the planning and validation stages mean when working with contract changes?",
+            answer: "The planning and validation stages are a mechanism similar to the plan/validate process in Terraform. Before changes to contracts are applied and pushed to Git, users with the appropriate permissions can review the proposed edits, verify their correctness, and ensure the final system state looks as expected. After successful validation, these changes can be finalized and committed to the repository.",
+            defaultOpen: false,
+        },
+        {
+            question: "What is a backend in Sapic?",
+            answer: "In Sapic, a backend is a workspace data-storage mechanism that supports safe, consistent collaboration between multiple users. The idea is similar to Terraform’s backend model but covers a broader set of responsibilities. Initially, the main backends include those used for storing workspace state (Local, S3, R2), for managing secrets (Local, AWS Secrets Manager), and for keeping contract data in VCS systems such as GitHub and GitLab.",
+            defaultOpen: false,
+        },
+        {
+            question: "What is Sapic and how is it different from a classical API client (Postman/cURL)?",
+            answer: "Sapic is a unified console for modern backend ecosystems rather than a simple request execution tool. It goes beyond sending HTTP calls by understanding backend resources such as APIs, queues, and storage, and by managing contracts that are tightly connected to environments. Sapic provides contract-synced mock servers, end-to-end integration tests, policy guardrails, and observable traces within the context of each contract. All of this is tied to Git-native versioning, making the platform fundamentally more powerful and collaborative than classical API clients like Postman or cURL.",
+            defaultOpen: false,
+        },
+        {
+            question: "Which cloud resources and protocols does Sapic support?",
+            answer: "Sapic is designed to interact with cloud-native components such as REST APIs, event and queue systems, databases, and other cloud services. In its initial v0 release, the focus is on AWS and REST, covering services like Lambda, SQS, S3, DynamoDB, and SNS, along with standard API specifications. Future versions are planned to extend support to additional clouds and communication protocols.",
             defaultOpen: false,
         },
         {
             question: "Can Sapic run integration tests in CI?",
-            answer: "Yes. Sapic can author or auto-generate contract-aware tests that run locally or in CI. Tests assert behaviors across services, events, and state, reducing flaky false positives caused by contract drift.",
-            defaultOpen: false,
-        },
-        {
-            question: "How does Sapic help prevent contract drift?",
-            answer: "Contracts are first-class, versioned artifacts in Git. Sapic ties tests, mocks, monitors, and policies to those contracts so any mismatch surfaces as deterministic failures (pre-merge or pre-deploy), not surprises in prod.",
-            defaultOpen: false,
-        },
-        {
-            question: "What is the policy engine / guardrails story?",
-            answer: "Define access, data, and change policies as code. Sapic enforces those checks in the workflow (pre-merge, pre-deploy) and explains violations so engineers can fix issues before shipping.",
-            defaultOpen: false,
-        },
-        {
-            question: "How does Sapic integrate with our existing Git and CI workflows?",
-            answer: "Sapic is Git-native: specs, tests, and environment definitions live in your repo. It emits CI-friendly results and can be hooked into PR checks or run as a CI step to provide blocking validation and clear failure output.",
-            defaultOpen: false,
-        },
-        {
-            question: "Is Sapic safe to use with production data?",
-            answer: "Sapic supports isolated, reproducible workspaces with separate credentials and datasets so teams can test without touching production secrets. Policies and role-based guardrails further limit risky actions. (You control credential access and workspace scope.)",
-            defaultOpen: false,
-        },
-        {
-            question: "What observability does Sapic provide?",
-            answer: "Sapic surfaces logs, traces, and metrics in the contract context so you can see which contract, test, or policy a given event relates to — making root cause faster and more precise.",
-            defaultOpen: false,
-        },
-        {
-            question: "How is AI used inside Sapic?",
-            answer: "AI assists (not replaces) engineers: generate tests, propose contracts, detect duplicate or flaky tests, and summarize telemetry anomalies. The goal is to speed routine tasks while keeping decisions deterministic and reviewable.",
-            defaultOpen: false,
-        },
-        {
-            question: "Is Sapic open source? How can I contribute?",
-            answer: "Yes — Sapic is developed in public. Contributors can file issues, submit PRs (bugs, features, integrations), write docs/examples, and join SIGs. Contributors get early access to features and roadmap influence.",
-            defaultOpen: false,
-        },
-        {
-            question: "What about pricing and OSS usage limits?",
-            answer: "The desktop app and core repo are open source. Commercial features (multi-team hosting, advanced drift monitors, enterprise policy connectors) will be offered under a licensing/hosting plan. Exact packaging will be published on the roadmap and repo.",
-            defaultOpen: false,
-        },
-        {
-            question: "How do I get started / try Sapic?",
-            answer: "Sign up for the waitlist to get early releases and contributor invites. Once you have the app, connect a repo or import your API spec to instantly generate mocks, run integration tests, and spin up a reproducible workspace.",
+            answer: "Yes. Sapic can author or automatically generate contract-aware integration tests that run both locally and in CI pipelines. These tests validate behaviors across services, events, and state boundaries, helping prevent flaky failures that often arise from contract drift.",
             defaultOpen: false,
         },
     ];
