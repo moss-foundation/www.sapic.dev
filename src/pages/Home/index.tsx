@@ -1,7 +1,6 @@
 import HeroSection from "./sections/HeroSection";
 import FeaturesSection from "./sections/FeaturesSection";
-
-import UseCasesSection from "./sections/UseCasesSection";
+import DemoScreensSection from "./sections/DemoScreensSection";
 import ForDevelopersSection from "./sections/ForDevelopersSection";
 import FaqSection from "./sections/FaqSection";
 import Line from "@/components/decorations/Line";
@@ -10,6 +9,7 @@ import CallToActionSection from "./sections/CallToAction";
 import HowItWorksSection from "./sections/HowItWorksSection";
 import { useEffect } from "react";
 import { handleHashNavigation } from "@/lib/scrollToSection";
+import ChatWithResources from "./sections/ChatWithResources";
 
 const HomePage = () => {
     useEffect(() => {
@@ -28,17 +28,27 @@ const HomePage = () => {
             <section id="home" className="scroll-mt-20">
                 <HeroSection />
             </section>
-            <Line />
-            <section id="how-it-works" className="scroll-mt-20">
-                <HowItWorksSection />
+
+            <section id="demo" className="scroll-mt-20">
+                <DemoScreensSection />
             </section>
+
             <Line />
+
+            <section id="chat-with-resources" className="scroll-mt-20">
+                <ChatWithResources />
+            </section>
+
+            <Line />
+
             <section id="features" className="scroll-mt-20">
                 <FeaturesSection />
             </section>
+
             <Line />
-            <section id="use-cases" className="scroll-mt-20">
-                <UseCasesSection />
+
+            <section id="how-it-works" className="scroll-mt-20">
+                <HowItWorksSection />
             </section>
             <Line />
             <section id="community" className="scroll-mt-20">

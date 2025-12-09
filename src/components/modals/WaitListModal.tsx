@@ -3,8 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import { useReward } from "react-rewards";
 import { useFingerprint } from "@/hooks/useFingerprint";
 import Button from "../ui/Button";
-import logoBlue from "@assets/images/logo_blue.svg";
 import { DISCORD_INVITE_URL, TURNSTILE_SITE_KEY, WAITLIST_ENDPOINT } from "@/lib/constants";
+import logo from "@/assets/images/sapic_icon_dev.svg";
+
 
 declare global {
     interface Window {
@@ -340,8 +341,8 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                             </button>
 
                             {/* Logo */}
-                            <div className="mb-6 flex justify-center">
-                                <img src={logoBlue} alt="Sapic" className="size-14" />
+                            <div className="mb-6.5 flex justify-center">
+                                <img src={logo} alt="Sapic" className="h-16" />
                             </div>
 
                             {/* Content */}

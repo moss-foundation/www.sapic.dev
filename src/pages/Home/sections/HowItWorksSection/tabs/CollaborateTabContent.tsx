@@ -10,13 +10,14 @@ const CollaborateTabContent = () => {
     const [teammatePos, setTeammatePos] = useState({ x: 0, y: 0 });
     const [initialPositionsSet, setInitialPositionsSet] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
+    const [isInViewport, setIsInViewport] = useState(true);
 
     const leftBlockRef = useRef<HTMLDivElement>(null);
     const rightBlockRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!isVisible || !leftBlockRef.current || !rightBlockRef.current) return;
+        if (!isVisible || !isInViewport || !leftBlockRef.current || !rightBlockRef.current) return;
 
         const updatePositions = () => {
             if (!leftBlockRef.current || !rightBlockRef.current) return;
@@ -41,7 +42,7 @@ const CollaborateTabContent = () => {
 
         const timer = setTimeout(updatePositions, 100);
         return () => clearTimeout(timer);
-    }, [isVisible, initialPositionsSet]);
+    }, [isVisible, isInViewport, initialPositionsSet]);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -67,6 +68,28 @@ const CollaborateTabContent = () => {
         setTimeout(checkVisibility, 100);
 
         return () => clearInterval(interval);
+    }, []);
+
+    // Intersection Observer to track viewport visibility
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInViewport(entry.isIntersecting);
+            },
+            {
+                threshold: 0.1, // Trigger when at least 10% is visible
+                rootMargin: '0px'
+            }
+        );
+
+        observer.observe(container);
+
+        return () => {
+            observer.disconnect();
+        };
     }, []);
 
     const handleLeftMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -155,14 +178,14 @@ const CollaborateTabContent = () => {
                         y={myCursorPos.y}
                         name="You"
                         color="#3574F0"
-                        isVisible={initialPositionsSet && isVisible && window.innerWidth >= 1024}
+                        isVisible={initialPositionsSet && isVisible && isInViewport && window.innerWidth >= 1024}
                     />
                     <CollaborativeCursor
                         x={teammatePos.x}
                         y={teammatePos.y}
                         name="Alex"
                         color="#fe9a00"
-                        isVisible={initialPositionsSet && isVisible && window.innerWidth >= 1024}
+                        isVisible={initialPositionsSet && isVisible && isInViewport && window.innerWidth >= 1024}
                     />
                 </>,
                 document.body

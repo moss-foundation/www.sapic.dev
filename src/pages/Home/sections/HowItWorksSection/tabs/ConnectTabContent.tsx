@@ -3,6 +3,7 @@ import Tag from "@/components/ui/Tag";
 import GitHubIcon from "@/icons/GitHub";
 import GitLabIcon from "@/icons/GitLab";
 import { useNavigate } from "react-router-dom";
+import { Underlined } from "@/components";
 
 const ConnectTabContent = () => {
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ const ConnectTabContent = () => {
     return (
         <div className="flex flex-col gap-y-6 lg:gap-y-8">
             <p className="text-pretty text-sm md:text-base leading-relaxed text-balance text-neutral-900 lg:pr-10">
-                Connect your <span className="underline decoration-blue-500 decoration-2 underline-offset-5">backends</span> where you store contracts, project stack state, secrets, and more.
+                Connect your <Underlined text="backends" color="blue" style="solid" tooltip="Backends are the services where you store contracts, project stack state, secrets, and more." /> where you store contracts, project stack state, secrets, and more.
                 You can start fully locally today and later link a Git repository, remote state storage, and secret storage.
                 Everything is set up in just a couple of clicks.
             </p>

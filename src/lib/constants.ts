@@ -1,4 +1,4 @@
-export const DISCORD_INVITE_URL = "https://discord.gg/JCa8tsDq";
+export const DISCORD_INVITE_URL = "https://discord.gg/9xVY59xr";
 export const TWITTER_URL = "https://twitter.com/sapicdev"; // Update with actual Twitter/X URL
 export const REDDIT_URL = "https://reddit.com/r/sapic"; // Update with actual Reddit URL
 export const GITHUB_ROADMAP_URL = "https://github.com/sapic-dev/sapic"; // Update with actual roadmap URL
