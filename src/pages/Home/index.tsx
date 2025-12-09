@@ -9,6 +9,7 @@ import CallToActionSection from "./sections/CallToAction";
 import HowItWorksSection from "./sections/HowItWorksSection";
 import { useEffect } from "react";
 import { handleHashNavigation } from "@/lib/scrollToSection";
+import ChatWithResources from "./sections/ChatWithResources";
 
 const HomePage = () => {
     useEffect(() => {
@@ -30,6 +31,12 @@ const HomePage = () => {
 
             <section id="demo" className="scroll-mt-20">
                 <DemoScreensSection />
+            </section>
+
+            <Line />
+
+            <section id="chat-with-resources" className="scroll-mt-20">
+                <ChatWithResources />
             </section>
 
             <Line />

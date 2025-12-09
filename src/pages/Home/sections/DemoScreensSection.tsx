@@ -324,12 +324,36 @@ const DemoScreensSection = () => {
                         <StackCard key={screen.id} style={style} screenId={screen.id} />
                     ))}
 
-                    {/* Active screen on top */}
-                    <ActiveScreen
-                        screen={activeScreen}
-                        screenIndex={activeScreenIndex}
-                        onClick={handleScreenClick}
-                    />
+                    {/* Active screen on top with animated border */}
+                    <div className="relative">
+                        <ActiveScreen
+                            screen={activeScreen}
+                            screenIndex={activeScreenIndex}
+                            onClick={handleScreenClick}
+                        />
+
+                        {/* Animated gradient border */}
+                        <motion.div
+                            className="absolute inset-0 rounded-lg md:rounded-xl pointer-events-none"
+                            style={{
+                                background: 'linear-gradient(90deg, #f5f8fe 0%, #3574f0 50%, #f5f8fe 100%)',
+                                backgroundSize: '200% 100%',
+                                padding: '1px',
+                                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                                WebkitMaskComposite: 'xor',
+                                maskComposite: 'exclude',
+                                zIndex: 40,
+                            }}
+                            animate={{
+                                backgroundPosition: ['0% 0%', '200% 0%'],
+                            }}
+                            transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: 'linear',
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
 
