@@ -5,3 +5,4 @@ export const GITHUB_ROADMAP_URL = "https://github.com/sapic-dev/sapic"; // Updat
 
 export const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
 export const WAITLIST_ENDPOINT = import.meta.env.VITE_WAITLIST_ENDPOINT;
+export const DECK_LINK = import.meta.env.VITE_DECK_LINK;

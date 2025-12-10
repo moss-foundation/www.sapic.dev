@@ -4,6 +4,7 @@ import { UseCasesPage } from "@/pages/UseCases/UseCasesPage";
 import { TermsOfUsePage } from "@/pages/TermsOfUse/TermsOfUsePage";
 import { PrivacyPolicyPage } from "@/pages/PrivacyPolicy/PrivacyPolicyPage";
 import { RoadmapPage } from "@/pages/Roadmap/RoadmapPage";
+import { DeckPage } from "@/pages/Deck/DeckPage";
 import Footer from "@/parts/Footer";
 import HomePage from "@pages/Home";
 import Header from "@parts/Header";
@@ -22,6 +23,7 @@ const AppLayout = () => {
                     <Route path="/terms-of-use" element={<TermsOfUsePage />} />
                     <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                     <Route path="/roadmap" element={<RoadmapPage />} />
+                    <Route path="/deck" element={<DeckPage />} />
                 </Routes>
             </div>
             <Footer />
