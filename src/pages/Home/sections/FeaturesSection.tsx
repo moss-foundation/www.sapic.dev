@@ -422,7 +422,7 @@ const FeaturesSection = () => {
                                     variant="primary"
                                     size="small"
                                     className="w-full sm:w-auto"
-                                    onClick={openWaitList}
+                                    onClick={() => openWaitList('features_section')}
                                 >
                                     Sign up to Waitlist
                                 </Button>

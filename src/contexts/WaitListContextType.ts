@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 export interface WaitListContextType {
     isOpen: boolean;
-    openWaitList: () => void;
+    openWaitList: (source: string) => void;
     closeWaitList: () => void;
 }
 

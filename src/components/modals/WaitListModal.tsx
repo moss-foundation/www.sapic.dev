@@ -3,7 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import { useReward } from "react-rewards";
 import { useFingerprint } from "@/hooks/useFingerprint";
 import Button from "../ui/Button";
-import { DISCORD_INVITE_URL, TURNSTILE_SITE_KEY, WAITLIST_ENDPOINT } from "@/lib/constants";
+import { TURNSTILE_SITE_KEY, WAITLIST_ENDPOINT } from "@/lib/constants";
+import { handleDiscordClick, getCommonEventProperties } from "@/lib/analytics";
+import { posthog } from "@/lib/posthog";
 import logo from "@/assets/images/sapic_icon_dev.svg";
 
 
@@ -244,6 +246,14 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
             return;
         }
 
+        if (posthog?.capture) {
+            posthog.capture("waitlist_submitted", {
+                // We are not interested in the email address, we only want to know the domain
+                email_domain: email.split("@")[1] || "unknown",
+                ...getCommonEventProperties(),
+            });
+        }
+
         // Generate random confetti positions
         const positions = generateConfettiPositions();
         setConfettiPositions(positions);
@@ -421,7 +431,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
                                 variant="default"
                                 size="large"
                                 className="flex flex-row items-center gap-2 w-full justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
-                                onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}
+                                onClick={() => handleDiscordClick('waitlist_modal')}
                                 disabled={isSubmitting}
                             >
                                 <svg

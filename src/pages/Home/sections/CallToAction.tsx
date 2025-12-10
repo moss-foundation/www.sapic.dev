@@ -42,7 +42,7 @@ const CallToActionSection = () => {
                                 variant="primary"
                                 size="medium"
                                 className="w-full sm:w-auto"
-                                onClick={openWaitlist}
+                                onClick={() => openWaitlist('cta_section')}
                             >
                                 Sign up to Waitlist
                             </Button>
