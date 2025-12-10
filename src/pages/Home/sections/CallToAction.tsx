@@ -3,6 +3,7 @@ import Button from "@/components/ui/Button";
 import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
 import { useNavigate } from "react-router-dom";
+import { handleDiscordClick } from "@/lib/analytics";
 
 import sapicIconDev from "@assets/images/sapic_icon_dev.svg";
 
@@ -47,7 +48,15 @@ const CallToActionSection = () => {
                                 Sign up to Waitlist
                             </Button>
                             <Button
-                                variant="ghost"
+                                variant="default"
+                                size="medium"
+                                className="w-full sm:w-auto"
+                                onClick={() => handleDiscordClick('cta_section')}
+                            >
+                                Join our Discord
+                            </Button>
+                            <Button
+                                variant="default"
                                 size="medium"
                                 onClick={() => navigate("/roadmap")}
                             >
