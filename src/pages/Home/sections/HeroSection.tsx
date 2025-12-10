@@ -236,7 +236,7 @@ const HeroSection = () => {
                                 variant="primary"
                                 size="large"
                                 className="self-center w-full sm:w-auto mt-4"
-                                onClick={openWaitList}
+                                onClick={() => openWaitList('hero_section')}
                             >
                                 Sign up for Sapic Beta
                             </Button>

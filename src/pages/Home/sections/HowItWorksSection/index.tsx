@@ -145,8 +145,7 @@ const HowItWorksSection = () => {
                                             <motion.rect
                                                 x="0.5"
                                                 y="0.5"
-                                                width="calc(100% - 1px)"
-                                                height="calc(100% - 1px)"
+                                                style={{ width: 'calc(100% - 1px)', height: 'calc(100% - 1px)' }}
                                                 rx="8"
                                                 fill="none"
                                                 stroke={`url(#howItWorksBorderGradient-${index})`}

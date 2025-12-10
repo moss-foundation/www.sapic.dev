@@ -2,8 +2,8 @@ import LayoutContainer from "@/components/containers/LayoutContainer";
 import Button from "@/components/ui/Button";
 import FadeInElement from "@/components/FadeInElement";
 import { useWaitList } from "@/hooks/useWaitList";
-import { DISCORD_INVITE_URL } from "@/lib/constants";
 import { useNavigate } from "react-router-dom";
+import { handleDiscordClick } from "@/lib/analytics";
 
 const JoinCommunitySection = () => {
     const { openWaitList: openWaitList } = useWaitList();
@@ -37,7 +37,7 @@ const JoinCommunitySection = () => {
                                     variant="primary"
                                     size="medium"
                                     className="self-start w-full sm:w-auto"
-                                    onClick={() => window.open(DISCORD_INVITE_URL, "_blank")}
+                                    onClick={() => handleDiscordClick('join_community_section')}
                                 >
                                     Join our Discord
                                 </Button>
@@ -45,7 +45,7 @@ const JoinCommunitySection = () => {
                                     variant="default"
                                     size="medium"
                                     className="self-start w-full sm:w-auto"
-                                    onClick={openWaitList}
+                                    onClick={() => openWaitList('join_community_section')}
                                 >
                                     Sign up to Waitlist
                                 </Button>

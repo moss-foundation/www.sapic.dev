@@ -54,7 +54,7 @@ const ChatWithResources = () => {
 
     const handleTryItOut = () => {
         if (inputText.trim()) {
-            openWaitList();
+            openWaitList('chat_try_button');
         }
     };
 
@@ -62,7 +62,7 @@ const ChatWithResources = () => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             if (inputText.trim()) {
-                openWaitList();
+                openWaitList('chat_enter_key');
             }
         }
     };
