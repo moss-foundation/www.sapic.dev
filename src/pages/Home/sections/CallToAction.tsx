@@ -58,14 +58,11 @@ const CallToActionSection = () => {
                             <Button
                                 variant="default"
                                 size="medium"
+                                className="w-full sm:w-auto"
                                 onClick={() => navigate("/roadmap")}
                             >
-                                <span className="hidden lg:inline">
-                                    Explore our roadmap
-                                </span>
-                                <span className="inline lg:hidden">
-                                    Our Roadmap
-                                </span>
+                                Explore our roadmap
+
                             </Button>
                         </div>
                     </div>

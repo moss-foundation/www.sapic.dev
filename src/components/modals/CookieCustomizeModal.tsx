@@ -131,21 +131,23 @@ const CookieCustomizeModal = ({ isOpen, onClose }: CookieCustomizeModalProps) =>
                             </div>
 
                             {/* Action Buttons */}
-                            <div className="flex flex-row gap-2">
+                            <div className="flex flex-col md:flex-row gap-2">
                                 <div className="w-full">
                                     <Button
                                         variant="default"
                                         size="large"
                                         onClick={handleRejectAll}
+                                        className="w-full md:w-auto"
                                     >
                                         Reject All
                                     </Button>
                                 </div>
-                                <div className="flex gap-2 justify-end">
+                                <div className="flex flex-col md:flex-row gap-2 md:justify-end w-full md:w-auto">
                                     <Button
                                         variant="default"
                                         size="large"
                                         onClick={onClose}
+                                        className="w-full md:w-auto"
                                     >
                                         Cancel
                                     </Button>
@@ -153,6 +155,7 @@ const CookieCustomizeModal = ({ isOpen, onClose }: CookieCustomizeModalProps) =>
                                         variant="primary"
                                         size="large"
                                         onClick={handleSave}
+                                        className="w-full md:w-auto"
                                     >
                                         Save
                                     </Button>
