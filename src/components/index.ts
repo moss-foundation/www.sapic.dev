@@ -1,6 +1,5 @@
 export { Accordion } from "./Accordion";
 export { default as Button } from "./ui/Button";
-export { default as Switch } from "./ui/Switch";
 export { default as ToggleSwitch } from "./ui/ToggleSwitch";
 export { default as LayoutContainer } from "./containers/LayoutContainer";
 export { default as FadeInElement } from "./FadeInElement";
