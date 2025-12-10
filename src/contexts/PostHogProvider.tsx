@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { initPostHog, posthog } from '@/lib/posthog';
+import { initPostHog, posthog, shutdownPostHog } from '@/lib/posthog';
 import { getCommonEventProperties } from '@/lib/analytics';
+import { useConsent } from '@/hooks/useConsent';
 
 interface PostHogProviderProps {
     children: React.ReactNode;
@@ -10,13 +11,32 @@ interface PostHogProviderProps {
 export const PostHogProvider = ({ children }: PostHogProviderProps) => {
     const location = useLocation();
     const maxScrollDepthRef = useRef(0);
+    const { consentPreferences, hasAnswered } = useConsent();
 
     useEffect(() => {
-        initPostHog();
-    }, []);
+        if (!hasAnswered) {
+            // User hasn't made a choice yet, don't initialize
+            return;
+        }
+
+        if (consentPreferences.analytics) {
+            // User consented, initialize PostHog
+            initPostHog({
+                analytics: consentPreferences.analytics,
+                sessionRecording: consentPreferences.sessionRecording,
+            });
+        } else {
+            // User rejected, shutdown PostHog if it was initialized
+            shutdownPostHog();
+        }
+    }, [hasAnswered, consentPreferences]);
 
     // Control session recording only for home page
     useEffect(() => {
+        if (!hasAnswered || !consentPreferences.sessionRecording) {
+            return;
+        }
+
         const isHomePage = location.pathname === '/';
 
         if (posthog) {
@@ -26,10 +46,14 @@ export const PostHogProvider = ({ children }: PostHogProviderProps) => {
                 posthog.stopSessionRecording?.();
             }
         }
-    }, [location.pathname]);
+    }, [location.pathname, hasAnswered, consentPreferences.sessionRecording]);
 
     // Tracking pageview and time on page
     useEffect(() => {
+        if (!hasAnswered || !consentPreferences.analytics) {
+            return;
+        }
+
         const isHomePage = location.pathname === '/';
         const startTime = Date.now();
         maxScrollDepthRef.current = 0;
@@ -55,10 +79,14 @@ export const PostHogProvider = ({ children }: PostHogProviderProps) => {
                 ...getCommonEventProperties(),
             });
         };
-    }, [location.pathname]);
+    }, [location.pathname, hasAnswered, consentPreferences.analytics]);
 
     // Tracking scroll depth
     useEffect(() => {
+        if (!hasAnswered || !consentPreferences.analytics) {
+            return;
+        }
+
         const isHomePage = location.pathname === '/';
         if (!isHomePage) return;
 
@@ -79,7 +107,7 @@ export const PostHogProvider = ({ children }: PostHogProviderProps) => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [location.pathname]);
+    }, [location.pathname, hasAnswered, consentPreferences.analytics]);
 
     return <>{children}</>;
 };

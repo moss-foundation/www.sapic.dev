@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import FingerprintJS from "@fingerprintjs/fingerprintjs";
 
 type Agent = Awaited<ReturnType<typeof FingerprintJS.load>>;
@@ -15,34 +15,6 @@ export const useFingerprint = (): UseFingerprintResult => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<Error | null>(null);
     const [fpInstance, setFpInstance] = useState<Agent | null>(null);
-
-    useEffect(() => {
-        let mounted = true;
-
-        const initFingerprint = async () => {
-            try {
-                setIsLoading(true);
-                const fp = await FingerprintJS.load();
-                if (mounted) {
-                    setFpInstance(fp);
-                    setIsLoading(false);
-                }
-            } catch (err) {
-                if (mounted) {
-                    setError(
-                        err instanceof Error ? err : new Error("Failed to initialize FingerprintJS")
-                    );
-                    setIsLoading(false);
-                }
-            }
-        };
-
-        initFingerprint();
-
-        return () => {
-            mounted = false;
-        };
-    }, []);
 
     const getFingerprint = useCallback(async (): Promise<string | null> => {
         if (!fpInstance) {

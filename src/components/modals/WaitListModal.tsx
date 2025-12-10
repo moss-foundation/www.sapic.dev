@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import { useReward } from "react-rewards";
 import { useFingerprint } from "@/hooks/useFingerprint";
+import { useConsent } from "@/hooks/useConsent";
 import Button from "../ui/Button";
 import { TURNSTILE_SITE_KEY, WAITLIST_ENDPOINT } from "@/lib/constants";
 import { handleDiscordClick, getCommonEventProperties } from "@/lib/analytics";
@@ -45,6 +46,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
     const turnstileWidgetId = useRef<string | null>(null);
     const turnstileContainerRef = useRef<HTMLDivElement>(null);
     const { fingerprintId, isLoading: isFingerprintLoading, getFingerprint } = useFingerprint();
+    const { hasAnswered, consentPreferences } = useConsent();
 
     const { reward: reward0 } = useReward("confetti-0", "confetti", {
         lifetime: 250,
@@ -134,7 +136,12 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
             if (!isFormBlocked) {
                 setErrorMessage(null);
             }
-            if (!fingerprintId && !isFingerprintLoading) {
+
+            // Only load fingerprint if user has consented to analytics
+            // Fingerprint is used for fraud prevention (legitimate interest)
+            // but we respect user's privacy choice
+            const canUseFingerprint = hasAnswered && consentPreferences.analytics;
+            if (canUseFingerprint && !fingerprintId && !isFingerprintLoading) {
                 getFingerprint();
             }
             if (!isFormBlocked) {
@@ -196,7 +203,7 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         return () => {
             document.body.style.overflow = "unset";
         };
-    }, [isOpen, fingerprintId, isFingerprintLoading, getFingerprint, isFormBlocked]);
+    }, [isOpen, fingerprintId, isFingerprintLoading, getFingerprint, isFormBlocked, hasAnswered, consentPreferences.analytics]);
 
     // Cleanup Turnstile widget on unmount
     useEffect(() => {
@@ -215,9 +222,10 @@ const WaitListModal = ({ isOpen, onClose }: WaitListModalProps) => {
         setErrorMessage(null);
         setIsSubmitting(true);
 
-        // Get visitor fingerprint data if not already loaded
+        // Get visitor fingerprint data if not already loaded and user has consented
         let currentFingerprintId: string | null = fingerprintId;
-        if (!currentFingerprintId && !isFingerprintLoading) {
+        const canUseFingerprint = hasAnswered && consentPreferences.analytics;
+        if (canUseFingerprint && !currentFingerprintId && !isFingerprintLoading) {
             currentFingerprintId = await getFingerprint();
         }
 

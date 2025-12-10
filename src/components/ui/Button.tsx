@@ -20,9 +20,9 @@ const Button = ({
         "transition-all duration-500 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer select-none";
 
     const variantStyles: Record<ButtonVariant, string> = {
-        primary: "bg-blue-4 text-white hover:opacity-80 border border-blue-2",
-        default: "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 border border-neutral-200 hover:border-neutral-300",
-        ghost: "bg-transparent text-neutral-600 border border-transparent hover:border-neutral-200 hover:text-neutral-900",
+        primary: "bg-blue-4 text-white hover:opacity-80 border border-blue-1",
+        default: "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 border border-neutral-300",
+        ghost: "bg-transparent text-neutral-600 border border-transparent hover:border-neutral-300 hover:text-neutral-900",
     };
 
     const sizeStyles: Record<ButtonSize, string> = {

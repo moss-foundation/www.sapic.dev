@@ -1,7 +1,10 @@
 import { LayoutContainer } from "@/components";
 import { Link } from "react-router-dom";
+import { useConsent } from "@/hooks/useConsent";
 
 const Footer = () => {
+    const { showBanner } = useConsent();
+
     return (
         <LayoutContainer>
             <footer className="w-full py-6 md:py-8 border-t border-gray-200">
@@ -13,6 +16,12 @@ const Footer = () => {
                         <Link to="/privacy-policy" className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors select-none">
                             Privacy Policy
                         </Link>
+                        <button 
+                            onClick={showBanner}
+                            className="text-neutral-600 text-sm hover:text-neutral-700 transition-colors select-none text-left"
+                        >
+                            Cookie Settings
+                        </button>
                     </div>
 
                     <hr className="w-full border-t border-gray-200 md:hidden order-2" />
