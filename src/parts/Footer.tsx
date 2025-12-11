@@ -1,9 +1,29 @@
 import { LayoutContainer } from "@/components";
 import { Link } from "react-router-dom";
 import { useConsent } from "@/hooks/useConsent";
+import { useStatusPage } from "@/hooks/useStatusPage";
+import { STATUS_PAGE_URL } from "@/lib/constants";
 
 const Footer = () => {
     const { showBanner } = useConsent();
+    const { status } = useStatusPage();
+
+    const getStatusColor = () => {
+        switch (status.status) {
+            case 'operational':
+                return 'bg-[#208A3C]'; // Green
+            case 'degraded':
+                return 'bg-[#FFAF0F]'; // Yellow
+            case 'partial_outage':
+                return 'bg-[#E56D17]'; // Orange
+            case 'major_outage':
+                return 'bg-[#DB3B4B]'; // Red
+            case 'under_maintenance':
+                return 'bg-[#3574F0]'; // Blue
+            default:
+                return 'bg-neutral-400'; // Gray
+        }
+    };
 
     return (
         <LayoutContainer>
@@ -20,7 +40,7 @@ const Footer = () => {
                             onClick={showBanner}
                             className="text-neutral-600 text-sm hover:text-neutral-900 transition-colors select-none text-left cursor-pointer select-none flex items-center gap-1.5"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 30 14" version="1.1" viewBox="0 0 30 14" className="w-6 h-3" style={{ fillRule: 'evenodd', clipRule: 'evenodd' }}>
+                            <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 30 14" version="1.1" viewBox="0 0 30 14" className="w-7 h-4" style={{ fillRule: 'evenodd', clipRule: 'evenodd' }}>
                                 <path fill="#FFFFFF" d="m7.4 12.8h6.8l3.1-11.6h-9.9c-3.2 0-5.8 2.6-5.8 5.8s2.6 5.8 5.8 5.8z" />
                                 <path fill="#0066FF" d="m22.6 0h-15.2c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6h-6.8c-3.2 0-5.8-2.6-5.8-5.8z" />
                                 <path fill="#FFFFFF" d="m24.6 4c0.2 0.2 0.2 0.6 0 0.8l-2.1 2.2 2.2 2.2c0.2 0.2 0.2 0.6 0 0.8s-0.6 0.2-0.8 0l-2.2-2.2-2.2 2.2c-0.2 0.2-0.6 0.2-0.8 0s-0.2-0.6 0-0.8l2.1-2.2-2.2-2.2c-0.2-0.2-0.2-0.6 0-0.8s0.6-0.2 0.8 0l2.2 2.2 2.2-2.2c0.2-0.2 0.6-0.2 0.8 0z" />
@@ -32,9 +52,26 @@ const Footer = () => {
 
                     <hr className="w-full border-t border-gray-200 md:hidden order-2" />
 
-                    <p className="text-neutral-600 text-xs md:text-sm order-3 md:order-1 pt-4 md:pt-0">
-                        © {new Date().getFullYear()} Sapic AS. All rights reserved.
-                    </p>
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-2 order-3 md:order-1 pt-4 md:pt-0">
+                        <p className="text-neutral-600 text-xs md:text-sm">
+                            © {new Date().getFullYear()} Sapic AS. All rights reserved.
+                        </p>
+
+                        <a
+                            href={STATUS_PAGE_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-600 text-xs bg-neutral-100 px-2 py-0.5 rounded-full border border-neutral-200 hover:bg-neutral-200 hover:border-neutral-300 transition-colors cursor-pointer select-none flex items-center"
+                        >
+                            <span className="relative inline-flex items-center justify-center mr-1.5">
+                                <span className={`absolute inline-flex h-full w-full animate-ping rounded-full ${getStatusColor()} opacity-75`}></span>
+                                <span className={`relative inline-flex size-2 rounded-full ${getStatusColor()}`}></span>
+                            </span>
+
+                            {status.message}
+                        </a>
+                    </div>
+
                 </div>
 
             </footer>
