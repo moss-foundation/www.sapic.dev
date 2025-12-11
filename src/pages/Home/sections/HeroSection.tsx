@@ -272,7 +272,7 @@ const HeroSection = () => {
                                             <img
                                                 src={resource.imgSrc}
                                                 alt={`${resource.brand} ${resource.product}`}
-                                                className="size-8 md:size-10 object-contain grayscale transition-all duration-700 group-hover:grayscale-0"
+                                                className="size-8 md:size-10 object-contain md:grayscale transition-all duration-700 md:group-hover:grayscale-0"
                                             />
                                             <div className="flex flex-col items-start">
                                                 <span className="text-xs text-neutral-500 whitespace-nowrap">
