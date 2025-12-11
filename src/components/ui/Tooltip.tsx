@@ -16,10 +16,10 @@ const Tooltip = ({ content, isVisible, position = "top" }: TooltipProps) => {
         <span
             className={`
                 absolute z-50 
-                px-2.5 py-1.5 text-xs text-white bg-gray-800 rounded-md shadow-lg 
+                px-2.5 py-1.5 text-xs text-white bg-neutral-800 rounded-md shadow-lg 
                 pointer-events-none transition-opacity duration-300 ease-in-out 
-                max-w-[85vw] md:max-w-sm
-                whitespace-normal md:whitespace-nowrap
+                md:max-w-none md:w-max
+                whitespace-normal md:whitespace-nowrap break-words
                 text-left md:text-center
                 ${positionStyles[position]}
                 ${isVisible ? "opacity-100" : "opacity-0"}
