@@ -350,8 +350,8 @@ const FeaturesSection = () => {
                                     </p>
                                     <div className="flex flex-row flex-wrap gap-1.5">
                                         <Tag label="Local" />
-                                        <Tag label="AWS Secret Manager" variant="pending" />
-                                        <Tag label="Azure Key Vault" variant="pending" />
+                                        <Tag label="AWS Secret Manager" variant="pending" tooltip={{ text: "Coming soon", position: "bottom" }} />
+                                        <Tag label="Azure Key Vault" variant="pending" tooltip={{ text: "Coming soon", position: "bottom" }} />
                                         <Tag label="Other" variant="placeholder" />
                                     </div>
                                 </div>
@@ -365,9 +365,9 @@ const FeaturesSection = () => {
                                     </p>
                                     <div className="flex flex-row flex-wrap gap-1.5">
                                         <Tag label="Local" tooltip={{ text: "Default", position: "bottom" }} />
-                                        <Tag label="Cloud" />
-                                        <Tag label="AWS S3 Bucket" />
-                                        <Tag label="Cloudflare R2 Bucket" />
+                                        <Tag label="Cloud" variant="pending" tooltip={{ text: "Coming soon", position: "bottom" }} />
+                                        <Tag label="AWS S3 Bucket" variant="pending" tooltip={{ text: "Coming soon", position: "bottom" }} />
+                                        <Tag label="Cloudflare R2 Bucket" variant="pending" tooltip={{ text: "Coming soon", position: "bottom" }} />
                                     </div>
                                 </div>
                             </div>

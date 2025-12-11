@@ -18,7 +18,7 @@ const DesignCreateTabContent = () => {
                 <div className="mt-6 lg:mt-10 flex max-w-full md:max-w-2xl gap-3 md:gap-4 lg:pr-10">
                     <div className="w-1 flex-shrink-0 rounded-full bg-blue-4"></div>
                     <p className="text-pretty text-sm text-neutral-500">
-                        All resource types don't come bundled with the app — only the basic ones (
+                        Not all resource types come bundled with the app, only the basic ones (
                         <Tag label="HTTP" />,
                         <Tag label="gRPC" />,
                         <Tag label="GraphQL" />,
