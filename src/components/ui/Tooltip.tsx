@@ -14,8 +14,16 @@ const Tooltip = ({ content, isVisible, position = "top" }: TooltipProps) => {
 
     return (
         <span
-            className={`absolute z-50 whitespace-nowrap px-2.5 py-1.5 text-xs text-white bg-gray-800 rounded-md shadow-lg pointer-events-none transition-opacity duration-300 ease-in-out ${positionStyles[position]} ${isVisible ? "opacity-100" : "opacity-0"
-                }`}
+            className={`
+                absolute z-50 
+                px-2.5 py-1.5 text-xs text-white bg-gray-800 rounded-md shadow-lg 
+                pointer-events-none transition-opacity duration-300 ease-in-out 
+                max-w-[85vw] md:max-w-sm
+                whitespace-normal md:whitespace-nowrap
+                text-left md:text-center
+                ${positionStyles[position]}
+                ${isVisible ? "opacity-100" : "opacity-0"}
+            `}
         >
             {content}
         </span>
