@@ -1,0 +1,9 @@
+# robots.txt for www.sapic.dev
+
+# Allow all other crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://sapic.dev/sitemap.xml
+
